@@ -1,8 +1,4 @@
----
-layout: page
-title: Digital Visual Audible Narratives (DiViAN)
-page_link_type: profiles
----
+# Digital Visual Audible Narratives (DiViAN)
 
 **Editors:**
 
