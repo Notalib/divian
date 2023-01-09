@@ -1,0 +1,30 @@
+{
+  "narration": [
+    {
+      "narration": [
+        {
+          "audio": "03_Kolofon_og_bibliogra.mp3#t=0,3.599",
+          "text": "39619-0003-generic.xhtml#zfyx00014"
+        },
+        {
+          "audio": "03_Kolofon_og_bibliogra.mp3#t=3.599,5.799",
+          "text": "39619-0003-generic.xhtml#zfyx00015"
+        },
+        {
+          "audio": "03_Kolofon_og_bibliogra.mp3#t=5.799,7.999",
+          "text": "39619-0003-generic.xhtml#zfyx00016"
+        },
+        {
+          "audio": "03_Kolofon_og_bibliogra.mp3#t=7.999,11.399",
+          "text": "39619-0003-generic.xhtml#zfyx00017"
+        },
+        {
+          "audio": "03_Kolofon_og_bibliogra.mp3#t=11.399,16.588",
+          "text": "39619-0003-generic.xhtml#zfyx00018"
+        }
+      ],
+      "text": "39619-0003-generic.xhtml"
+    }
+  ],
+  "role": "section"
+}
