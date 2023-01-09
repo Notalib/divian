@@ -213,15 +213,15 @@ To avoid duplicating content between `readingOrder` and `narration`, Link Object
     "title": "Page 1",
     "panels": [
       {
-        "href": "#xywh=percent:0,0,100,100",
+        "fragment": "#xywh=percent:0,0,100,100",
         "title": "Full page"
       },
       {
-        "href": "#xywh=0,0,300,200",
+        "fragment": "#xywh=0,0,300,200",
         "title": "Panel 1"
       },
       {
-        "href": "#xywh=300,200,310,200",
+        "fragment": "#xywh=300,200,310,200",
         "title": "Panel 2"
       }
     ]
