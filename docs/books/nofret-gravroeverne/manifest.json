@@ -7434,11 +7434,13 @@
   ],
   "readingOrder": [
     {
-      "alternate": {
-        "duration": 5,
-        "href": "39619-0001-generic.json",
-        "type": "application/vnd.syncnarr+json"
-      },
+      "alternate": [
+        {
+          "duration": 5,
+          "href": "39619-0001-generic.json",
+          "type": "application/vnd.syncnarr+json"
+        }
+      ],
       "duration": 5,
       "href": "39619-0001-generic.xhtml",
       "properties": {
@@ -7448,11 +7450,13 @@
       "type": "text/html"
     },
     {
-      "alternate": {
-        "duration": 33,
-        "href": "39619-0002-generic.json",
-        "type": "application/vnd.syncnarr+json"
-      },
+      "alternate": [
+        {
+          "duration": 33,
+          "href": "39619-0002-generic.json",
+          "type": "application/vnd.syncnarr+json"
+        }
+      ],
       "duration": 33,
       "href": "39619-0002-generic.xhtml",
       "properties": {
@@ -7462,11 +7466,13 @@
       "type": "text/html"
     },
     {
-      "alternate": {
-        "duration": 17,
-        "href": "39619-0003-generic.json",
-        "type": "application/vnd.syncnarr+json"
-      },
+      "alternate": [
+        {
+          "duration": 17,
+          "href": "39619-0003-generic.json",
+          "type": "application/vnd.syncnarr+json"
+        }
+      ],
       "duration": 17,
       "href": "39619-0003-generic.xhtml",
       "properties": {
