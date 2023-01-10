@@ -1,12 +1,13 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import * as CopyPlugin from 'copy-webpack-plugin';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as webpack from 'webpack';
-import { ProvidePlugin } from 'webpack';
+import { ProgressPlugin, ProvidePlugin } from 'webpack';
 import { merge } from 'webpack-merge';
 import devConfig from './webpack.dev';
 import prodConfig from './webpack.prod';
-import { outputPath, resolveApp } from './webpack.tools';
+import { getEnvVariables, outputPath, resolveApp } from './webpack.tools';
 
 export default function (): webpack.Configuration {
   const isEnvProduction = process.env.NODE_ENV === 'production';
@@ -36,9 +37,14 @@ export default function (): webpack.Configuration {
       new ProvidePlugin({
         process: 'process/browser',
       }),
-      new webpack.ProgressPlugin(),
+      new ProgressPlugin(),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({ filename: '[name].css' }),
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: resolveApp('src/index.html'),
+        ...getEnvVariables()
+      }),
     ],
     module: {
       rules: [

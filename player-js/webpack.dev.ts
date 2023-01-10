@@ -1,8 +1,8 @@
 import * as CopyPlugin from 'copy-webpack-plugin';
 import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as webpack from 'webpack';
+import { ProgressPlugin } from 'webpack';
 import { getEnvVariables, outputPath, resolveApp } from './webpack.tools';
-
 
 export default <webpack.Configuration>{
   entry: {
@@ -29,6 +29,7 @@ export default <webpack.Configuration>{
         }
       ],
     }),
+    new ProgressPlugin(),
     new HtmlWebpackPlugin({
       inject: false,
       template: resolveApp('src/index.html'),

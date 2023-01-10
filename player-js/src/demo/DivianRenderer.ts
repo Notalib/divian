@@ -1,10 +1,10 @@
-import DivinaElement from 'DivinaElement';
 import { LitElement, TemplateResult, css, html, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import DivianElement from '../DivianElement';
 
-@customElement('divina-renderer')
-export default class DivinaRenderer extends LitElement {
+@customElement('divian-renderer')
+export default class DivianRenderer extends LitElement {
   @property()
   public books = ['tts'];
 
@@ -24,7 +24,7 @@ export default class DivinaRenderer extends LitElement {
   private numberOfPages = 0;
 
   @query('#divina')
-  public divinaEl: DivinaElement;
+  public divinaEl: DivianElement;
 
   private buttonControlClasses(enabled: boolean) {
     return classMap({
@@ -39,7 +39,7 @@ export default class DivinaRenderer extends LitElement {
 
     const divinaJsonUrl = `/divina/${this.selectedBook}/manifest.json`;
 
-    return html`<divina-element id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divina-element>`;
+    return html`<divian-element id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divian-element>`;
   }
 
   public positionChanged = () => {
@@ -144,7 +144,7 @@ export default class DivinaRenderer extends LitElement {
       display: flex;
     }
 
-    :host .content-viewer divina-element {
+    :host .content-viewer divian-element {
       flex-grow: 1;
     }
 

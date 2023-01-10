@@ -1,1 +1,1 @@
-export * from './DivinaRenderer';
+export * from './DivianRenderer';

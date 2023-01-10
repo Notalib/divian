@@ -2,10 +2,10 @@ import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { TaJson } from 'ta-json-x';
-import DivinaPublication from './DivinaPublication';
+import DivianPublication from './DivianPublication';
 
-@customElement('divina-element')
-export default class DivinaElement extends LitElement {
+@customElement('divian-element')
+export default class DivianElement extends LitElement {
   static override styles = css`
     :host {
       display: flex;
@@ -64,7 +64,7 @@ export default class DivinaElement extends LitElement {
   `;
 
   @property()
-  private publication?: DivinaPublication;
+  private publication?: DivianPublication;
 
   private _divinaJsonUrl?: string;
 
@@ -278,7 +278,7 @@ export default class DivinaElement extends LitElement {
 
   private async _loadComic() {
     const response = await fetch(this._divinaJsonUrl);
-    this.publication = TaJson.parse(await response.text(), DivinaPublication);
+    this.publication = TaJson.parse(await response.text(), DivianPublication);
   }
 
   override render() {
@@ -326,6 +326,6 @@ export default class DivinaElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'divina-element': DivinaElement;
+    'divian-element': DivianElement;
   }
 }

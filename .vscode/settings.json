@@ -1,11 +1,15 @@
 {
+  "eslint.workingDirectories": ["player-js"],
   "cSpell.language": "en,da",
   "cSpell.words": [
     "Bech",
     "Carlsen",
+    "Divian",
+    "divina",
     "forside",
     "Gravrøverne",
     "Gravrverne",
+    "icofont",
     "Nofret",
     "Sussi",
     "xywh"
