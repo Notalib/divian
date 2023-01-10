@@ -6,12 +6,6 @@ import DivianElement from '../DivianElement';
 @customElement('divian-renderer')
 export default class DivianRenderer extends LitElement {
   @property()
-  public books = ['tts'];
-
-  @property()
-  public selectedBook?: string = 'tts';
-
-  @property()
   private canGoBack = false;
 
   @property()
@@ -33,16 +27,15 @@ export default class DivianRenderer extends LitElement {
   }
 
   protected renderBook(): TemplateResult | typeof nothing {
-    if (!this.selectedBook) {
-      return nothing;
+    let divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
+    if (window.location.pathname === 'player') {
+      divinaJsonUrl = `../${divinaJsonUrl}`;
     }
-
-    const divinaJsonUrl = `/divina/${this.selectedBook}/manifest.json`;
 
     return html`<divian-element id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divian-element>`;
   }
 
-  public positionChanged = () => {
+  public readonly positionChanged = () => {
     this.canGoBack = this.divinaEl?.canGoBack ?? false;
     this.canGoForward = this.divinaEl?.canGoForward ?? false;
     this.currentPageNumber = this.divinaEl?.currentPageNumber ?? 0;
@@ -50,14 +43,10 @@ export default class DivianRenderer extends LitElement {
   };
 
   protected renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string): TemplateResult {
-    return html` <button @click="${click}" class="${this.buttonControlClasses(isEnabled)}" ?disabled="${!isEnabled}">${label}</button> `;
+    return html`<button @click="${click}" class="${this.buttonControlClasses(isEnabled)}" ?disabled="${!isEnabled}">${label}</button>`;
   }
 
   protected renderControls(): TemplateResult | typeof nothing {
-    if (!this.selectedBook) {
-      return nothing;
-    }
-
     return html`
       <div class="book-controls">
         ${this.renderControlButton(this.prevSegmentEvent, this.canGoBack, 'PREV')}
@@ -70,8 +59,6 @@ export default class DivianRenderer extends LitElement {
   protected render(): TemplateResult {
     return html`
       <link href="/assets/icofont/icofont.min.css" rel="stylesheet" />
-
-      <header class="book-selector">${this.books.map((book) => html`<button data-book="${book}" @click="${this.selectBookEvent}">${book}</button>`)}</header>
 
       ${this.renderControls()}
 
@@ -87,10 +74,6 @@ export default class DivianRenderer extends LitElement {
 
   private readonly nextSegmentEvent = () => {
     this.divinaEl?.GoForward();
-  };
-
-  private readonly selectBookEvent = (e: MouseEvent) => {
-    this.selectedBook = (e.target as HTMLButtonElement).dataset.book;
   };
 
   // Define scoped styles right with your component, in plain CSS

@@ -17,7 +17,7 @@
   },
   "narration": [
     {
-      "href": "forside.jpg",
+      "href": "forsiden.jpg",
       "panels": [
         {
           "audio": "04_Gravrverne.mp3#t=0,8.594",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "href": "image00001.jpg",
+      "href": "image0001.jpg",
       "panels": [
         {
           "audio": "05_Side_1.mp3#t=0,2.399",
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "href": "image00002.jpg",
+      "href": "image0002.jpg",
       "panels": [
         {
           "audio": "07_Side_3.mp3#t=0,2.198",
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "href": "image00003.jpg",
+      "href": "image0003.jpg",
       "panels": [
         {
           "audio": "07_Side_3.mp3#0,2.198",
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "href": "image00004.jpg",
+      "href": "image0004.jpg",
       "panels": [
         {
           "audio": "08_Side_4.mp3#0,1.999",
@@ -439,7 +439,7 @@
       ]
     },
     {
-      "href": "image00005.jpg",
+      "href": "image0005.jpg",
       "panels": [
         {
           "audio": "09_Side_5.mp3#0,1.399",
@@ -593,7 +593,7 @@
       ]
     },
     {
-      "href": "image00006.jpg",
+      "href": "image0006.jpg",
       "panels": [
         {
           "audio": "10_Side_6.mp3#0,2.399",
@@ -765,7 +765,7 @@
       ]
     },
     {
-      "href": "image00007.jpg",
+      "href": "image0007.jpg",
       "panels": [
         {
           "audio": "11_Side_7.mp3#0,1.999",
@@ -968,7 +968,7 @@
       ]
     },
     {
-      "href": "image00008.jpg",
+      "href": "image0008.jpg",
       "panels": [
         {
           "audio": "12_Side_8.mp3#t=0,2.799",
@@ -1123,7 +1123,7 @@
       ]
     },
     {
-      "href": "image00009.jpg",
+      "href": "image0009.jpg",
       "panels": [
         {
           "audio": "13_Side_9.mp3#0,1.999",
@@ -1310,7 +1310,7 @@
       ]
     },
     {
-      "href": "image00010.jpg",
+      "href": "image0010.jpg",
       "panels": [
         {
           "audio": "14_Side_10.mp3#0,1.799",
@@ -1484,7 +1484,7 @@
       ]
     },
     {
-      "href": "image00011.jpg",
+      "href": "image0011.jpg",
       "panels": [
         {
           "audio": "15_Side_11.mp3#0,2.999",
@@ -1611,7 +1611,7 @@
       ]
     },
     {
-      "href": "image00012.jpg",
+      "href": "image0012.jpg",
       "panels": [
         {
           "audio": "16_Side_12.mp3#0,1.999",
@@ -1783,7 +1783,7 @@
       ]
     },
     {
-      "href": "image00013.jpg",
+      "href": "image0013.jpg",
       "panels": [
         {
           "audio": "17_Side_13.mp3#0,1.999",
@@ -1980,7 +1980,7 @@
       ]
     },
     {
-      "href": "image00014.jpg",
+      "href": "image0014.jpg",
       "panels": [
         {
           "audio": "18_Side_14.mp3#t=0,1.999",
@@ -2157,7 +2157,7 @@
       ]
     },
     {
-      "href": "image00015.jpg",
+      "href": "image0015.jpg",
       "panels": [
         {
           "audio": "19_Side_15.mp3#0,2.599",
@@ -2271,7 +2271,7 @@
       ]
     },
     {
-      "href": "image00016.jpg",
+      "href": "image0016.jpg",
       "panels": [
         {
           "audio": "20_Side_16.mp3#0,2.599",
@@ -2465,7 +2465,7 @@
       ]
     },
     {
-      "href": "image00017.jpg",
+      "href": "image0017.jpg",
       "panels": [
         {
           "audio": "21_Side_17.mp3#0,1.999",
@@ -2578,7 +2578,7 @@
       ]
     },
     {
-      "href": "image00018.jpg",
+      "href": "image0018.jpg",
       "panels": [
         {
           "audio": "22_Side_18.mp3#0,1.799",
@@ -2729,7 +2729,7 @@
       ]
     },
     {
-      "href": "image00019.jpg",
+      "href": "image0019.jpg",
       "panels": [
         {
           "audio": "23_Side_19.mp3#t=0,2.399",
@@ -2891,7 +2891,7 @@
       ]
     },
     {
-      "href": "image00020.jpg",
+      "href": "image0020.jpg",
       "panels": [
         {
           "audio": "24_Side_20.mp3#0,0.999",
@@ -3020,7 +3020,7 @@
       ]
     },
     {
-      "href": "image00021.jpg",
+      "href": "image0021.jpg",
       "panels": [
         {
           "audio": "25_Side_21.mp3#0,1.999",
@@ -3175,7 +3175,7 @@
       ]
     },
     {
-      "href": "image00022.jpg",
+      "href": "image0022.jpg",
       "panels": [
         {
           "audio": "26_Side_22.mp3#0,2.199",
@@ -3342,7 +3342,7 @@
       ]
     },
     {
-      "href": "image00023.jpg",
+      "href": "image0023.jpg",
       "panels": [
         {
           "audio": "27_Side_23.mp3#0,2.399",
@@ -3519,7 +3519,7 @@
       ]
     },
     {
-      "href": "image00024.jpg",
+      "href": "image0024.jpg",
       "panels": [
         {
           "audio": "28_Side_24.mp3#0,2.199",
@@ -3671,7 +3671,7 @@
       ]
     },
     {
-      "href": "image00025.jpg",
+      "href": "image0025.jpg",
       "panels": [
         {
           "audio": "29_Side_25.mp3#0,2.199",
@@ -3815,7 +3815,7 @@
       ]
     },
     {
-      "href": "image00026.jpg",
+      "href": "image0026.jpg",
       "panels": [
         {
           "audio": "30_Side_26.mp3#0,2.199",
@@ -4024,7 +4024,7 @@
       ]
     },
     {
-      "href": "image00027.jpg",
+      "href": "image0027.jpg",
       "panels": [
         {
           "audio": "31_Side_27.mp3#0,1.999",
@@ -4188,7 +4188,7 @@
       ]
     },
     {
-      "href": "image00028.jpg",
+      "href": "image0028.jpg",
       "panels": [
         {
           "audio": "32_Side_28.mp3#t=0,1.999",
@@ -4380,7 +4380,7 @@
       ]
     },
     {
-      "href": "image00029.jpg",
+      "href": "image0029.jpg",
       "panels": [
         {
           "audio": "33_Side_29.mp3#0,1.799",
@@ -4570,7 +4570,7 @@
       ]
     },
     {
-      "href": "image00030.jpg",
+      "href": "image0030.jpg",
       "panels": [
         {
           "audio": "34_Side_30.mp3#0,1.799",
@@ -4749,7 +4749,7 @@
       ]
     },
     {
-      "href": "image00031.jpg",
+      "href": "image0031.jpg",
       "panels": [
         {
           "audio": "35_Side_31.mp3#0,2.799",
@@ -4889,7 +4889,7 @@
       ]
     },
     {
-      "href": "image00032.jpg",
+      "href": "image0032.jpg",
       "panels": [
         {
           "audio": "36_Side_32.mp3#t=0,2.599",
@@ -4982,7 +4982,7 @@
       ]
     },
     {
-      "href": "image00033.jpg",
+      "href": "image0033.jpg",
       "panels": [
         {
           "audio": "37_Side_33.mp3#0,1.999",
@@ -5140,7 +5140,7 @@
       ]
     },
     {
-      "href": "image00034.jpg",
+      "href": "image0034.jpg",
       "panels": [
         {
           "audio": "38_Side_34.mp3#t=0,1.799",
@@ -5316,7 +5316,7 @@
       ]
     },
     {
-      "href": "image00035.jpg",
+      "href": "image0035.jpg",
       "panels": [
         {
           "audio": "39_Side_35.mp3#0,1.999",
@@ -5393,7 +5393,7 @@
       ]
     },
     {
-      "href": "image00036.jpg",
+      "href": "image0036.jpg",
       "panels": [
         {
           "audio": "40_Side_36.mp3#0,1.999",
@@ -5473,7 +5473,7 @@
       ]
     },
     {
-      "href": "image00037.jpg",
+      "href": "image0037.jpg",
       "panels": [
         {
           "audio": "41_Side_37.mp3#0,1.399",
@@ -5557,7 +5557,7 @@
       ]
     },
     {
-      "href": "image00038.jpg",
+      "href": "image0038.jpg",
       "panels": [
         {
           "audio": "42_Side_38.mp3#0,1.799",
@@ -5681,7 +5681,7 @@
       ]
     },
     {
-      "href": "image00039.jpg",
+      "href": "image0039.jpg",
       "panels": [
         {
           "audio": "43_Side_39.mp3#t=0.599,1.799",
@@ -5852,7 +5852,7 @@
       ]
     },
     {
-      "href": "image00040.jpg",
+      "href": "image0040.jpg",
       "panels": [
         {
           "audio": "44_Side_40.mp3#0,2.799",
@@ -5998,7 +5998,7 @@
       ]
     },
     {
-      "href": "image00041.jpg",
+      "href": "image0041.jpg",
       "panels": [
         {
           "audio": "45_Side_41.mp3#0,1.799",
@@ -6233,7 +6233,7 @@
       ]
     },
     {
-      "href": "image00042.jpg",
+      "href": "image0042.jpg",
       "panels": [
         {
           "audio": "46_Side_42.mp3#0,1.399",
@@ -6417,7 +6417,7 @@
       ]
     },
     {
-      "href": "image00043.jpg",
+      "href": "image0043.jpg",
       "panels": [
         {
           "audio": "47_Side_43.mp3#t=0,1.599",
@@ -6662,7 +6662,7 @@
       ]
     },
     {
-      "href": "image00044.jpg",
+      "href": "image0044.jpg",
       "panels": [
         {
           "audio": "48_Side_44.mp3#t=0,1.599",
@@ -6872,7 +6872,7 @@
       ]
     },
     {
-      "href": "image00045.jpg",
+      "href": "image0045.jpg",
       "panels": [
         {
           "audio": "49_Side_45.mp3#0,2.398",
@@ -7037,7 +7037,7 @@
       ]
     },
     {
-      "href": "image00046.jpg",
+      "href": "image0046.jpg",
       "panels": [
         {
           "audio": "50_Side_46.mp3#0,2.199",
@@ -7186,7 +7186,7 @@
       ]
     },
     {
-      "href": "image00047.jpg",
+      "href": "image0047.jpg",
       "panels": [
         {
           "audio": "51_Side_47.mp3#t=0,1.799",
@@ -7382,7 +7382,7 @@
       ]
     },
     {
-      "href": "image00048.jpg",
+      "href": "image0048.jpg",
       "panels": [
         {
           "audio": "52_Side_48.mp3#t=0,1.599",
@@ -7484,7 +7484,7 @@
     {
       "duration": 9,
       "height": 3448,
-      "href": "forside.jpg",
+      "href": "forsiden.jpg",
       "title": "Forsiden",
       "type": "image/jpeg",
       "width": 2480
@@ -7492,7 +7492,7 @@
     {
       "duration": 7,
       "height": 3452,
-      "href": "image00001.jpg",
+      "href": "image0001.jpg",
       "title": "Side 1",
       "type": "image/jpeg",
       "width": 2431
@@ -7500,7 +7500,7 @@
     {
       "duration": 95,
       "height": 3452,
-      "href": "image00002.jpg",
+      "href": "image0002.jpg",
       "title": "Side 2",
       "type": "image/jpeg",
       "width": 2432
@@ -7508,7 +7508,7 @@
     {
       "duration": 43,
       "height": 3452,
-      "href": "image00003.jpg",
+      "href": "image0003.jpg",
       "title": "Side 3",
       "type": "image/jpeg",
       "width": 2439
@@ -7516,7 +7516,7 @@
     {
       "duration": 55,
       "height": 3452,
-      "href": "image00004.jpg",
+      "href": "image0004.jpg",
       "title": "Side 4",
       "type": "image/jpeg",
       "width": 2443
@@ -7524,7 +7524,7 @@
     {
       "duration": 41,
       "height": 3452,
-      "href": "image00005.jpg",
+      "href": "image0005.jpg",
       "title": "Side 5",
       "type": "image/jpeg",
       "width": 2447
@@ -7532,7 +7532,7 @@
     {
       "duration": 64,
       "height": 3452,
-      "href": "image00006.jpg",
+      "href": "image0006.jpg",
       "title": "Side 6",
       "type": "image/jpeg",
       "width": 2446
@@ -7540,7 +7540,7 @@
     {
       "duration": 69,
       "height": 3452,
-      "href": "image00007.jpg",
+      "href": "image0007.jpg",
       "title": "Side 7",
       "type": "image/jpeg",
       "width": 2443
@@ -7548,7 +7548,7 @@
     {
       "duration": 88,
       "height": 3452,
-      "href": "image00008.jpg",
+      "href": "image0008.jpg",
       "title": "Side 8",
       "type": "image/jpeg",
       "width": 2422
@@ -7556,7 +7556,7 @@
     {
       "duration": 68,
       "height": 3452,
-      "href": "image00009.jpg",
+      "href": "image0009.jpg",
       "title": "Side 9",
       "type": "image/jpeg",
       "width": 2431
@@ -7564,7 +7564,7 @@
     {
       "duration": 46,
       "height": 3452,
-      "href": "image00010.jpg",
+      "href": "image0010.jpg",
       "title": "Side 10",
       "type": "image/jpeg",
       "width": 2427
@@ -7572,7 +7572,7 @@
     {
       "duration": 47,
       "height": 3452,
-      "href": "image00011.jpg",
+      "href": "image0011.jpg",
       "title": "Side 11",
       "type": "image/jpeg",
       "width": 2437
@@ -7580,7 +7580,7 @@
     {
       "duration": 63,
       "height": 3452,
-      "href": "image00012.jpg",
+      "href": "image0012.jpg",
       "title": "Side 12",
       "type": "image/jpeg",
       "width": 2442
@@ -7588,7 +7588,7 @@
     {
       "duration": 101,
       "height": 3452,
-      "href": "image00013.jpg",
+      "href": "image0013.jpg",
       "title": "Side 13",
       "type": "image/jpeg",
       "width": 2452
@@ -7596,7 +7596,7 @@
     {
       "duration": 69,
       "height": 3452,
-      "href": "image00014.jpg",
+      "href": "image0014.jpg",
       "title": "Side 14",
       "type": "image/jpeg",
       "width": 2442
@@ -7604,7 +7604,7 @@
     {
       "duration": 42,
       "height": 3452,
-      "href": "image00015.jpg",
+      "href": "image0015.jpg",
       "title": "Side 15",
       "type": "image/jpeg",
       "width": 2445
@@ -7612,7 +7612,7 @@
     {
       "duration": 73,
       "height": 3452,
-      "href": "image00016.jpg",
+      "href": "image0016.jpg",
       "title": "Side 16",
       "type": "image/jpeg",
       "width": 2442
@@ -7620,7 +7620,7 @@
     {
       "duration": 33,
       "height": 3452,
-      "href": "image00017.jpg",
+      "href": "image0017.jpg",
       "title": "Side 17",
       "type": "image/jpeg",
       "width": 2430
@@ -7628,7 +7628,7 @@
     {
       "duration": 42,
       "height": 3452,
-      "href": "image00018.jpg",
+      "href": "image0018.jpg",
       "title": "Side 18",
       "type": "image/jpeg",
       "width": 2429
@@ -7636,7 +7636,7 @@
     {
       "duration": 49,
       "height": 3452,
-      "href": "image00019.jpg",
+      "href": "image0019.jpg",
       "title": "Side 19",
       "type": "image/jpeg",
       "width": 2441
@@ -7644,7 +7644,7 @@
     {
       "duration": 31,
       "height": 3452,
-      "href": "image00020.jpg",
+      "href": "image0020.jpg",
       "title": "Side 20",
       "type": "image/jpeg",
       "width": 2426
@@ -7652,7 +7652,7 @@
     {
       "duration": 50,
       "height": 3452,
-      "href": "image00021.jpg",
+      "href": "image0021.jpg",
       "title": "Side 21",
       "type": "image/jpeg",
       "width": 2441
@@ -7660,7 +7660,7 @@
     {
       "duration": 46,
       "height": 3452,
-      "href": "image00022.jpg",
+      "href": "image0022.jpg",
       "title": "Side 22",
       "type": "image/jpeg",
       "width": 2431
@@ -7668,7 +7668,7 @@
     {
       "duration": 52,
       "height": 3452,
-      "href": "image00023.jpg",
+      "href": "image0023.jpg",
       "title": "Side 23",
       "type": "image/jpeg",
       "width": 2435
@@ -7676,7 +7676,7 @@
     {
       "duration": 34,
       "height": 3452,
-      "href": "image00024.jpg",
+      "href": "image0024.jpg",
       "title": "Side 24",
       "type": "image/jpeg",
       "width": 2417
@@ -7684,7 +7684,7 @@
     {
       "duration": 32,
       "height": 3452,
-      "href": "image00025.jpg",
+      "href": "image0025.jpg",
       "title": "Side 25",
       "type": "image/jpeg",
       "width": 2443
@@ -7692,7 +7692,7 @@
     {
       "duration": 52,
       "height": 3452,
-      "href": "image00026.jpg",
+      "href": "image0026.jpg",
       "title": "Side 26",
       "type": "image/jpeg",
       "width": 2447
@@ -7700,7 +7700,7 @@
     {
       "duration": 54,
       "height": 3452,
-      "href": "image00027.jpg",
+      "href": "image0027.jpg",
       "title": "Side 27",
       "type": "image/jpeg",
       "width": 2444
@@ -7708,7 +7708,7 @@
     {
       "duration": 80,
       "height": 3452,
-      "href": "image00028.jpg",
+      "href": "image0028.jpg",
       "title": "Side 28",
       "type": "image/jpeg",
       "width": 2433
@@ -7716,7 +7716,7 @@
     {
       "duration": 65,
       "height": 3452,
-      "href": "image00029.jpg",
+      "href": "image0029.jpg",
       "title": "Side 29",
       "type": "image/jpeg",
       "width": 2441
@@ -7724,7 +7724,7 @@
     {
       "duration": 62,
       "height": 3452,
-      "href": "image00030.jpg",
+      "href": "image0030.jpg",
       "title": "Side 30",
       "type": "image/jpeg",
       "width": 2444
@@ -7732,7 +7732,7 @@
     {
       "duration": 36,
       "height": 3452,
-      "href": "image00031.jpg",
+      "href": "image0031.jpg",
       "title": "Side 31",
       "type": "image/jpeg",
       "width": 2456
@@ -7740,7 +7740,7 @@
     {
       "duration": 36,
       "height": 3452,
-      "href": "image00032.jpg",
+      "href": "image0032.jpg",
       "title": "Side 32",
       "type": "image/jpeg",
       "width": 2444
@@ -7748,7 +7748,7 @@
     {
       "duration": 64,
       "height": 3452,
-      "href": "image00033.jpg",
+      "href": "image0033.jpg",
       "title": "Side 33",
       "type": "image/jpeg",
       "width": 2439
@@ -7756,7 +7756,7 @@
     {
       "duration": 20,
       "height": 3452,
-      "href": "image00034.jpg",
+      "href": "image0034.jpg",
       "title": "Side 34",
       "type": "image/jpeg",
       "width": 2433
@@ -7764,7 +7764,7 @@
     {
       "duration": 18,
       "height": 3452,
-      "href": "image00035.jpg",
+      "href": "image0035.jpg",
       "title": "Side 35",
       "type": "image/jpeg",
       "width": 2437
@@ -7772,7 +7772,7 @@
     {
       "duration": 21,
       "height": 3452,
-      "href": "image00036.jpg",
+      "href": "image0036.jpg",
       "title": "Side 36",
       "type": "image/jpeg",
       "width": 2436
@@ -7780,7 +7780,7 @@
     {
       "duration": 21,
       "height": 3452,
-      "href": "image00037.jpg",
+      "href": "image0037.jpg",
       "title": "Side 37",
       "type": "image/jpeg",
       "width": 2435
@@ -7788,7 +7788,7 @@
     {
       "duration": 36,
       "height": 3452,
-      "href": "image00038.jpg",
+      "href": "image0038.jpg",
       "title": "Side 38",
       "type": "image/jpeg",
       "width": 2430
@@ -7796,7 +7796,7 @@
     {
       "duration": 37,
       "height": 3452,
-      "href": "image00039.jpg",
+      "href": "image0039.jpg",
       "title": "Side 39",
       "type": "image/jpeg",
       "width": 2441
@@ -7804,7 +7804,7 @@
     {
       "duration": 62,
       "height": 3452,
-      "href": "image00040.jpg",
+      "href": "image0040.jpg",
       "title": "Side 40",
       "type": "image/jpeg",
       "width": 2433
@@ -7812,7 +7812,7 @@
     {
       "duration": 90,
       "height": 3452,
-      "href": "image00041.jpg",
+      "href": "image0041.jpg",
       "title": "Side 41",
       "type": "image/jpeg",
       "width": 2416
@@ -7820,7 +7820,7 @@
     {
       "duration": 59,
       "height": 3452,
-      "href": "image00042.jpg",
+      "href": "image0042.jpg",
       "title": "Side 42",
       "type": "image/jpeg",
       "width": 2437
@@ -7828,7 +7828,7 @@
     {
       "duration": 188,
       "height": 3452,
-      "href": "image00043.jpg",
+      "href": "image0043.jpg",
       "title": "Side 43",
       "type": "image/jpeg",
       "width": 2429
@@ -7836,7 +7836,7 @@
     {
       "duration": 59,
       "height": 3452,
-      "href": "image00044.jpg",
+      "href": "image0044.jpg",
       "title": "Side 44",
       "type": "image/jpeg",
       "width": 2428
@@ -7844,7 +7844,7 @@
     {
       "duration": 44,
       "height": 3452,
-      "href": "image00045.jpg",
+      "href": "image0045.jpg",
       "title": "Side 45",
       "type": "image/jpeg",
       "width": 2440
@@ -7852,7 +7852,7 @@
     {
       "duration": 51,
       "height": 3452,
-      "href": "image00046.jpg",
+      "href": "image0046.jpg",
       "title": "Side 46",
       "type": "image/jpeg",
       "width": 2434
@@ -7860,7 +7860,7 @@
     {
       "duration": 51,
       "height": 3452,
-      "href": "image00047.jpg",
+      "href": "image0047.jpg",
       "title": "Side 47",
       "type": "image/jpeg",
       "width": 2434
@@ -7868,7 +7868,7 @@
     {
       "duration": 33,
       "height": 3452,
-      "href": "image00048.jpg",
+      "href": "image0048.jpg",
       "title": "Side 48",
       "type": "image/jpeg",
       "width": 2434

@@ -179,14 +179,14 @@ export default class DivianElement extends LitElement {
     )`;
   }
 
-  public get containerStyles() {
+  private get containerStyles() {
     return {
       '--balloon-clip-path': this.balloonClipPath,
       '--panel-clip-path': this.panelClipPath,
     };
   }
 
-  public get pageStyles() {
+  private get pageStyles() {
     const padding = 20;
     const widthZoomFactor = this.clientWidth / (this.currentPanel?.Width ?? 0 + padding);
     const heightFactor = this.clientHeight / (this.currentPanel?.Height ?? 0 + padding);
