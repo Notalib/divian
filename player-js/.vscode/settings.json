@@ -1,0 +1,15 @@
+{
+    "cSpell.words": [
+        "animejs",
+        "Divina",
+        "isnan",
+        "onwarn",
+        "readium",
+        "webcomponents",
+        "xywh"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "eslint.codeActionsOnSave.rules": null,
+    "eslint.options": { "overrideConfigFile": ".eslintrc.json" }
+}
