@@ -2,10 +2,10 @@ import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import { TaJson } from 'ta-json-x';
-import DivianPublication from './DivianPublication';
+import DivianPublication from './Model/DivianPublication';
 
-@customElement('divian-element')
-export default class DivianElement extends LitElement {
+@customElement('divian-navigator')
+export default class DivianNavigator extends LitElement {
   static override styles = css`
     :host {
       display: flex;
@@ -379,6 +379,6 @@ export default class DivianElement extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'divian-element': DivianElement;
+    'divian-navigator': DivianNavigator;
   }
 }

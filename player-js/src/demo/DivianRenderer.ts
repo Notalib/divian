@@ -1,7 +1,7 @@
 import { LitElement, TemplateResult, css, html, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
-import DivianElement from '../DivianElement';
+import DivianNavigator from '../DivianNavigator';
 
 @customElement('divian-renderer')
 export default class DivianRenderer extends LitElement {
@@ -18,7 +18,7 @@ export default class DivianRenderer extends LitElement {
   private numberOfPages = 0;
 
   @query('#divina')
-  public divinaEl: DivianElement;
+  public divinaEl: DivianNavigator;
 
   private buttonControlClasses(enabled: boolean, iconClass: string) {
     return classMap({
@@ -33,7 +33,7 @@ export default class DivianRenderer extends LitElement {
       divinaJsonUrl = `../${divinaJsonUrl}`;
     }
 
-    return html`<divian-element id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divian-element>`;
+    return html`<divian-navigator id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divian-navigator>`;
   }
 
   public readonly positionChanged = () => {
@@ -89,8 +89,7 @@ export default class DivianRenderer extends LitElement {
       height: 100vh;
     }
 
-    :host .book-selector,
-    :host .book-controls {
+    .book-controls {
       display: flex;
       flex-direction: row;
       background-color: #212121;
@@ -98,12 +97,12 @@ export default class DivianRenderer extends LitElement {
       justify-content: center;
     }
 
-    :host .book-controls :is(.nav-idx, .ui-icon) {
+    .book-controls :is(.nav-idx, .ui-icon) {
       line-height: 50px;
       margin: 0 2em;
     }
 
-    :host .book-controls > .nav-idx > span {
+    .book-controls > .nav-idx > span {
       display: inline-block;
       vertical-align: middle;
       line-height: normal;
@@ -111,7 +110,7 @@ export default class DivianRenderer extends LitElement {
       font-weight: bolder;
     }
 
-    :host .book-controls .ui-icon i {
+    .book-controls .ui-icon i {
       cursor: pointer;
       display: inline-block;
       background-color: grey;
@@ -119,28 +118,31 @@ export default class DivianRenderer extends LitElement {
       border-radius: 1.5em;
     }
 
-    :host .ui-icon[disabled],
-    :host .ui-icon.disabled {
+    .ui-icon.disabled {
       opacity: 0.5;
+    }
+
+    .ui-icon.disabled,
+    .ui-icon.disabled i {
       cursor: not-allowed;
     }
 
-    :host .content-viewer,
-    :host .placeholder {
+    .content-viewer,
+    .placeholder {
       flex-grow: 1;
       flex-shrink: 0;
     }
 
-    :host .content-viewer {
+    .content-viewer {
       overflow: hidden;
       display: flex;
     }
 
-    :host .content-viewer divian-element {
+    .content-viewer divian-navigator {
       flex-grow: 1;
     }
 
-    :host footer {
+    footer {
       background-color: yellow;
       display: block;
       text-align: center;
