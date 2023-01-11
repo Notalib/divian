@@ -326,7 +326,7 @@ export default class DivianElement extends LitElement {
   }
 
   public get currentPageNumber() {
-    return this.pageIdx + 1;
+    return this.publication?.Spine?.indexOf(this.readingItem) + 1;
   }
 
   private async _loadComic() {

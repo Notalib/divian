@@ -20,9 +20,10 @@ export default class DivianRenderer extends LitElement {
   @query('#divina')
   public divinaEl: DivianElement;
 
-  private buttonControlClasses(enabled: boolean) {
+  private buttonControlClasses(enabled: boolean, iconClass: string) {
     return classMap({
       disabled: !enabled,
+      [iconClass]: true,
     });
   }
 
@@ -42,16 +43,20 @@ export default class DivianRenderer extends LitElement {
     this.numberOfPages = this.divinaEl?.numberOfPages ?? 0;
   };
 
-  protected renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string): TemplateResult {
-    return html`<button @click="${click}" class="${this.buttonControlClasses(isEnabled)}" ?disabled="${!isEnabled}">${label}</button>`;
+  protected renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string, iconClass: string): TemplateResult {
+    return html`
+      <div class="${classMap({ 'ui-icon': true, disabled: !isEnabled })}">
+        <i @click="${click}" class="${this.buttonControlClasses(isEnabled, iconClass)}" ?disabled="${!isEnabled}" alt="${label}"></i>
+      </div>
+    `;
   }
 
   protected renderControls(): TemplateResult | typeof nothing {
     return html`
       <div class="book-controls">
-        ${this.renderControlButton(this.prevSegmentEvent, this.canGoBack, 'PREV')}
+        ${this.renderControlButton(this.prevSegmentEvent, this.canGoBack, 'PREV', 'icofont-ui-previous')}
         <div class="nav-idx"><span>${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span></div>
-        ${this.renderControlButton(this.nextSegmentEvent, this.canGoForward, 'NEXT')}
+        ${this.renderControlButton(this.nextSegmentEvent, this.canGoForward, 'NEXT', 'icofont-ui-next')}
       </div>
     `;
   }
@@ -88,12 +93,12 @@ export default class DivianRenderer extends LitElement {
     :host .book-controls {
       display: flex;
       flex-direction: row;
-      background-color: blue;
+      background-color: #212121;
       height: 50px;
       justify-content: center;
     }
 
-    :host .book-controls > .nav-idx {
+    :host .book-controls :is(.nav-idx, .ui-icon) {
       line-height: 50px;
       margin: 0 2em;
     }
@@ -106,12 +111,16 @@ export default class DivianRenderer extends LitElement {
       font-weight: bolder;
     }
 
-    :host button {
+    :host .book-controls .ui-icon i {
       cursor: pointer;
+      display: inline-block;
+      background-color: grey;
+      padding: 1em;
+      border-radius: 1.5em;
     }
 
-    :host button[disabled],
-    :host button.disabled {
+    :host .ui-icon[disabled],
+    :host .ui-icon.disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
