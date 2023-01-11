@@ -22,6 +22,10 @@ export default <webpack.Configuration>{
         directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'src'),
         publicPath: '/readium-css',
       },
+      {
+        directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'ReadiumCSS-config.css'),
+        publicPath: '/ReadiumCSS-config.css',
+      },
     ],
     port: 4200,
     open: true,

@@ -15,6 +15,17 @@ export default class DivianNavigator extends LitElement {
       margin: 0;
       position: relative;
       height: inherit;
+      background-color: rgba(10, 10, 10, 0.15);
+    }
+
+    iframe {
+      margin: 0 auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 100%;
+      min-height: 0;
+      max-width: 1024px;
+      border: 0;
     }
 
     div.container {
@@ -73,6 +84,9 @@ export default class DivianNavigator extends LitElement {
 
   @property()
   private _publication?: DivianPublication;
+
+  @property()
+  private _imageLoading = true;
 
   private _divinaJsonUrl?: string;
 
@@ -224,6 +238,13 @@ export default class DivianNavigator extends LitElement {
       return null;
     }
 
+    if (this._imageLoading) {
+      return {
+        renderedWidth: '1px',
+        renderedHeight: '1px',
+      };
+    }
+
     // Panel position and size
     const panelXOffset = this.currentPanel?.X ?? 0;
     const panelYOffset = this.currentPanel?.Y ?? 0;
@@ -264,12 +285,14 @@ export default class DivianNavigator extends LitElement {
     this.pageIdx = 0;
     this.panelIdx = 0;
     this.balloonIdx = 0;
+    this._imageLoading = true;
   }
 
   public GoLast() {
     this.pageIdx = (this._publication?.Narration?.length ?? 0) - 1;
     this.panelIdx = (this._currentNarratedPage?.Panels?.length ?? 0) - 1;
     this.balloonIdx = (this.currentPanel?.Balloons?.length ?? 0) - 1;
+    this._imageLoading = true;
   }
 
   public GoBack() {
@@ -285,9 +308,10 @@ export default class DivianNavigator extends LitElement {
     }
 
     if (this._hasPrevPage) {
+      this._imageLoading = true;
       this.pageIdx -= 1;
       this.panelIdx = Math.max(0, (this._currentNarratedPage?.Panels?.length ?? 0) - 1);
-      this.balloonIdx = Math.max(0, (this.currentPanel.Balloons?.length ?? 0) - 1);
+      this.balloonIdx = Math.max(0, (this.currentPanel?.Balloons?.length ?? 0) - 1);
       return;
     }
   }
@@ -306,6 +330,7 @@ export default class DivianNavigator extends LitElement {
 
     if (this._hasNextPage) {
       this.pageIdx += 1;
+      this._imageLoading = true;
       this.panelIdx = 0;
       this.balloonIdx = 0;
     }
@@ -337,6 +362,7 @@ export default class DivianNavigator extends LitElement {
     const narrationMap = new Map<string, NarratedPage>();
 
     for (const n of publication.Narration) {
+      n.Href = new URL(n.Href, this._divinaJsonUrl).href;
       narrationMap.set(n.Href, n);
 
       for (const p of n.Panels) {
@@ -347,6 +373,8 @@ export default class DivianNavigator extends LitElement {
     }
 
     for (const link of publication.Spine) {
+      link.Href = new URL(link.Href, this._divinaJsonUrl).href;
+
       if (link.Properties?.MediaOverlay) {
         const mediaOverlayNode = await this._loadJsonFile(new URL(link.Properties?.MediaOverlay, this._divinaJsonUrl), MediaOverlayNode);
         for (const m of mediaOverlayNode.Children) {
@@ -398,7 +426,7 @@ export default class DivianNavigator extends LitElement {
     this._positionChanged();
 
     if (!this._readingItem.TypeLink?.startsWith('image/')) {
-      return html`<div>Nothing</div>`;
+      return html`<iframe src="${this._readingItem.Href}"></iframe>`;
     }
 
     return html`
@@ -418,6 +446,10 @@ export default class DivianNavigator extends LitElement {
     `;
   }
 
+  private _setImageLoaded = () => {
+    this._imageLoading = false;
+  };
+
   private _renderImage(imageClass: string, enabled = true) {
     if (!enabled) {
       return nothing;
@@ -425,7 +457,7 @@ export default class DivianNavigator extends LitElement {
 
     return html`
       <div class="${imageClass}">
-        <img src="${this.comicPageUrl}" />
+        <img src="${this.comicPageUrl}" @load=${this._setImageLoaded} />
       </div>
     `;
   }

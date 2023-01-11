@@ -8,6 +8,7 @@ import { merge } from 'webpack-merge';
 import devConfig from './webpack.dev';
 import prodConfig from './webpack.prod';
 import { getEnvVariables, outputPath, resolveApp } from './webpack.tools';
+import * as path from 'path';
 
 export default function (): webpack.Configuration {
   const isEnvProduction = process.env.NODE_ENV === 'production';
@@ -31,6 +32,10 @@ export default function (): webpack.Configuration {
           {
             from: 'node_modules/readium-css/css/src',
             to: 'readium-css',
+          },
+          {
+            from: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'ReadiumCSS-config.css'),
+            to: '/ReadiumCSS-config.css',
           }
         ],
       }),
