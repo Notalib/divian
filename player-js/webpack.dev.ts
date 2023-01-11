@@ -18,6 +18,10 @@ export default <webpack.Configuration>{
         directory: path.resolve(__dirname, '..', 'docs', 'books'),
         publicPath: '/books',
       },
+      {
+        directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'src'),
+        publicPath: '/readium-css',
+      },
     ],
     port: 4200,
     open: true,
@@ -30,10 +34,6 @@ export default <webpack.Configuration>{
       patterns: [
         {
           from: 'public'
-        },
-        {
-          from: 'node_modules/readium-css/css/src',
-          to: 'readium-css',
         },
       ]
     }),

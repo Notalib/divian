@@ -1,4 +1,4 @@
-import TextElement from '../TextElement';
+import TextElement from './TextElement';
 import { JsonElementType, JsonProperty, JsonType } from 'ta-json-x';
 
 export default class Panel {

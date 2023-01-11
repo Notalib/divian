@@ -1,6 +1,8 @@
 import { LitElement, css, html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
+import NarratedPage from 'Model/NarratedPage';
+import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
 import { TaJson } from 'ta-json-x';
 import DivianPublication from './Model/DivianPublication';
 
@@ -15,11 +17,8 @@ export default class DivianNavigator extends LitElement {
       height: inherit;
     }
 
-    :host > div.container {
+    div.container {
       margin: 0 auto;
-    }
-
-    :host > div.container {
       display: flex;
       flex-grow: 1;
       flex-shrink: 1;
@@ -27,7 +26,7 @@ export default class DivianNavigator extends LitElement {
       min-height: 0;
     }
 
-    :host > div.container > div:is(.page, .panel-highlight, .balloon-highlight) {
+    div.container > div:is(.page, .panel-highlight, .balloon-highlight) {
       position: absolute;
       top: 0;
       left: 0;
@@ -37,28 +36,28 @@ export default class DivianNavigator extends LitElement {
       transform: translate(var(--panel-translate-x), var(--panel-translate-y));
     }
 
-    :host > div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
+    div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
       height: var(--rendered-height);
       width: var(--rendered-width);
     }
 
-    :host div.balloon-highlight {
+    div.balloon-highlight {
       background-color: rgba(116, 116, 116, 0.4);
     }
 
-    :host div.balloon-highlight img {
+    div.balloon-highlight img {
       clip-path: var(--balloon-clip-path);
     }
 
-    :host div.panel-highlight {
+    div.panel-highlight {
       background-color: rgba(30, 30, 30, 0.45);
     }
 
-    :host div.panel-highlight img {
+    div.panel-highlight img {
       clip-path: var(--panel-clip-path);
     }
 
-    :host > div.container > div.caption {
+    div.container > div.caption {
       position: absolute;
       left: unset;
       top: unset;
@@ -73,16 +72,16 @@ export default class DivianNavigator extends LitElement {
   `;
 
   @property()
-  private publication?: DivianPublication;
+  private _publication?: DivianPublication;
 
   private _divinaJsonUrl?: string;
 
-  public get divinaJsonUrl() {
+  public get manifestUrl() {
     return this._divinaJsonUrl;
   }
 
-  @property({ attribute: 'divina' })
-  public set divinaJsonUrl(value: string) {
+  @property({ attribute: 'manifest' })
+  public set manifestUrl(value: string) {
     if (this._divinaJsonUrl !== value) {
       this._divinaJsonUrl = new URL(value, location.href).href;
 
@@ -93,27 +92,22 @@ export default class DivianNavigator extends LitElement {
   @property()
   public pageIdx = 0;
 
-  private get hasPrevPage() {
+  private get _hasPrevPage() {
     return this.pageIdx > 0;
   }
 
-  private get hasNextPage() {
-    return !!this.publication?.Narration?.[this.pageIdx + 1];
+  private get _hasNextPage() {
+    return !!this._publication?.Spine?.[this.pageIdx + 1];
   }
 
-  private get currentPage() {
-    return this.publication?.Narration?.[this.pageIdx];
-  }
-
-  private get readingItem() {
-    if (!this.publication?.Spine) {
+  private get _currentNarratedPage() {
+    const readingItem = this._readingItem;
+    if (!readingItem) {
       return null;
     }
 
-    const currentPage = this.currentPage;
-
-    for (const item of this.publication?.Spine) {
-      if (item.Href === currentPage.Href) {
+    for (const item of this._publication?.Narration) {
+      if (item.Href === readingItem.Href) {
         return item;
       }
     }
@@ -121,20 +115,24 @@ export default class DivianNavigator extends LitElement {
     return null;
   }
 
+  private get _readingItem() {
+    return this._publication?.Spine?.[this.pageIdx];
+  }
+
   private get comicPageUrl() {
-    const path = this.currentPage?.Href;
+    const path = this._currentNarratedPage?.Href;
     if (!path) {
       return null;
     }
 
-    return new URL(path, this.divinaJsonUrl).href;
+    return new URL(path, this.manifestUrl).href;
   }
 
   @property()
   public panelIdx = 0;
 
   private get currentPanel() {
-    return this.currentPage?.Panels?.[this.panelIdx];
+    return this._currentNarratedPage?.Panels?.[this.panelIdx];
   }
 
   private get hasPrevPanel() {
@@ -142,18 +140,18 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get hasNextPanel() {
-    return !!this.currentPage?.Panels?.[this.panelIdx + 1];
+    return !!this._currentNarratedPage?.Panels?.[this.panelIdx + 1];
   }
 
   @property()
   public balloonIdx = 0;
 
   private get pageHeight(): number | void {
-    return this.readingItem?.Height;
+    return this._readingItem?.Height;
   }
 
   private get pageWidth(): number | void {
-    return this.readingItem?.Width;
+    return this._readingItem?.Width;
   }
 
   private get currentBalloon() {
@@ -269,8 +267,8 @@ export default class DivianNavigator extends LitElement {
   }
 
   public GoLast() {
-    this.pageIdx = (this.publication?.Narration?.length ?? 0) - 1;
-    this.panelIdx = (this.currentPage?.Panels?.length ?? 0) - 1;
+    this.pageIdx = (this._publication?.Narration?.length ?? 0) - 1;
+    this.panelIdx = (this._currentNarratedPage?.Panels?.length ?? 0) - 1;
     this.balloonIdx = (this.currentPanel?.Balloons?.length ?? 0) - 1;
   }
 
@@ -286,9 +284,9 @@ export default class DivianNavigator extends LitElement {
       return;
     }
 
-    if (this.hasPrevPage) {
+    if (this._hasPrevPage) {
       this.pageIdx -= 1;
-      this.panelIdx = Math.max(0, (this.currentPage?.Panels?.length ?? 0) - 1);
+      this.panelIdx = Math.max(0, (this._currentNarratedPage?.Panels?.length ?? 0) - 1);
       this.balloonIdx = Math.max(0, (this.currentPanel.Balloons?.length ?? 0) - 1);
       return;
     }
@@ -306,7 +304,7 @@ export default class DivianNavigator extends LitElement {
       return;
     }
 
-    if (this.hasNextPage) {
+    if (this._hasNextPage) {
       this.pageIdx += 1;
       this.panelIdx = 0;
       this.balloonIdx = 0;
@@ -314,43 +312,113 @@ export default class DivianNavigator extends LitElement {
   }
 
   public get canGoBack() {
-    return this.hasPrevBalloon || this.hasPrevPanel || this.hasPrevPage;
+    return this.hasPrevBalloon || this.hasPrevPanel || this._hasPrevPage;
   }
 
   public get canGoForward() {
-    return this.hasNextBalloon || this.hasNextPanel || this.hasNextPage;
+    return this.hasNextBalloon || this.hasNextPanel || this._hasNextPage;
   }
 
   public get numberOfPages() {
-    return this.publication?.Spine?.length ?? 0;
+    return this._publication?.Spine?.length ?? 0;
   }
 
   public get currentPageNumber() {
-    return this.publication?.Spine?.indexOf(this.readingItem) + 1;
+    return this._publication?.Spine?.indexOf(this._readingItem) + 1;
   }
 
   private async _loadComic() {
-    const response = await fetch(this._divinaJsonUrl);
-    this.publication = TaJson.parse(await response.text(), DivianPublication);
+    this._audioPlaylist = null;
+    this._publication = null;
+
+    const publication = await this._loadJsonFile(this._divinaJsonUrl, DivianPublication);
+
+    const audioPlaylist = new Set<string>();
+    const narrationMap = new Map<string, NarratedPage>();
+
+    for (const n of publication.Narration) {
+      narrationMap.set(n.Href, n);
+
+      for (const p of n.Panels) {
+        if (p.Audio) {
+          p.Audio = new URL(p.Audio, this._divinaJsonUrl).href;
+        }
+      }
+    }
+
+    for (const link of publication.Spine) {
+      if (link.Properties?.MediaOverlay) {
+        const mediaOverlayNode = await this._loadJsonFile(new URL(link.Properties?.MediaOverlay, this._divinaJsonUrl), MediaOverlayNode);
+        for (const m of mediaOverlayNode.Children) {
+          m.Text = new URL(m.Text, this._divinaJsonUrl).href;
+          for (const c of m.Children ?? []) {
+            const audio = new URL(c.Audio, this._divinaJsonUrl);
+            c.Audio = audio.href;
+
+            audio.hash = '';
+            audioPlaylist.add(audio.href);
+          }
+        }
+
+        link.MediaOverlays = mediaOverlayNode;
+
+        continue;
+      }
+
+      if (link.TypeLink?.startsWith('image/')) {
+        const n = narrationMap.get(link.Href);
+
+        for (const p of n.Panels) {
+          const audio = new URL(p.Audio);
+          audio.hash = '';
+          audioPlaylist.add(audio.href);
+        }
+
+        continue;
+      }
+    }
+
+    this._audioPlaylist = audioPlaylist;
+
+    this._publication = publication;
+  }
+
+  private _audioPlaylist: Set<string> | void;
+
+  private async _loadJsonFile<T>(url: string | URL, type: new (value?: any) => T) {
+    const response = await fetch(url);
+    return TaJson.parse(await response.text(), type);
   }
 
   override render() {
-    const comicPageUrl = this.comicPageUrl;
-    if (!comicPageUrl) {
+    if (!this._publication) {
       return html`<div>Loading</div>`;
     }
 
-    this.positionChanged();
+    this._positionChanged();
+
+    if (!this._readingItem.TypeLink?.startsWith('image/')) {
+      return html`<div>Nothing</div>`;
+    }
 
     return html`
       <div class="container" style=${styleMap(this.containerStyles)}>
-        ${this.renderImage('page')} ${this.renderImage('panel-highlight', !!this.panelClipPath)}
-        ${this.renderImage('balloon-highlight', !!this.balloonClipPath)} ${this.renderCaption()}
+        <!-- Page -->
+        ${this._renderImage('page')}
+
+        <!-- Highlight panel box -->
+        ${this._renderImage('panel-highlight', !!this.panelClipPath)}
+
+        <!-- Highlight balloon box -->
+        ${this._renderImage('balloon-highlight', !!this.balloonClipPath)}
+
+        <!-- caption box - if enabled -->
+        ${this._renderCaption()}
       </div>
     `;
   }
 
-  private renderImage(imageClass: string, enabled = true) {
+  private _renderImage(imageClass: string, enabled = true) {
     if (!enabled) {
       return nothing;
     }
@@ -362,7 +430,7 @@ export default class DivianNavigator extends LitElement {
     `;
   }
 
-  private renderCaption() {
+  private _renderCaption() {
     const caption = this.currentBalloon?.Text;
     if (!caption) {
       return nothing;
@@ -371,7 +439,7 @@ export default class DivianNavigator extends LitElement {
     return html`<div class="caption">${caption}</div>`;
   }
 
-  private positionChanged() {
+  private _positionChanged() {
     const event = new CustomEvent('position-changed');
     this.dispatchEvent(event);
   }

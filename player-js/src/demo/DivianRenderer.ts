@@ -28,12 +28,9 @@ export default class DivianRenderer extends LitElement {
   }
 
   protected renderBook(): TemplateResult | typeof nothing {
-    let divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
-    if (window.location.pathname === 'player') {
-      divinaJsonUrl = `../${divinaJsonUrl}`;
-    }
+    const divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
 
-    return html`<divian-navigator id="divina" @position-changed="${this.positionChanged}" divina="${divinaJsonUrl}"></divian-navigator>`;
+    return html`<divian-navigator id="divina" @position-changed="${this.positionChanged}" manifest="${divinaJsonUrl}"></divian-navigator>`;
   }
 
   public readonly positionChanged = () => {
