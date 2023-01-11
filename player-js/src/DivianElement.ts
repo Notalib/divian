@@ -27,10 +27,19 @@ export default class DivianElement extends LitElement {
       min-height: 0;
     }
 
-    :host > div.container > div {
+    :host > div.container > div:is(.page, .panel-highlight, .balloon-highlight) {
       position: absolute;
       top: 0;
       left: 0;
+      transform-origin: center;
+      height: var(--rendered-height);
+      width: var(--rendered-width);
+      transform: translate(var(--panel-translate-x), var(--panel-translate-y));
+    }
+
+    :host > div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
+      height: var(--rendered-height);
+      width: var(--rendered-width);
     }
 
     :host div.balloon-highlight {
@@ -97,7 +106,19 @@ export default class DivianElement extends LitElement {
   }
 
   private get readingItem() {
-    return this.publication?.Spine?.[this.pageIdx];
+    if (!this.publication?.Spine) {
+      return null;
+    }
+
+    const currentPage = this.currentPage;
+
+    for (const item of this.publication?.Spine) {
+      if (item.Href === currentPage.Href) {
+        return item;
+      }
+    }
+
+    return null;
   }
 
   private get comicPageUrl() {
@@ -127,6 +148,14 @@ export default class DivianElement extends LitElement {
   @property()
   public balloonIdx = 0;
 
+  private get pageHeight(): number | void {
+    return this.readingItem?.Height;
+  }
+
+  private get pageWidth(): number | void {
+    return this.readingItem?.Width;
+  }
+
   private get currentBalloon() {
     return this.currentPanel?.Balloons?.[this.balloonIdx];
   }
@@ -144,15 +173,11 @@ export default class DivianElement extends LitElement {
   }
 
   private get panelClipPath() {
-    const readingItem = this.readingItem;
-    if (!readingItem) {
-      return null;
-    }
-
-    const { Height: pageHeight, Width: pageWidth } = readingItem;
+    const pageHeight = this.pageHeight;
+    const pageWidth = this.pageWidth;
 
     const panel = this.currentPanel;
-    if (!panel?.Fragment) {
+    if (!panel?.Fragment || !pageHeight || !pageWidth) {
       return null;
     }
 
@@ -180,32 +205,60 @@ export default class DivianElement extends LitElement {
   }
 
   private get containerStyles() {
+    const pageStyles = this.pageStyles;
+
     return {
       '--balloon-clip-path': this.balloonClipPath,
       '--panel-clip-path': this.panelClipPath,
+      '--panel-translate-x': `${pageStyles?.translateX ?? ''}`,
+      '--panel-translate-y': `${pageStyles?.translateY ?? ''}`,
+      '--rendered-width': pageStyles?.renderedWidth,
+      '--rendered-height': pageStyles?.renderedHeight,
     };
   }
 
   private get pageStyles() {
     const padding = 20;
-    const widthZoomFactor = this.clientWidth / (this.currentPanel?.Width ?? 0 + padding);
-    const heightFactor = this.clientHeight / (this.currentPanel?.Height ?? 0 + padding);
-    let zoom = '';
+    const pageHeight = this.pageHeight;
+    const pageWidth = this.pageWidth;
 
-    let translateX = this.currentPanel?.X ?? 0;
-    let translateY = this.currentPanel?.Y ?? 0;
-    if (widthZoomFactor < heightFactor) {
-      zoom = `${widthZoomFactor}`;
-      translateY = translateY / 2;
-    } else {
-      zoom = `${heightFactor}`;
-      translateX = translateX / 2;
+    if (!pageHeight || !pageWidth) {
+      return null;
     }
 
+    // Panel position and size
+    const panelXOffset = this.currentPanel?.X ?? 0;
+    const panelYOffset = this.currentPanel?.Y ?? 0;
+    const realPanelWidth = this.currentPanel?.Width ?? pageWidth;
+    const realPanelHeight = this.currentPanel?.Height ?? pageHeight;
+
+    // Available viewport size
+    const availableHeight = this.clientHeight - padding;
+    const availableWidth = this.clientWidth - padding;
+
+    // How much should the image be scaled for the panel to fit inside the viewport?
+    const heightScaling = availableHeight / realPanelHeight;
+    const widthScaling = availableWidth / realPanelWidth;
+
+    // The lowest scaling factor fits the whole panel inside the viewport.
+    const scaling = Math.min(heightScaling, widthScaling);
+
+    const renderedPanelWidth = realPanelWidth * scaling;
+    const renderedPanelHeight = realPanelHeight * scaling;
+
+    // Rendered page size for fitting the panel inside the viewport.
+    const renderedWidth = scaling * pageWidth;
+    const renderedHeight = scaling * pageHeight;
+
+    // Translate X and Y to move the panel into view.
+    const translateX = -(panelXOffset * scaling - (availableWidth - renderedPanelWidth + padding) / 2);
+    const translateY = -(panelYOffset * scaling - (availableHeight - renderedPanelHeight + padding) / 2);
+
     return {
-      zoom,
-      'transform-origin': 'center',
-      transform: `translate(-${translateX}px, -${translateY}px)`,
+      translateX: `${translateX}px`,
+      translateY: `${translateY}px`,
+      renderedWidth: `${renderedWidth}px`,
+      renderedHeight: `${renderedHeight}px`,
     };
   }
 
@@ -303,7 +356,7 @@ export default class DivianElement extends LitElement {
     }
 
     return html`
-      <div class="${imageClass}" style="${styleMap(this.pageStyles)}">
+      <div class="${imageClass}">
         <img src="${this.comicPageUrl}" />
       </div>
     `;
