@@ -1,10 +1,6 @@
 import { JsonProperty, JsonType } from 'ta-json-x';
 
 export default class TextElement {
-  @JsonProperty('audio')
-  @JsonType(String)
-  public Audio?: string;
-
   @JsonProperty('clip-path')
   @JsonType(String)
   public ClipPath?: string;

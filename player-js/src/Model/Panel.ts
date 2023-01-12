@@ -14,9 +14,9 @@ export default class Panel {
   @JsonType(String)
   public Fragment?: string;
 
-  @JsonProperty('balloons')
+  @JsonProperty('texts')
   @JsonElementType(TextElement)
-  public Balloons?: TextElement[];
+  public Texts?: TextElement[];
 
   public get SizeInfo() {
     const pxRegexp = /#xywh=([\d]+),([\d]+),([\d]+),([\d]+)/;

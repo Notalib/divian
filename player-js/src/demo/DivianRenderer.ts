@@ -17,6 +17,9 @@ export default class DivianRenderer extends LitElement {
   @property()
   private numberOfPages = 0;
 
+  @property()
+  private isPlaying = false;
+
   @query('#divina')
   public divinaEl: DivianNavigator;
 
@@ -27,20 +30,21 @@ export default class DivianRenderer extends LitElement {
     });
   }
 
-  protected renderBook(): TemplateResult | typeof nothing {
+  private renderBook(): TemplateResult | typeof nothing {
     const divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
 
     return html`<divian-navigator id="divina" @position-changed="${this.positionChanged}" manifest="${divinaJsonUrl}"></divian-navigator>`;
   }
 
   public readonly positionChanged = () => {
-    this.canGoBack = this.divinaEl?.canGoBack ?? false;
-    this.canGoForward = this.divinaEl?.canGoForward ?? false;
+    this.canGoBack = !!this.divinaEl?.canGoBack;
+    this.canGoForward = !!this.divinaEl?.canGoForward;
     this.currentPageNumber = this.divinaEl?.currentPageNumber ?? 0;
     this.numberOfPages = this.divinaEl?.numberOfPages ?? 0;
+    this.isPlaying = !!this.divinaEl?.isPlaying;
   };
 
-  protected renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string, iconClass: string): TemplateResult {
+  private _renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string, iconClass: string): TemplateResult {
     return html`
       <div class="${classMap({ 'ui-icon': true, disabled: !isEnabled })}">
         <i @click="${click}" class="${this.buttonControlClasses(isEnabled, iconClass)}" ?disabled="${!isEnabled}" alt="${label}"></i>
@@ -48,21 +52,34 @@ export default class DivianRenderer extends LitElement {
     `;
   }
 
-  protected renderControls(): TemplateResult | typeof nothing {
+  private _renderControls() {
     return html`
       <div class="book-controls">
-        ${this.renderControlButton(this.prevSegmentEvent, this.canGoBack, 'PREV', 'icofont-ui-previous')}
+        <!-- Go back button -->
+        ${this._renderControlButton(this._prevSegmentEvent, this.canGoBack, 'PREV', 'icofont-ui-previous')}
+
+        <!-- play / pause button -->
+        ${this._renderPlayPauseButtons()}
         <div class="nav-idx"><span>${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span></div>
-        ${this.renderControlButton(this.nextSegmentEvent, this.canGoForward, 'NEXT', 'icofont-ui-next')}
+        ${this._renderControlButton(this._nextSegmentEvent, this.canGoForward, 'NEXT', 'icofont-ui-next')}
       </div>
     `;
   }
 
-  protected render(): TemplateResult {
+  private _renderPlayPauseButtons() {
+    if (this.isPlaying) {
+      return html`${this._renderControlButton(this._pause, true, 'Pause', 'icofont-ui-pause')}`;
+    }
+
+    return html`${this._renderControlButton(this._play, true, 'Play', 'icofont-ui-play')}`;
+  }
+
+  override render(): TemplateResult {
     return html`
+      <!-- Workaround to make icofonts work inside the shadow dom. -->
       <link href="/assets/icofont/icofont.min.css" rel="stylesheet" />
 
-      ${this.renderControls()}
+      ${this._renderControls()}
 
       <section class="content-viewer">${this.renderBook()}</section>
 
@@ -70,13 +87,17 @@ export default class DivianRenderer extends LitElement {
     `;
   }
 
-  private readonly prevSegmentEvent = () => {
+  private readonly _prevSegmentEvent = () => {
     this.divinaEl?.GoBack();
   };
 
-  private readonly nextSegmentEvent = () => {
+  private readonly _nextSegmentEvent = () => {
     this.divinaEl?.GoForward();
   };
+
+  private readonly _play = () => this.divinaEl?.play();
+
+  private readonly _pause = () => this.divinaEl?.pause();
 
   // Define scoped styles right with your component, in plain CSS
   static styles = css`
@@ -97,6 +118,10 @@ export default class DivianRenderer extends LitElement {
     .book-controls :is(.nav-idx, .ui-icon) {
       line-height: 50px;
       margin: 0 2em;
+    }
+
+    .book-controls .ui-icon {
+      margin: 0 0.2em;
     }
 
     .book-controls > .nav-idx > span {

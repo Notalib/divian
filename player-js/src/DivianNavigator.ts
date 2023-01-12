@@ -1,8 +1,11 @@
-import { LitElement, css, html, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, css, html, nothing, TemplateResult } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
 import NarratedPage from 'Model/NarratedPage';
+import Panel from 'Model/Panel';
+import TextElement from 'Model/TextElement';
 import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
+import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import { TaJson } from 'ta-json-x';
 import DivianPublication from './Model/DivianPublication';
 
@@ -80,60 +83,80 @@ export default class DivianNavigator extends LitElement {
       background-color: rgba(200, 200, 200, 0.9);
       border-radius: 1rem;
     }
+
+    #audio {
+      height: 0;
+      width: 0;
+    }
   `;
 
   @property()
   private _publication?: DivianPublication;
 
+  @query('#audio')
+  private audio?: HTMLAudioElement;
+
+  @query('#iframe')
+  private iframe?: HTMLIFrameElement;
+
   @property()
   private _imageLoading = true;
 
-  private _divinaJsonUrl?: string;
+  private _manifestUrl?: string;
 
   public get manifestUrl() {
-    return this._divinaJsonUrl;
+    return this._manifestUrl;
   }
 
   @property({ attribute: 'manifest' })
   public set manifestUrl(value: string) {
-    if (this._divinaJsonUrl !== value) {
-      this._divinaJsonUrl = new URL(value, location.href).href;
+    if (this._manifestUrl !== value) {
+      this._manifestUrl = new URL(value, location.href).href;
 
       this._loadComic().catch((e) => console.error(e));
     }
   }
 
   @property()
-  public pageIdx = 0;
+  private _currentPositionIdx = -1;
+
+  private _playlist?: PlaylistItem[];
+
+  private get _prevPosition() {
+    if (this._currentPositionIdx > 0) {
+      return this._playlist?.[this._currentPositionIdx - 1];
+    }
+  }
+
+  private get _currentPosition() {
+    return this._playlist?.[this._currentPositionIdx];
+  }
+
+  private get _nextPosition() {
+    return this._playlist?.[this._currentPositionIdx + 1];
+  }
+
+  private get _spineIdx() {
+    return this._publication?.Spine.indexOf(this._readingItem);
+  }
 
   private get _hasPrevPage() {
-    return this.pageIdx > 0;
+    return this._spineIdx > 0;
   }
 
   private get _hasNextPage() {
-    return !!this._publication?.Spine?.[this.pageIdx + 1];
+    return this._spineIdx <= this._publication?.Spine.length;
   }
 
   private get _currentNarratedPage() {
-    const readingItem = this._readingItem;
-    if (!readingItem) {
-      return null;
-    }
-
-    for (const item of this._publication?.Narration) {
-      if (item.Href === readingItem.Href) {
-        return item;
-      }
-    }
-
-    return null;
+    return this._currentPosition?.narratedPage;
   }
 
   private get _readingItem() {
-    return this._publication?.Spine?.[this.pageIdx];
+    return this._currentPosition?.readingItem;
   }
 
-  private get comicPageUrl() {
+  private get _comicPageUrl() {
     const path = this._currentNarratedPage?.Href;
     if (!path) {
       return null;
@@ -142,53 +165,31 @@ export default class DivianNavigator extends LitElement {
     return new URL(path, this.manifestUrl).href;
   }
 
-  @property()
-  public panelIdx = 0;
-
-  private get currentPanel() {
-    return this._currentNarratedPage?.Panels?.[this.panelIdx];
+  private get _currentPanel() {
+    return this._currentPosition?.panel;
   }
 
-  private get hasPrevPanel() {
-    return this.panelIdx > 0;
-  }
-
-  private get hasNextPanel() {
-    return !!this._currentNarratedPage?.Panels?.[this.panelIdx + 1];
-  }
-
-  @property()
-  public balloonIdx = 0;
-
-  private get pageHeight(): number | void {
+  private get _pageHeight(): number | void {
     return this._readingItem?.Height;
   }
 
-  private get pageWidth(): number | void {
+  private get _pageWidth(): number | void {
     return this._readingItem?.Width;
   }
 
-  private get currentBalloon() {
-    return this.currentPanel?.Balloons?.[this.balloonIdx];
+  private get _currentBalloon() {
+    return this._currentPosition?.text;
   }
 
-  private get hasPrevBalloon() {
-    return !!this.currentPanel?.Balloons?.[this.balloonIdx - 1];
+  private get _balloonClipPath() {
+    return this._currentBalloon?.ClipPath;
   }
 
-  private get hasNextBalloon() {
-    return !!this.currentPanel?.Balloons?.[this.balloonIdx + 1];
-  }
+  private get _panelClipPath() {
+    const pageHeight = this._pageHeight;
+    const pageWidth = this._pageWidth;
 
-  private get balloonClipPath() {
-    return this.currentBalloon?.ClipPath;
-  }
-
-  private get panelClipPath() {
-    const pageHeight = this.pageHeight;
-    const pageWidth = this.pageWidth;
-
-    const panel = this.currentPanel;
+    const panel = this._currentPanel;
     if (!panel?.Fragment || !pageHeight || !pageWidth) {
       return null;
     }
@@ -216,12 +217,12 @@ export default class DivianNavigator extends LitElement {
     )`;
   }
 
-  private get containerStyles() {
-    const pageStyles = this.pageStyles;
+  private get _containerStyles() {
+    const pageStyles = this._pageStyles;
 
     return {
-      '--balloon-clip-path': this.balloonClipPath,
-      '--panel-clip-path': this.panelClipPath,
+      '--balloon-clip-path': this._balloonClipPath,
+      '--panel-clip-path': this._panelClipPath,
       '--panel-translate-x': `${pageStyles?.translateX ?? ''}`,
       '--panel-translate-y': `${pageStyles?.translateY ?? ''}`,
       '--rendered-width': pageStyles?.renderedWidth,
@@ -229,10 +230,10 @@ export default class DivianNavigator extends LitElement {
     };
   }
 
-  private get pageStyles() {
+  private get _pageStyles() {
     const padding = 20;
-    const pageHeight = this.pageHeight;
-    const pageWidth = this.pageWidth;
+    const pageHeight = this._pageHeight;
+    const pageWidth = this._pageWidth;
 
     if (!pageHeight || !pageWidth) {
       return null;
@@ -245,11 +246,13 @@ export default class DivianNavigator extends LitElement {
       };
     }
 
+    const currentPanel = this._currentPanel;
+
     // Panel position and size
-    const panelXOffset = this.currentPanel?.X ?? 0;
-    const panelYOffset = this.currentPanel?.Y ?? 0;
-    const realPanelWidth = this.currentPanel?.Width ?? pageWidth;
-    const realPanelHeight = this.currentPanel?.Height ?? pageHeight;
+    const panelXOffset = currentPanel?.X ?? 0;
+    const panelYOffset = currentPanel?.Y ?? 0;
+    const realPanelWidth = currentPanel?.Width ?? pageWidth;
+    const realPanelHeight = currentPanel?.Height ?? pageHeight;
 
     // Available viewport size
     const availableHeight = this.clientHeight - padding;
@@ -281,67 +284,81 @@ export default class DivianNavigator extends LitElement {
     };
   }
 
-  public GoFirst() {
-    this.pageIdx = 0;
-    this.panelIdx = 0;
-    this.balloonIdx = 0;
-    this._imageLoading = true;
-  }
-
-  public GoLast() {
-    this.pageIdx = (this._publication?.Narration?.length ?? 0) - 1;
-    this.panelIdx = (this._currentNarratedPage?.Panels?.length ?? 0) - 1;
-    this.balloonIdx = (this.currentPanel?.Balloons?.length ?? 0) - 1;
-    this._imageLoading = true;
-  }
-
   public GoBack() {
-    if (this.hasPrevBalloon) {
-      this.balloonIdx -= 1;
+    if (!this.canGoBack) {
       return;
     }
 
-    if (this.hasPrevPanel) {
-      this.panelIdx -= 1;
-      this.balloonIdx = Math.max(0, (this.currentPanel.Balloons?.length ?? 0) - 1);
-      return;
-    }
+    const currentPosition = this._currentPosition;
+    const prevPosition = this._prevPosition;
 
-    if (this._hasPrevPage) {
-      this._imageLoading = true;
-      this.pageIdx -= 1;
-      this.panelIdx = Math.max(0, (this._currentNarratedPage?.Panels?.length ?? 0) - 1);
-      this.balloonIdx = Math.max(0, (this.currentPanel?.Balloons?.length ?? 0) - 1);
-      return;
+    this._currentPositionIdx -= 1;
+
+    const isPlaying = this.isPlaying;
+    this.pause();
+    this.currentTime = prevPosition.start;
+    if (currentPosition.audio !== prevPosition.audio) {
+      this.audio.src = prevPosition.audio;
+    }
+    this.audio.currentTime = prevPosition.start;
+
+    this._positionChanged();
+
+    if (isPlaying) {
+      this.play();
     }
   }
 
   public GoForward() {
-    if (this.hasNextBalloon) {
-      this.balloonIdx += 1;
+    if (!this.canGoBack) {
       return;
     }
 
-    if (this.hasNextPanel) {
-      this.panelIdx += 1;
-      this.balloonIdx = 0;
+    const currentPosition = this._currentPosition;
+    const nextPosition = this._nextPosition;
+
+    this._currentPositionIdx += 1;
+
+    const isPlaying = this.isPlaying;
+    this.currentTime = nextPosition.start;
+    this.audio.currentTime = nextPosition.start;
+    if (currentPosition.audio !== nextPosition.audio) {
+      this.audio.src = nextPosition.audio;
+    }
+
+    this._positionChanged();
+
+    if (isPlaying) {
+      this.play();
+    }
+  }
+
+  private _nextPage() {
+    if (!this._hasNextPage) {
       return;
     }
 
-    if (this._hasNextPage) {
-      this.pageIdx += 1;
-      this._imageLoading = true;
-      this.panelIdx = 0;
-      this.balloonIdx = 0;
+    const readingItem = this._publication.Spine[this._spineIdx + 1];
+
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let idx = 0; idx < this._playlist.length; idx += 1) {
+      const playlistItem = this._playlist[idx];
+      if (playlistItem.readingItem === readingItem) {
+        this._currentPositionIdx += 1;
+        break;
+      }
     }
+
+    this._imageLoading = true;
+    this._positionChanged();
   }
 
   public get canGoBack() {
-    return this.hasPrevBalloon || this.hasPrevPanel || this._hasPrevPage;
+    return this._currentPositionIdx > 0;
   }
 
   public get canGoForward() {
-    return this.hasNextBalloon || this.hasNextPanel || this._hasNextPage;
+    return this._currentPositionIdx < this._playlist.length - 1;
   }
 
   public get numberOfPages() {
@@ -352,39 +369,79 @@ export default class DivianNavigator extends LitElement {
     return this._publication?.Spine?.indexOf(this._readingItem) + 1;
   }
 
+  public get isPlaying() {
+    return this.audio?.paused === false;
+  }
+
+  public play() {
+    requestAnimationFrame(() => void this.audio?.play().then(() => this._positionChanged()));
+  }
+
+  public pause() {
+    this.audio?.pause();
+    this._positionChanged();
+  }
+
+  @property()
+  public currentTime = -1;
+
   private async _loadComic() {
-    this._audioPlaylist = null;
     this._publication = null;
+    this._playlist = null;
 
-    const publication = await this._loadJsonFile(this._divinaJsonUrl, DivianPublication);
+    const publication = await this._loadJsonFile(this._manifestUrl, DivianPublication);
 
-    const audioPlaylist = new Set<string>();
     const narrationMap = new Map<string, NarratedPage>();
 
+    const playlist = new Array<PlaylistItem>();
+
+    function parseAudio(href: string) {
+      const url = new URL(href);
+      const m = /#t=(([0-9]+\.[0-9]+)|[0])?,([0-9]+\.[0-9]+)/.exec(url.hash);
+      if (!m) {
+        throw new Error(href);
+      }
+
+      const [, start, , end] = m;
+
+      return {
+        start: Number(start),
+        end: Number(end),
+      };
+    }
+
     for (const n of publication.Narration) {
-      n.Href = new URL(n.Href, this._divinaJsonUrl).href;
+      n.Href = new URL(n.Href, this._manifestUrl).href;
       narrationMap.set(n.Href, n);
 
       for (const p of n.Panels) {
         if (p.Audio) {
-          p.Audio = new URL(p.Audio, this._divinaJsonUrl).href;
+          p.Audio = new URL(p.Audio, this._manifestUrl).href;
         }
       }
     }
 
     for (const link of publication.Spine) {
-      link.Href = new URL(link.Href, this._divinaJsonUrl).href;
+      link.Href = new URL(link.Href, this._manifestUrl).href;
 
       if (link.Properties?.MediaOverlay) {
-        const mediaOverlayNode = await this._loadJsonFile(new URL(link.Properties?.MediaOverlay, this._divinaJsonUrl), MediaOverlayNode);
+        const mediaOverlayNode = await this._loadJsonFile(new URL(link.Properties?.MediaOverlay, this._manifestUrl), MediaOverlayNode);
         for (const m of mediaOverlayNode.Children) {
-          m.Text = new URL(m.Text, this._divinaJsonUrl).href;
+          m.Text = new URL(m.Text, this._manifestUrl).href;
           for (const c of m.Children ?? []) {
-            const audio = new URL(c.Audio, this._divinaJsonUrl);
+            const audio = new URL(c.Audio, this._manifestUrl);
+            const { start, end } = parseAudio(audio.href);
             c.Audio = audio.href;
 
             audio.hash = '';
-            audioPlaylist.add(audio.href);
+
+            const playlistItem = new PlaylistItem();
+            playlistItem.audio = audio.href;
+            playlistItem.start = start;
+            playlistItem.end = end;
+            playlistItem.textId = new URL(c.Text, this._manifestUrl).hash;
+            playlistItem.readingItem = link;
+            playlist.push(playlistItem);
           }
         }
 
@@ -398,24 +455,68 @@ export default class DivianNavigator extends LitElement {
 
         for (const p of n.Panels) {
           const audio = new URL(p.Audio);
+          const { start, end } = parseAudio(audio.href);
           audio.hash = '';
-          audioPlaylist.add(audio.href);
+
+          const playlistItem = new PlaylistItem();
+          playlistItem.audio = audio.href;
+          playlistItem.start = start;
+          playlistItem.end = end;
+          playlistItem.readingItem = link;
+          playlistItem.narratedPage = n;
+          playlistItem.panel = p;
+          playlist.push(playlistItem);
+
+          if (p.Texts?.length === 1) {
+            playlistItem.text = p.Texts[0];
+          } else {
+            for (const t of p.Texts ?? []) {
+              if (!t.AudioFragment) {
+                continue;
+              }
+
+              const tUrl = new URL(audio.href);
+              tUrl.hash = t.AudioFragment;
+
+              const { start: tStart, end: tEnd } = parseAudio(tUrl.href);
+
+              const tPlaylistItem = new PlaylistItem();
+              tPlaylistItem.audio = audio.href;
+              tPlaylistItem.start = tStart;
+              tPlaylistItem.end = tEnd;
+              tPlaylistItem.readingItem = link;
+              tPlaylistItem.narratedPage = n;
+              tPlaylistItem.panel = p;
+              tPlaylistItem.text = t;
+              playlist.push(tPlaylistItem);
+            }
+          }
         }
 
         continue;
       }
     }
 
-    this._audioPlaylist = audioPlaylist;
-
+    this._playlist = playlist;
     this._publication = publication;
+    this._currentPositionIdx = 0;
+
+    this.currentTime = this._currentPosition?.start ?? 0;
+
+    this._positionChanged();
   }
 
-  private _audioPlaylist: Set<string> | void;
+  private get _currentAudio() {
+    return this._currentPosition?.audio;
+  }
 
   private async _loadJsonFile<T>(url: string | URL, type: new (value?: any) => T) {
     const response = await fetch(url);
     return TaJson.parse(await response.text(), type);
+  }
+
+  private get _isNarratedPage() {
+    return this._readingItem.TypeLink?.startsWith('image/');
   }
 
   override render() {
@@ -425,23 +526,32 @@ export default class DivianNavigator extends LitElement {
 
     this._positionChanged();
 
-    if (!this._readingItem.TypeLink?.startsWith('image/')) {
-      return html`<iframe src="${this._readingItem.Href}"></iframe>`;
-    }
+    let content: TemplateResult;
 
-    return html`
-      <div class="container" style=${styleMap(this.containerStyles)}>
+    if (!this._isNarratedPage) {
+      content = html`<iframe id="iframe" src="${this._readingItem.Href}" @load=${this._highlightTextElement}></iframe>`;
+    } else {
+      content = html`
         <!-- Page -->
         ${this._renderImage('page')}
 
         <!-- Highlight panel box -->
-        ${this._renderImage('panel-highlight', !!this.panelClipPath)}
+        ${this._renderImage('panel-highlight', !!this._panelClipPath)}
 
         <!-- Highlight balloon box -->
-        ${this._renderImage('balloon-highlight', !!this.balloonClipPath)}
+        ${this._renderImage('balloon-highlight', !!this._balloonClipPath)}
 
         <!-- caption box - if enabled -->
         ${this._renderCaption()}
+      `;
+    }
+
+    return html`
+      <div class="container" style=${styleMap(this._containerStyles)}>
+        ${content}
+
+        <!-- add audio element -->
+        ${this._renderAudio()}
       </div>
     `;
   }
@@ -457,13 +567,13 @@ export default class DivianNavigator extends LitElement {
 
     return html`
       <div class="${imageClass}">
-        <img src="${this.comicPageUrl}" @load=${this._setImageLoaded} />
+        <img src="${this._comicPageUrl}" @load=${this._setImageLoaded} />
       </div>
     `;
   }
 
   private _renderCaption() {
-    const caption = this.currentBalloon?.Text;
+    const caption = this._currentBalloon?.Text;
     if (!caption) {
       return nothing;
     }
@@ -471,9 +581,107 @@ export default class DivianNavigator extends LitElement {
     return html`<div class="caption">${caption}</div>`;
   }
 
+  private _renderAudio() {
+    const audio = this._currentAudio;
+    if (!audio) {
+      return nothing;
+    }
+
+    return html`<audio
+      id="audio"
+      @loadeddata="${this._loadedAudioData}"
+      @timeupdate=${this._timeupdateEvent}
+      @ended=${this._endedEvent}
+      src="${audio}"
+    ></audio>`;
+  }
+
   private _positionChanged() {
     const event = new CustomEvent('position-changed');
     this.dispatchEvent(event);
+  }
+
+  private _highlightTextElement = () => {
+    const currentPosition = this._currentPosition;
+    if (!currentPosition) {
+      return;
+    }
+
+    if (currentPosition.textId && this.iframe) {
+      const highlightClassName = 'readiumCSS-mo-active-default';
+      const currentElement = this.iframe.contentDocument.body.querySelector(currentPosition.textId);
+      const els = this.iframe.contentDocument.body.querySelectorAll(`.${highlightClassName}`);
+      els?.forEach((e) => e !== currentElement && e.classList.remove(highlightClassName));
+
+      currentElement?.classList.add(highlightClassName);
+    }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private _timeupdateEvent = (evt: Event) => {
+    const currentPosition = this._currentPosition;
+    if (!currentPosition) {
+      return;
+    }
+
+    this._highlightTextElement();
+
+    const currentTime = (this.currentTime = this.audio?.currentTime);
+    if (currentPosition.start <= currentTime && currentTime < currentPosition.end) {
+      return;
+    }
+
+    if (this.canGoForward && currentPosition.audio === this._nextPosition?.audio) {
+      const audio = this._currentAudio;
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let idx = 0; idx < this._playlist.length; idx += 1) {
+        const item = this._playlist[idx];
+        if (item.audio !== audio) {
+          continue;
+        }
+
+        if (item.isWithinOffset(currentTime)) {
+          this._currentPositionIdx = idx;
+        }
+      }
+    }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private _loadedAudioData = (evt: Event) => {
+    this.audio.currentTime = this.currentTime;
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private _endedEvent = (evt: Event) => {
+    if (this.canGoForward) {
+      this._nextPage();
+
+      requestAnimationFrame(() => this.play());
+    }
+  };
+}
+
+class PlaylistItem {
+  public audio: string;
+
+  public start: number;
+
+  public end: number;
+
+  public readingItem: Link;
+
+  public textId?: string;
+
+  public narratedPage?: NarratedPage;
+
+  public panel?: Panel;
+
+  public text?: TextElement;
+
+  public isWithinOffset(offset: number) {
+    return this.start <= offset && offset < this.end;
   }
 }
 
