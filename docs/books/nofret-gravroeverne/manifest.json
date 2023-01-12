@@ -27,25 +27,19 @@
               "clip-path": "polygon(38.47% 4.47%,38.43% 6.61%,20.32% 6.53%,20.36% 4.38%)",
               "fragment": "#xywh=504,151,451,78",
               "text": "Sussi Bech",
-              "type": "sound"
+              "type": "caption"
             },
             {
               "clip-path": "polygon(56.90% 8.82%,56.69% 20.77%,2.98% 20.33%,3.19% 8.38%)",
               "fragment": "#xywh=74,289,1338,428",
               "text": "Nofret",
-              "type": "sound"
+              "type": "caption"
             },
             {
               "clip-path": "polygon(39.92% 24.77%,18.83% 24.77%,18.83% 22.74%,39.92% 22.74%)",
               "fragment": "#xywh=467,784,524,71",
               "text": "Gravrøverne",
-              "type": "sound"
-            },
-            {
-              "clip-path": "polygon(95.97% 96.66%,69.27% 96.66%,69.27% 94.40%,95.97% 94.40%)",
-              "fragment": "#xywh=1718,3255,663,79",
-              "text": "Carlsen Comics",
-              "type": "sound"
+              "type": "caption"
             }
           ]
         }
@@ -66,25 +60,19 @@
               "clip-path": "polygon(39.16% 13.01%,62.36% 13.09%,62.32% 15.82%,39.12% 15.73%)",
               "fragment": "#xywh=951,449,566,98",
               "text": "Sussi Bech",
-              "type": "sound"
+              "type": "caption"
             },
             {
               "clip-path": "polygon(24.64% 17.70%,77.50% 17.70%,77.50% 29.72%,24.64% 29.72%)",
               "fragment": "#xywh=599,611,1286,416",
               "text": "Nofret",
-              "type": "sound"
+              "type": "caption"
             },
             {
               "clip-path": "polygon(37.47% 31.60%,64.38% 31.60%,64.38% 34.15%,37.47% 34.15%)",
               "fragment": "#xywh=911,1091,655,89",
               "text": "Gravrøverne",
-              "type": "sound"
-            },
-            {
-              "clip-path": "polygon(34.18% 88.64%,68.24% 88.47%,68.28% 91.31%,34.22% 91.48%)",
-              "fragment": "#xywh=831,3054,830,105",
-              "text": "Carlsen Comics",
-              "type": "sound"
+              "type": "caption"
             }
           ]
         }
@@ -94,30 +82,24 @@
       "href": "image0002.jpg",
       "panels": [
         {
-          "audio": "07_Side_3.mp3#t=0,2.198",
+          "audio": "06_Side_2.mp3#t=0,4.199",
           "fragment": "#xywh=percent:0,0,100,100"
         },
         {
-          "audio": "06_Side_2.mp3#t=2.799,94.512",
+          "audio": "06_Side_2.mp3#t=4.199,94.512",
           "fragment": "#xywh=220,96,2096,2235",
           "texts": [
             {
-              "audioFragment": "06_Side_2.mp3#t=2.799,4.199",
+              "audioFragment": "06_Side_2.mp3#t=4.199,83.722",
               "clip-path": "polygon(7.24% 41.69%,92.52% 41.69%,92.52% 64.43%,7.24% 64.43%)",
               "fragment": "#xywh=176,1439,2074,785",
               "text": "» Vi fandt kong Sobekemsafs grav. Den var slet ikke som de grave, vi normalt plyndrede. Vi tog vores kob berværktøj, vi huggede en tunnel ind i denne konges grav, helt ind til dens inderste del, og vi opdagede dens underjordiske kammer. Vi tog fakler i hænderne og kravlede ind. Vi ryddede stendyngerne væk, som vi fandt ved indgangen til forkammeret, og vi fandt guden ( kongen ) bagest i sarkofagkammeret. Vi fandt også hans hustru, dronning Nubkhas' gravsted ved siden af, idet det var beskyttet og sikret med en mur, dækket med stendynger. Vi ryddede også disse væk. Vi fandt hende liggende på samme måde. Vi åbnede deres sarkofager og deres kister, som de lå i, og fandt denne konges ærværdige mumie udstyret med et krumsværd. Et stort antal amuletter og smykker lå om hans hals, og hans guldmaske dækkede hans ansigt. Denne konges ærvær dige mumie var helt dækket med guld. Hans kister var indvendigt og udvendigt smykket med guld og sølv og indlagt med forskellige kostbare stene. Vi rev guldet til os, som vi fandt på denne guds ærværdige mumie… og vi fandt dronningen smykket på samme måde. Vi rev alt til os, som vi fandt på hende, og vi satte ild til kisterne. Vi tog også gravgaverne med, som de havde hos sig, ting af guld, sølv og bronze, og delte dem mellem os. Vi delte også guldet, som vi havde fundet hos disse to guder, i otte dele. Til hver af os blev der 20 deben. <<"
             },
             {
-              "audioFragment": "06_Side_2.mp3#t=4.199,83.722",
+              "audioFragment": "06_Side_2.mp3#t=83.722,94.512",
               "clip-path": "polygon(7.77% 63.53%,91.98% 63.53%,91.98% 68.63%,7.77% 68.63%)",
               "fragment": "#xywh=189,2193,2048,176",
-              "text": "Referat af en gravrøvers tilståelse fra år 1112 før Kristi fødsel ( uddrag af ægyptolog Torben Holm-Rasmussens bog » Ansigt til ansigt med Ægypterne « )."
-            },
-            {
-              "audioFragment": "06_Side_2.mp3#t=83.722,94.512",
-              "clip-path": "polygon(30.96% 84.10%,68.59% 84.10%,68.59% 92.53%,30.96% 92.53%)",
-              "fragment": "#xywh=753,2903,915,291",
-              "text": "NOFRET 8: » Gravrøverne << Dansk originaludgave Copyright © 1995 Sussi Bech og Carlsen Comics, København Udgivet af Carlsen Comics, København Tilrettelagt af Jens Trasborg Trykt i Danmark 1995 (1. oplag ) 06-95-151 M-M 50-0579-008 ISBN 87-562-6205-1"
+              "text": "Referat af en gravrøvers tilståelse fra år 1112 før Kristi fødsel ( uddrag af ægyptolog Torben Holm-Rasmussens bog » Ansigt til ansigt med Ægypterne « ). NOFRET 8: » Gravrøverne << Dansk originaludgave Copyright © 1995 Sussi Bech og Carlsen Comics, København Udgivet af Carlsen Comics, København Tilrettelagt af Jens Trasborg Trykt i Danmark 1995 (1. oplag ) 06-95-151 M-M 50-0579-008 ISBN 87-562-6205-1"
             }
           ]
         }
@@ -271,11 +253,6 @@
               "clip-path": "polygon(58.94% 4.40%,68.24% 4.40%,68.24% 8.37%,58.94% 8.37%)",
               "fragment": "#xywh=1440,152,227,137",
               "text": "Hmf, hmf… hrrmf!!"
-            },
-            {
-              "clip-path": "polygon(47.77% 12.43%,52.48% 12.43%,52.48% 15.21%,47.77% 15.21%)",
-              "fragment": "#xywh=1167,429,115,96",
-              "text": "HA"
             }
           ]
         },

@@ -20,6 +20,12 @@ export default class DivianRenderer extends LitElement {
   @property()
   private isPlaying = false;
 
+  @property()
+  public showCaption = false;
+
+  @property()
+  public highlightBalloon = false;
+
   @query('#divina')
   public divinaEl: DivianNavigator;
 
@@ -33,7 +39,13 @@ export default class DivianRenderer extends LitElement {
   private renderBook(): TemplateResult | typeof nothing {
     const divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
 
-    return html`<divian-navigator id="divina" @position-changed="${this.positionChanged}" manifest="${divinaJsonUrl}"></divian-navigator>`;
+    return html`<divian-navigator
+      id="divina"
+      show-caption=${this.showCaption}
+      highlight-balloon=${this.highlightBalloon}
+      @position-changed="${this.positionChanged}"
+      manifest="${divinaJsonUrl}"
+    ></divian-navigator>`;
   }
 
   public readonly positionChanged = () => {
@@ -47,7 +59,7 @@ export default class DivianRenderer extends LitElement {
   private _renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string, iconClass: string): TemplateResult {
     return html`
       <div class="${classMap({ 'ui-icon': true, disabled: !isEnabled })}">
-        <i @click="${click}" class="${this.buttonControlClasses(isEnabled, iconClass)}" ?disabled="${!isEnabled}" alt="${label}"></i>
+        <i @click="${click}" class="${this.buttonControlClasses(isEnabled, iconClass)}" ?disabled="${!isEnabled}" title="${label}"></i>
       </div>
     `;
   }
@@ -56,12 +68,18 @@ export default class DivianRenderer extends LitElement {
     return html`
       <div class="book-controls">
         <!-- Go back button -->
-        ${this._renderControlButton(this._prevSegmentEvent, this.canGoBack, 'PREV', 'icofont-ui-previous')}
+        ${this._renderControlButton(this._goBackEvent, this.canGoBack, 'Go back', 'icofont-ui-previous')}
 
         <!-- play / pause button -->
         ${this._renderPlayPauseButtons()}
-        <div class="nav-idx"><span>${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span></div>
-        ${this._renderControlButton(this._nextSegmentEvent, this.canGoForward, 'NEXT', 'icofont-ui-next')}
+
+        <!-- Go Forward button -->
+        ${this._renderControlButton(this._goForwardEvent, this.canGoForward, 'Go forward', 'icofont-ui-next')}
+
+        <div class="nav-idx"><span>Page ${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span></div>
+
+        ${this._renderControlButton(this._toggleShowCaptionEvent, this.showCaption, 'Toggle caption', 'icofont-ui-text-chat')}
+        ${this._renderControlButton(this._toggleHighlightBalloonsEvent, this.highlightBalloon, 'Toggle balloon highlighting', 'icofont-speech-comments')}
       </div>
     `;
   }
@@ -87,20 +105,42 @@ export default class DivianRenderer extends LitElement {
     `;
   }
 
-  private readonly _prevSegmentEvent = () => {
-    this.divinaEl?.GoBack();
+  private readonly _goBackEvent = () => this.divinaEl?.GoBack();
+
+  private readonly _goForwardEvent = () => this.divinaEl?.GoForward();
+
+  private readonly _toggleShowCaptionEvent = () => {
+    this.showCaption = !this.showCaption;
+
+    this.requestUpdate();
   };
 
-  private readonly _nextSegmentEvent = () => {
-    this.divinaEl?.GoForward();
+  private readonly _toggleHighlightBalloonsEvent = () => {
+    this.highlightBalloon = !this.highlightBalloon;
+
+    this.requestUpdate();
   };
 
   private readonly _play = () => this.divinaEl?.play();
 
   private readonly _pause = () => this.divinaEl?.pause();
 
+  private readonly _onWindowResize = () => this.requestUpdate();
+
+  override connectedCallback() {
+    super.connectedCallback();
+
+    window.addEventListener('resize', this._onWindowResize);
+  }
+
+  override disconnectedCallback() {
+    super.disconnectedCallback();
+
+    window.removeEventListener('resize', this._onWindowResize);
+  }
+
   // Define scoped styles right with your component, in plain CSS
-  static styles = css`
+  public static styles = css`
     :host {
       display: flex;
       flex-direction: column;
@@ -112,7 +152,7 @@ export default class DivianRenderer extends LitElement {
       flex-direction: row;
       background-color: #212121;
       height: 50px;
-      justify-content: center;
+      justify-content: left;
     }
 
     .book-controls :is(.nav-idx, .ui-icon) {
@@ -122,6 +162,13 @@ export default class DivianRenderer extends LitElement {
 
     .book-controls .ui-icon {
       margin: 0 0.2em;
+    }
+
+    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments).disabled {
+      background-color: #212121;
+      color: white;
+      cursor: pointer;
+      opacity: 1;
     }
 
     .book-controls > .nav-idx > span {

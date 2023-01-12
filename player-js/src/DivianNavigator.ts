@@ -11,85 +11,6 @@ import DivianPublication from './Model/DivianPublication';
 
 @customElement('divian-navigator')
 export default class DivianNavigator extends LitElement {
-  static override styles = css`
-    :host {
-      display: flex;
-      padding: 0;
-      margin: 0;
-      position: relative;
-      height: inherit;
-      background-color: rgba(10, 10, 10, 0.15);
-    }
-
-    iframe {
-      margin: 0 auto;
-      flex-grow: 1;
-      flex-shrink: 1;
-      height: 100%;
-      min-height: 0;
-      max-width: 1024px;
-      border: 0;
-    }
-
-    div.container {
-      margin: 0 auto;
-      display: flex;
-      flex-grow: 1;
-      flex-shrink: 1;
-      height: 100%;
-      min-height: 0;
-    }
-
-    div.container > div:is(.page, .panel-highlight, .balloon-highlight) {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: center;
-      height: var(--rendered-height);
-      width: var(--rendered-width);
-      transform: translate(var(--panel-translate-x), var(--panel-translate-y));
-    }
-
-    div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
-      height: var(--rendered-height);
-      width: var(--rendered-width);
-    }
-
-    div.balloon-highlight {
-      background-color: rgba(116, 116, 116, 0.4);
-    }
-
-    div.balloon-highlight img {
-      clip-path: var(--balloon-clip-path);
-    }
-
-    div.panel-highlight {
-      background-color: rgba(30, 30, 30, 0.45);
-    }
-
-    div.panel-highlight img {
-      clip-path: var(--panel-clip-path);
-    }
-
-    div.container > div.caption {
-      position: absolute;
-      left: unset;
-      top: unset;
-      right: 0;
-      bottom: 0;
-      font-weight: bold;
-      margin: 2em;
-      padding: 1em;
-      background-color: rgba(200, 200, 200, 0.9);
-      border-radius: 1rem;
-    }
-
-    #audio {
-      height: 0;
-      width: 0;
-    }
-  `;
-
   @property()
   private _publication?: DivianPublication;
 
@@ -109,12 +30,45 @@ export default class DivianNavigator extends LitElement {
   }
 
   @property({ attribute: 'manifest' })
-  public set manifestUrl(value: string) {
+  public set manifestUrl(value: string | undefined) {
+    if (!value) {
+      this._manifestUrl = undefined;
+      return;
+    }
+
     if (this._manifestUrl !== value) {
       this._manifestUrl = new URL(value, location.href).href;
 
       this._loadComic().catch((e) => console.error(e));
     }
+  }
+
+  private _showCaption = false;
+  public get showCaption() {
+    return this._showCaption;
+  }
+
+  @property({ attribute: 'show-caption' })
+  public set showCaption(value) {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    this._showCaption = `${value}` === 'true';
+
+    // Why is this needed here?
+    this.requestUpdate();
+  }
+
+  private _highlightBalloon = false;
+  public get highlightBalloon() {
+    return this._highlightBalloon;
+  }
+
+  @property({ attribute: 'highlight-balloon' })
+  public set highlightBalloon(value) {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    this._highlightBalloon = `${value}` === 'true';
+
+    // Why is this needed here?
+    this.requestUpdate();
   }
 
   @property()
@@ -123,8 +77,13 @@ export default class DivianNavigator extends LitElement {
   private _playlist?: PlaylistItem[];
 
   private get _prevPosition() {
-    if (this._currentPositionIdx > 0) {
-      return this._playlist?.[this._currentPositionIdx - 1];
+    for (let i = this._currentPositionIdx - 1; i > 0; i -= 1) {
+      const item = this._playlist?.[i];
+      if (!this.highlightBalloon && item?.text) {
+        continue;
+      }
+
+      return item;
     }
   }
 
@@ -133,19 +92,31 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get _nextPosition() {
-    return this._playlist?.[this._currentPositionIdx + 1];
+    const playlist = this._playlist;
+    if (!playlist) {
+      return;
+    }
+
+    for (let i = this._currentPositionIdx + 1; i < playlist.length; i += 1) {
+      const item = playlist[i];
+      if (!this.highlightBalloon && item.text) {
+        continue;
+      }
+
+      return item;
+    }
   }
 
   private get _spineIdx() {
-    return this._publication?.Spine.indexOf(this._readingItem);
+    return (this._readingItem && this._publication?.Spine?.indexOf(this._readingItem)) || -1;
   }
 
   private get _hasPrevPage() {
-    return this._spineIdx > 0;
+    return this._spineIdx ?? 0 > 0;
   }
 
   private get _hasNextPage() {
-    return this._spineIdx <= this._publication?.Spine.length;
+    return this._spineIdx <= (this._publication?.Spine?.length ?? 0);
   }
 
   private get _currentNarratedPage() {
@@ -241,7 +212,7 @@ export default class DivianNavigator extends LitElement {
 
     if (this._imageLoading) {
       return {
-        renderedWidth: '1px',
+        renderedWidth: '-1px',
         renderedHeight: '1px',
       };
     }
@@ -291,16 +262,21 @@ export default class DivianNavigator extends LitElement {
 
     const currentPosition = this._currentPosition;
     const prevPosition = this._prevPosition;
+    const audio = this.audio;
+    if (!audio || !currentPosition || !prevPosition) {
+      return;
+    }
 
-    this._currentPositionIdx -= 1;
+    this._currentPositionIdx = this._playlist?.indexOf(prevPosition) ?? 0;
 
     const isPlaying = this.isPlaying;
     this.pause();
     this.currentTime = prevPosition.start;
     if (currentPosition.audio !== prevPosition.audio) {
-      this.audio.src = prevPosition.audio;
+      audio.src = prevPosition.audio;
     }
-    this.audio.currentTime = prevPosition.start;
+
+    audio.currentTime = prevPosition.start;
 
     this._positionChanged();
 
@@ -310,21 +286,25 @@ export default class DivianNavigator extends LitElement {
   }
 
   public GoForward() {
-    if (!this.canGoBack) {
+    if (!this.canGoForward) {
       return;
     }
 
     const currentPosition = this._currentPosition;
     const nextPosition = this._nextPosition;
+    const audio = this.audio;
+    if (!audio || !currentPosition || !nextPosition) {
+      return;
+    }
 
-    this._currentPositionIdx += 1;
+    this._currentPositionIdx = this._playlist?.indexOf(nextPosition) ?? 0;
 
     const isPlaying = this.isPlaying;
     this.currentTime = nextPosition.start;
-    this.audio.currentTime = nextPosition.start;
     if (currentPosition.audio !== nextPosition.audio) {
-      this.audio.src = nextPosition.audio;
+      audio.src = nextPosition.audio;
     }
+    audio.currentTime = nextPosition.start;
 
     this._positionChanged();
 
@@ -338,13 +318,17 @@ export default class DivianNavigator extends LitElement {
       return;
     }
 
-    const readingItem = this._publication.Spine[this._spineIdx + 1];
+    const readingItem = this._publication?.Spine?.[this._spineIdx + 1];
+    const playlist = this._playlist;
+    if (!playlist) {
+      return;
+    }
 
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let idx = 0; idx < this._playlist.length; idx += 1) {
-      const playlistItem = this._playlist[idx];
+    for (let idx = 0; idx < playlist.length; idx += 1) {
+      const playlistItem = playlist[idx];
       if (playlistItem.readingItem === readingItem) {
-        this._currentPositionIdx += 1;
+        this._currentPositionIdx = idx;
         break;
       }
     }
@@ -354,11 +338,11 @@ export default class DivianNavigator extends LitElement {
   }
 
   public get canGoBack() {
-    return this._currentPositionIdx > 0;
+    return !!this._prevPosition;
   }
 
   public get canGoForward() {
-    return this._currentPositionIdx < this._playlist.length - 1;
+    return !!this._nextPosition;
   }
 
   public get numberOfPages() {
@@ -366,7 +350,12 @@ export default class DivianNavigator extends LitElement {
   }
 
   public get currentPageNumber() {
-    return this._publication?.Spine?.indexOf(this._readingItem) + 1;
+    const readingItem = this._readingItem;
+    if (!readingItem) {
+      return -1;
+    }
+
+    return (this._publication?.Spine?.indexOf(readingItem) ?? 0) + 1;
   }
 
   public get isPlaying() {
@@ -386,8 +375,8 @@ export default class DivianNavigator extends LitElement {
   public currentTime = -1;
 
   private async _loadComic() {
-    this._publication = null;
-    this._playlist = null;
+    this._publication = undefined;
+    this._playlist = undefined;
 
     const publication = await this._loadJsonFile(this._manifestUrl, DivianPublication);
 
@@ -421,7 +410,7 @@ export default class DivianNavigator extends LitElement {
       }
     }
 
-    for (const link of publication.Spine) {
+    for (const link of publication.Spine ?? []) {
       link.Href = new URL(link.Href, this._manifestUrl).href;
 
       if (link.Properties?.MediaOverlay) {
@@ -452,9 +441,13 @@ export default class DivianNavigator extends LitElement {
 
       if (link.TypeLink?.startsWith('image/')) {
         const n = narrationMap.get(link.Href);
+        if (!n) {
+          throw new Error();
+        }
 
         for (const p of n.Panels) {
-          const audio = new URL(p.Audio);
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-unnecessary-type-assertion
+          const audio = new URL(p.Audio!);
           const { start, end } = parseAudio(audio.href);
           audio.hash = '';
 
@@ -467,18 +460,33 @@ export default class DivianNavigator extends LitElement {
           playlistItem.panel = p;
           playlist.push(playlistItem);
 
-          if (p.Texts?.length === 1) {
-            playlistItem.text = p.Texts[0];
-          } else {
-            for (const t of p.Texts ?? []) {
+          if (p.Texts) {
+            const textLength = p.Texts.filter((t) => !t.AudioFragment).reduce((length, t) => length + (t.Text?.length ?? 0), 0);
+
+            const textDuration = p.Texts.filter((t) => !!t.AudioFragment)
+              .map((t) => {
+                const tUrl = new URL(audio.href);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                tUrl.hash = t.AudioFragment!;
+
+                return parseAudio(tUrl.href);
+              })
+              .reduce((res, item) => res + (item.end - item.start), 0);
+
+            const panelDuration = playlistItem.end - playlistItem.start - textDuration;
+
+            let lastEnd = playlistItem.start;
+            for (const t of p.Texts) {
+              const pctLength = t.Text?.length ?? 0 / textLength;
               if (!t.AudioFragment) {
-                continue;
+                t.AudioFragment = `#t=${lastEnd},${lastEnd + panelDuration * pctLength}`;
               }
 
               const tUrl = new URL(audio.href);
               tUrl.hash = t.AudioFragment;
 
               const { start: tStart, end: tEnd } = parseAudio(tUrl.href);
+              lastEnd = tEnd;
 
               const tPlaylistItem = new PlaylistItem();
               tPlaylistItem.audio = audio.href;
@@ -510,17 +518,21 @@ export default class DivianNavigator extends LitElement {
     return this._currentPosition?.audio;
   }
 
-  private async _loadJsonFile<T>(url: string | URL, type: new (value?: any) => T) {
+  private async _loadJsonFile<T>(url: string | URL | undefined, type: new (value?: any) => T) {
+    if (!url) {
+      throw new Error('url cannot be undefined');
+    }
     const response = await fetch(url);
     return TaJson.parse(await response.text(), type);
   }
 
   private get _isNarratedPage() {
-    return this._readingItem.TypeLink?.startsWith('image/');
+    return this._readingItem?.TypeLink?.startsWith('image/') ?? false;
   }
 
   override render() {
-    if (!this._publication) {
+    const readingItem = this._readingItem;
+    if (!this._publication || !readingItem) {
       return html`<div>Loading</div>`;
     }
 
@@ -529,7 +541,7 @@ export default class DivianNavigator extends LitElement {
     let content: TemplateResult;
 
     if (!this._isNarratedPage) {
-      content = html`<iframe id="iframe" src="${this._readingItem.Href}" @load=${this._highlightTextElement}></iframe>`;
+      content = html`<iframe id="iframe" src="${readingItem.Href}" @load=${this._highlightTextElement}></iframe>`;
     } else {
       content = html`
         <!-- Page -->
@@ -539,7 +551,7 @@ export default class DivianNavigator extends LitElement {
         ${this._renderImage('panel-highlight', !!this._panelClipPath)}
 
         <!-- Highlight balloon box -->
-        ${this._renderImage('balloon-highlight', !!this._balloonClipPath)}
+        ${this._renderImage('balloon-highlight', !!this._balloonClipPath && this.highlightBalloon)}
 
         <!-- caption box - if enabled -->
         ${this._renderCaption()}
@@ -558,21 +570,28 @@ export default class DivianNavigator extends LitElement {
 
   private _setImageLoaded = () => {
     this._imageLoading = false;
+
+    this.requestUpdate();
   };
 
   private _renderImage(imageClass: string, enabled = true) {
-    if (!enabled) {
+    const url = this._comicPageUrl;
+    if (!enabled || !url) {
       return nothing;
     }
 
     return html`
       <div class="${imageClass}">
-        <img src="${this._comicPageUrl}" @load=${this._setImageLoaded} />
+        <img src="${url}" @load=${this._setImageLoaded} />
       </div>
     `;
   }
 
   private _renderCaption() {
+    if (!this.showCaption) {
+      return nothing;
+    }
+
     const caption = this._currentBalloon?.Text;
     if (!caption) {
       return nothing;
@@ -607,60 +626,157 @@ export default class DivianNavigator extends LitElement {
       return;
     }
 
-    if (currentPosition.textId && this.iframe) {
-      const highlightClassName = 'readiumCSS-mo-active-default';
-      const currentElement = this.iframe.contentDocument.body.querySelector(currentPosition.textId);
-      const els = this.iframe.contentDocument.body.querySelectorAll(`.${highlightClassName}`);
-      els?.forEach((e) => e !== currentElement && e.classList.remove(highlightClassName));
+    requestAnimationFrame(() => {
+      if (currentPosition.textId && this.iframe?.contentDocument?.body) {
+        const highlightClassName = 'readiumCSS-mo-active-default';
+        const currentElement = this.iframe.contentDocument.body.querySelector(currentPosition.textId);
+        const els = this.iframe.contentDocument.body.querySelectorAll(`.${highlightClassName}`);
+        els?.forEach((e) => e !== currentElement && e.classList.remove(highlightClassName));
 
-      currentElement?.classList.add(highlightClassName);
-    }
+        currentElement?.classList.add(highlightClassName);
+      }
+    });
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private _timeupdateEvent = (evt: Event) => {
     const currentPosition = this._currentPosition;
-    if (!currentPosition) {
+    const playlist = this._playlist;
+    if (!currentPosition || !playlist) {
       return;
     }
 
     this._highlightTextElement();
 
-    const currentTime = (this.currentTime = this.audio?.currentTime);
+    const currentTime = (this.currentTime = this.audio?.currentTime ?? 0);
     if (currentPosition.start <= currentTime && currentTime < currentPosition.end) {
       return;
     }
 
-    if (this.canGoForward && currentPosition.audio === this._nextPosition?.audio) {
-      const audio = this._currentAudio;
+    const audio = this._currentAudio;
 
-      // eslint-disable-next-line @typescript-eslint/prefer-for-of
-      for (let idx = 0; idx < this._playlist.length; idx += 1) {
-        const item = this._playlist[idx];
-        if (item.audio !== audio) {
-          continue;
-        }
+    let positionIdx = this._currentPositionIdx;
 
-        if (item.isWithinOffset(currentTime)) {
-          this._currentPositionIdx = idx;
-        }
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
+    for (let idx = 0; idx < playlist.length; idx += 1) {
+      const item = playlist[idx];
+      if (item.audio !== audio) {
+        continue;
+      }
+
+      if (!this._highlightBalloon && item.text) {
+        continue;
+      }
+
+      if (item.isWithinOffset(currentTime)) {
+        positionIdx = idx;
       }
     }
+
+    this._currentPositionIdx = positionIdx;
+
+    this._positionChanged();
+
+    this.requestUpdate();
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private _loadedAudioData = (evt: Event) => {
-    this.audio.currentTime = this.currentTime;
+    const audio = this.audio;
+    if (audio) {
+      audio.currentTime = this.currentTime;
+    }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private _endedEvent = (evt: Event) => {
-    if (this.canGoForward) {
-      this._nextPage();
-
-      requestAnimationFrame(() => this.play());
+    if (!this.canGoForward) {
+      return;
     }
+
+    this._nextPage();
+
+    this.play();
   };
+
+  static override styles = css`
+    :host {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      height: inherit;
+      background-color: rgba(10, 10, 10, 0.15);
+    }
+
+    iframe {
+      margin: 0 auto;
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 100%;
+      min-height: 0;
+      max-width: 1024px;
+      border: 0;
+    }
+
+    div.container {
+      margin: 0 auto;
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 100%;
+      min-height: 0;
+    }
+
+    div.container > div:is(.page, .panel-highlight, .balloon-highlight) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: center;
+      height: var(--rendered-height);
+      width: var(--rendered-width);
+      transform: translate(var(--panel-translate-x), var(--panel-translate-y));
+    }
+
+    div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
+      height: var(--rendered-height);
+      width: var(--rendered-width);
+    }
+
+    div.balloon-highlight {
+      background-color: rgba(116, 116, 116, 0.4);
+    }
+
+    div.balloon-highlight img {
+      clip-path: var(--balloon-clip-path);
+    }
+
+    div.panel-highlight {
+      background-color: rgba(30, 30, 30, 0.45);
+    }
+
+    div.panel-highlight img {
+      clip-path: var(--panel-clip-path);
+    }
+
+    div.container > div.caption {
+      position: absolute;
+      left: unset;
+      top: unset;
+      right: 0;
+      bottom: 0;
+      font-weight: bold;
+      margin: 2em;
+      padding: 1em;
+      background-color: rgba(200, 200, 200, 0.9);
+      border-radius: 1rem;
+    }
+
+    #audio {
+      height: 0;
+      width: 0;
+    }
+  `;
 }
 
 class PlaylistItem {
@@ -681,7 +797,8 @@ class PlaylistItem {
   public text?: TextElement;
 
   public isWithinOffset(offset: number) {
-    return this.start <= offset && offset < this.end;
+    const roundingErrorFactor = 0.001; // we need to handle rounding issues with numbers in JS.
+    return this.start - roundingErrorFactor <= offset && offset < this.end + roundingErrorFactor;
   }
 }
 
