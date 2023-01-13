@@ -37,7 +37,7 @@ export default class DivianRenderer extends LitElement {
   }
 
   private renderBook(): TemplateResult | typeof nothing {
-    const divinaJsonUrl = `/books/nofret-gravroeverne/manifest.json`;
+    const divinaJsonUrl = `/divian/books/nofret-gravroeverne/manifest.json`;
 
     return html`<divian-navigator
       id="divina"

@@ -23,5 +23,8 @@
     "unpackaged",
     "webp",
     "xywh"
-  ]
+  ],
+  "files.exclude": {
+    "**/docs/player": true
+  }
 }

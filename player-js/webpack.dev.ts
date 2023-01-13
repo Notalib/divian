@@ -13,11 +13,11 @@ export default <webpack.Configuration>{
       outputPath,
       {
         directory: path.resolve(__dirname, '..', 'docs', 'books'),
-        publicPath: '/books',
+        publicPath: '/divian/books',
       },
       {
         directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css'),
-        publicPath: '/player/readium-css',
+        publicPath: '/divian/player/readium-css',
       },
     ],
     port: 4200,
