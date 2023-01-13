@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker-danish",
+        "streetsidesoftware.code-spell-checker",
+        "dbaeumer.vscode-eslint",
+        "runem.lit-plugin",
+        "yzhang.markdown-all-in-one"
+    ]
+}

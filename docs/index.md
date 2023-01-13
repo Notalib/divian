@@ -1,4 +1,6 @@
-# Digital Visual Audible Narratives (DiViAN)
+---
+title: Digital Visual Audible Narratives (DiViAN)
+---
 
 **Editors:**
 
@@ -278,4 +280,7 @@ TODO:
 
 ## Appendix B. Examples
 
-TODO:
+### Example: Nofret - Gravrøverne
+
+DiViAN comic book with danish narration, see the [manifest](/books/nofret-gravroeverne/manifest.json) or open in [demo player](/player).
+
