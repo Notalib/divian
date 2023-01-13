@@ -1,3 +1,3 @@
 import './index.scss';
-import './demo';
 import './DivianNavigator';
+import './demo/DivianRenderer';

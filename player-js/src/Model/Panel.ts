@@ -19,8 +19,13 @@ export default class Panel {
   public Texts?: TextElement[];
 
   public get SizeInfo() {
+    const fragment = this.Fragment;
+    if (!fragment) {
+      return null;
+    }
+
     const pxRegexp = /#xywh=([\d]+),([\d]+),([\d]+),([\d]+)/;
-    const m = pxRegexp.exec(this.Fragment);
+    const m = pxRegexp.exec(fragment);
     if (!m) {
       return null;
     }

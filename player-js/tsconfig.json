@@ -8,12 +8,8 @@
     "module": "commonjs",
     "target": "es6",
     "outDir": "./dist",
-    "allowJs": true,
     "moduleResolution": "node",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["src/*"]
-    }
+    "baseUrl": "."
   },
   "include": [
     "src/**/*",

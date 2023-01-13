@@ -1,13 +1,13 @@
 import { LitElement, css, html, nothing, TemplateResult } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import NarratedPage from 'Model/NarratedPage';
-import Panel from 'Model/Panel';
-import TextElement from 'Model/TextElement';
 import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import { TaJson } from 'ta-json-x';
 import DivianPublication from './Model/DivianPublication';
+import NarratedPage from './Model/NarratedPage';
+import Panel from './Model/Panel';
+import TextElement from './Model/TextElement';
 
 @customElement('divian-navigator')
 export default class DivianNavigator extends LitElement {
@@ -77,7 +77,7 @@ export default class DivianNavigator extends LitElement {
   private _playlist?: PlaylistItem[];
 
   private get _prevPosition() {
-    for (let i = this._currentPositionIdx - 1; i > 0; i -= 1) {
+    for (let i = this._currentPositionIdx - 1; i >= 0; i -= 1) {
       const item = this._playlist?.[i];
       if (!this.highlightBalloon && item?.text) {
         continue;

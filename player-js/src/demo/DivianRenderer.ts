@@ -95,13 +95,11 @@ export default class DivianRenderer extends LitElement {
   override render(): TemplateResult {
     return html`
       <!-- Workaround to make icofonts work inside the shadow dom. -->
-      <link href="/assets/icofont/icofont.min.css" rel="stylesheet" />
+      <link href="assets/icofont/icofont.min.css" rel="stylesheet" />
 
       ${this._renderControls()}
 
       <section class="content-viewer">${this.renderBook()}</section>
-
-      <footer>DEMO</footer>
     `;
   }
 
@@ -145,30 +143,21 @@ export default class DivianRenderer extends LitElement {
       display: flex;
       flex-direction: column;
       height: 100vh;
+      --background-color: #212121;
     }
 
     .book-controls {
       display: flex;
       flex-direction: row;
-      background-color: #212121;
+      background-color: var(--background-color);
       height: 50px;
       justify-content: left;
+      padding: 0.2em;
     }
 
     .book-controls :is(.nav-idx, .ui-icon) {
-      line-height: 50px;
+      line-height: calc(50px - 0.2em * 2);
       margin: 0 2em;
-    }
-
-    .book-controls .ui-icon {
-      margin: 0 0.2em;
-    }
-
-    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments).disabled {
-      background-color: #212121;
-      color: white;
-      cursor: pointer;
-      opacity: 1;
     }
 
     .book-controls > .nav-idx > span {
@@ -177,6 +166,17 @@ export default class DivianRenderer extends LitElement {
       line-height: normal;
       color: white;
       font-weight: bolder;
+    }
+
+    .book-controls .ui-icon {
+      margin: 0 0.2em;
+    }
+
+    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments).disabled {
+      background-color: var(--background-color);
+      color: white;
+      cursor: pointer;
+      opacity: 1;
     }
 
     .book-controls .ui-icon i {
@@ -205,31 +205,11 @@ export default class DivianRenderer extends LitElement {
     .content-viewer {
       overflow: hidden;
       display: flex;
+      border-bottom: 0.8em solid var(--background-color);
     }
 
     .content-viewer divian-navigator {
       flex-grow: 1;
     }
-
-    footer {
-      background-color: yellow;
-      display: block;
-      text-align: center;
-      justify-content: flex-end;
-    }
   `;
-}
-
-export interface MediaOverlay {
-  role: string;
-  narration: MediaOverlayNarration[];
-}
-
-export interface MediaOverlayNarration {
-  narration: MediaOverlayNarrationNode[];
-}
-
-export interface MediaOverlayNarrationNode {
-  text: string;
-  audio: string;
 }

@@ -6,9 +6,6 @@ import { getEnvVariables, outputPath, resolveApp } from './webpack.tools';
 import * as path from 'path';
 
 export default <webpack.Configuration>{
-  entry: {
-    main: './src/index.ts',
-  },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
@@ -19,12 +16,8 @@ export default <webpack.Configuration>{
         publicPath: '/books',
       },
       {
-        directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'src'),
-        publicPath: '/readium-css',
-      },
-      {
-        directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css', 'ReadiumCSS-config.css'),
-        publicPath: '/ReadiumCSS-config.css',
+        directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css'),
+        publicPath: '/player/readium-css',
       },
     ],
     port: 4200,
@@ -43,7 +36,7 @@ export default <webpack.Configuration>{
     }),
     new ProgressPlugin(),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       template: resolveApp('src/index.html'),
       ...getEnvVariables()
     }),

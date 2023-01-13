@@ -1,8 +1,15 @@
 import * as TerserPlugin from 'terser-webpack-plugin';
 import * as webpack from 'webpack';
+import * as path from 'path';
 
 export default <webpack.Configuration>{
   mode: 'production',
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, '..', 'docs', 'player'),
+    library: '[name]',
+    libraryTarget: 'var',
+  },
   optimization: {
     minimizer: [new TerserPlugin()],
 
