@@ -5,7 +5,7 @@ import * as path from 'path';
 export default <webpack.Configuration>{
   mode: 'production',
   output: {
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, '..', 'docs', 'player'),
     library: '[name]',
     libraryTarget: 'var',

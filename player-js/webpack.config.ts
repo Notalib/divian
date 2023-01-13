@@ -39,7 +39,7 @@ export default function (): webpack.Configuration {
       }),
       new ProgressPlugin(),
       new CleanWebpackPlugin(),
-      new MiniCssExtractPlugin({ filename: '[name].css' }),
+      new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
       new HtmlWebpackPlugin({
         inject: true,
         template: resolveApp('src/index.html'),
