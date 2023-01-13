@@ -282,5 +282,5 @@ TODO:
 
 ### Example: Nofret - Gravrøverne
 
-DiViAN comic book with danish narration, see the [manifest](/books/nofret-gravroeverne/manifest.json) or open in [demo player](/player).
+DiViAN comic book with danish narration, see the [manifest](/books/nofret-gravroeverne/manifest.json) or open in [demo player](/divian/player).
 
