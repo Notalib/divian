@@ -4,16 +4,25 @@ import * as webpack from 'webpack';
 import { ProgressPlugin } from 'webpack';
 import { getEnvVariables, outputPath, resolveApp } from './webpack.tools';
 import * as path from 'path';
+import 'webpack-dev-server';
 
 export default <webpack.Configuration>{
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
+    client: {
+      logging: 'info',
+    },
     static: [
       outputPath,
       {
         directory: path.resolve(__dirname, '..', 'docs', 'books'),
         publicPath: '/divian/books',
+      },
+      {
+        directory: path.resolve(__dirname, '..', 'docs', 'assets'),
+        publicPath: '/divian/assets',
+        serveIndex: true,
       },
       {
         directory: path.resolve(__dirname, 'node_modules', 'readium-css', 'css'),

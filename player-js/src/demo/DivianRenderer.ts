@@ -1,6 +1,7 @@
 import { LitElement, TemplateResult, css, html, nothing } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import DivianNavigator from '../DivianNavigator';
 
 @customElement('divian-renderer')
@@ -26,6 +27,24 @@ export default class DivianRenderer extends LitElement {
   @property()
   public highlightBalloon = false;
 
+  @property()
+  public infoBoxOpen = false;
+
+  @property()
+  public tocOpen = false;
+
+  @property()
+  public spine?: Link[];
+
+  @property()
+  public currentSpineItem?: Link;
+
+  @property()
+  public duration?: number;
+
+  @property()
+  public currentTime?: number;
+
   @query('#divina')
   public divinaEl: DivianNavigator;
 
@@ -36,37 +55,41 @@ export default class DivianRenderer extends LitElement {
     });
   }
 
-  private renderBook(): TemplateResult | typeof nothing {
+  private _renderBook() {
     const divinaJsonUrl = `/divian/books/nofret-gravroeverne/manifest.json`;
 
     return html`<divian-navigator
       id="divina"
       show-caption=${this.showCaption}
       highlight-balloon=${this.highlightBalloon}
-      @position-changed="${this.positionChanged}"
+      @position-changed="${this._positionChangedEvent}"
       manifest="${divinaJsonUrl}"
     ></divian-navigator>`;
   }
 
-  public readonly positionChanged = () => {
+  private readonly _positionChangedEvent = () => {
     this.canGoBack = !!this.divinaEl?.canGoBack;
     this.canGoForward = !!this.divinaEl?.canGoForward;
     this.currentPageNumber = this.divinaEl?.currentPageNumber ?? 0;
     this.numberOfPages = this.divinaEl?.numberOfPages ?? 0;
     this.isPlaying = !!this.divinaEl?.isPlaying;
+    this.spine = this.divinaEl?.spine;
+    this.currentSpineItem = this.divinaEl?.currentSpineItem;
+    this.currentTime = this.divinaEl?.currentTime;
+    this.duration = this.divinaEl?.duration;
   };
 
   private _renderControlButton(click: (e: Event) => void, isEnabled: boolean, label: string, iconClass: string): TemplateResult {
     return html`
-      <div class="${classMap({ 'ui-icon': true, disabled: !isEnabled })}">
-        <i @click="${click}" class="${this.buttonControlClasses(isEnabled, iconClass)}" ?disabled="${!isEnabled}" title="${label}"></i>
+      <div class="${classMap({ 'ui-icon': true, disabled: !isEnabled, [`ui-icon-${iconClass}`]: true })}" role="button" @click="${click}">
+        <i class="${this.buttonControlClasses(isEnabled, iconClass)}" title="${label}"></i>
       </div>
     `;
   }
 
   private _renderControls() {
     return html`
-      <div class="book-controls">
+      <nav class="book-controls">
         <!-- Go back button -->
         ${this._renderControlButton(this._goBackEvent, this.canGoBack, 'Go back', 'icofont-ui-previous')}
 
@@ -76,30 +99,134 @@ export default class DivianRenderer extends LitElement {
         <!-- Go Forward button -->
         ${this._renderControlButton(this._goForwardEvent, this.canGoForward, 'Go forward', 'icofont-ui-next')}
 
-        <div class="nav-idx"><span>Page ${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span></div>
+        <div class="nav-idx" title="Page ${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}">
+          <span>Page ${this.currentPageNumber ?? 0} / ${this.numberOfPages ?? 0}</span>
+        </div>
 
         ${this._renderControlButton(this._toggleShowCaptionEvent, this.showCaption, 'Toggle caption', 'icofont-ui-text-chat')}
         ${this._renderControlButton(this._toggleHighlightBalloonsEvent, this.highlightBalloon, 'Toggle balloon highlighting', 'icofont-speech-comments')}
+        ${this._renderProgressBar()}
+
+        <!-- menus -->
+        <div class="menus">
+          ${this._renderControlButton(this._toggleTOCEvent, this.tocOpen, 'Open/close TOC', 'icofont-navigation-menu')}
+          ${this._renderControlButton(this._toggleInfoBoxEvent, this.infoBoxOpen, 'Open/close information', 'icofont-info-square')}
+        </div>
+      </nav>
+    `;
+  }
+
+  private _formatTime(time: number) {
+    const hours = Math.floor(time / 3600);
+    const minutes = Math.floor((time - hours * 60) / 60);
+    const seconds = Math.floor(time % 60);
+
+    const d = hours > 0 ? [hours, minutes, seconds] : [minutes, seconds];
+
+    return d.map((v: number): string => `000${v}`.slice(-2)).join(':');
+  }
+
+  private _renderProgressBar() {
+    const currentTime = this._formatTime(this.currentTime ?? 0);
+    const duration = this._formatTime(this.duration ?? 0);
+    const progression = ((this.currentTime ?? 0) / (this.duration ?? 1)) * 100;
+
+    return html`
+      <div class="progress-container">
+        <div title="Current time: ${currentTime}">${currentTime}</div>
+        <div class="progress-bar">
+          <progress value="${progression}" max="100"></progress>
+        </div>
+        <div title="Duration ${duration}">${duration}</div>
       </div>
     `;
   }
 
   private _renderPlayPauseButtons() {
+    let clickEvent = this._play;
+    let label = 'Play';
+    let iconClass = 'icofont-ui-play';
     if (this.isPlaying) {
-      return html`${this._renderControlButton(this._pause, true, 'Pause', 'icofont-ui-pause')}`;
+      clickEvent = this._pause;
+      label = 'Pause';
+      iconClass = 'icofont-ui-pause';
     }
 
-    return html`${this._renderControlButton(this._play, true, 'Play', 'icofont-ui-play')}`;
+    return html`${this._renderControlButton(clickEvent, true, label, iconClass)}`;
+  }
+
+  private _renderInfoSideMenu() {
+    if (!this.infoBoxOpen) {
+      return nothing;
+    }
+
+    return this._renderSideMenu(
+      html`
+        <h1>DiViAN</h1>
+        <section>Read about DiViAN format <a href="/" target="_blank">her</a>.</section>
+      `,
+      this._toggleInfoBoxEvent,
+    );
+  }
+
+  private _renderTOCSideMenu() {
+    if (!this.tocOpen) {
+      return nothing;
+    }
+
+    const spine = this.spine;
+    if (!spine) {
+      return nothing;
+    }
+
+    const currentSpineItem = this.currentSpineItem;
+    if (!currentSpineItem) {
+      return nothing;
+    }
+
+    return this._renderSideMenu(
+      html`${spine.map(
+        (s, i) =>
+          html`<div
+            role="button"
+            tabindex=${i}
+            aria-pressed="false"
+            class="${classMap({
+              'side-menu-toc-item': true,
+              active: s === currentSpineItem,
+            })}"
+            @click="${() => this.divinaEl?.goToSpineItem(s)}"
+          >
+            ${s.Title}
+          </div>`,
+      )}`,
+      this._toggleTOCEvent,
+    );
+  }
+
+  private _renderSideMenu(content: TemplateResult, click: (e: Event) => void) {
+    return html`
+      <aside class="side-menu">
+        <div><i class="icofont-close" title="Close" @click="${click}"></i></div>
+        <div class="side-menu-content">${content}</div>
+      </aside>
+    `;
   }
 
   override render(): TemplateResult {
     return html`
       <!-- Workaround to make icofonts work inside the shadow dom. -->
-      <link href="assets/icofont/icofont.min.css" rel="stylesheet" />
+      <link href="/divian/assets/icofont/icofont.min.css" rel="stylesheet" />
 
       ${this._renderControls()}
 
-      <section class="content-viewer">${this.renderBook()}</section>
+      <section class="content-viewer">${this._renderBook()}</section>
+
+      <!-- Info sidebar box -->
+      ${this._renderInfoSideMenu()}
+
+      <!-- TOC sidebar box -->
+      ${this._renderTOCSideMenu()}
     `;
   }
 
@@ -115,6 +242,18 @@ export default class DivianRenderer extends LitElement {
 
   private readonly _toggleHighlightBalloonsEvent = () => {
     this.highlightBalloon = !this.highlightBalloon;
+
+    this.requestUpdate();
+  };
+
+  private readonly _toggleTOCEvent = () => {
+    this.tocOpen = !this.tocOpen;
+
+    this.requestUpdate();
+  };
+
+  private readonly _toggleInfoBoxEvent = () => {
+    this.infoBoxOpen = !this.infoBoxOpen;
 
     this.requestUpdate();
   };
@@ -151,13 +290,29 @@ export default class DivianRenderer extends LitElement {
       flex-direction: row;
       background-color: var(--background-color);
       height: 50px;
-      justify-content: left;
       padding: 0.2em;
     }
 
-    .book-controls :is(.nav-idx, .ui-icon) {
+    .book-controls :is(.nav-idx, .ui-icon, .progress-container) {
       line-height: calc(50px - 0.2em * 2);
       margin: 0 2em;
+    }
+
+    .book-controls .progress-container {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row;
+
+      color: white;
+    }
+
+    .book-controls .progress-container .progress-bar {
+      flex-grow: 1;
+      margin: 0 1em;
+    }
+
+    .book-controls .progress-container .progress-bar progress {
+      width: 100%;
     }
 
     .book-controls > .nav-idx > span {
@@ -170,9 +325,16 @@ export default class DivianRenderer extends LitElement {
 
     .book-controls .ui-icon {
       margin: 0 0.2em;
+      display: inline-block;
     }
 
-    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments).disabled {
+    .book-controls > .menus {
+      flex: 1;
+      justify-content: flex-end;
+      display: flex;
+    }
+
+    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments, .icofont-navigation-menu, .icofont-info-square).disabled {
       background-color: var(--background-color);
       color: white;
       cursor: pointer;
@@ -196,13 +358,9 @@ export default class DivianRenderer extends LitElement {
       cursor: not-allowed;
     }
 
-    .content-viewer,
-    .placeholder {
+    .content-viewer {
       flex-grow: 1;
       flex-shrink: 0;
-    }
-
-    .content-viewer {
       overflow: hidden;
       display: flex;
       border-bottom: 0.8em solid var(--background-color);
@@ -210,6 +368,56 @@ export default class DivianRenderer extends LitElement {
 
     .content-viewer divian-navigator {
       flex-grow: 1;
+    }
+
+    .side-menu {
+      position: absolute;
+      background-color: var(--background-color);
+      color: white;
+      border-left: 1px solid grey;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 300px;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .side-menu .icofont-close {
+      font-size: 2em;
+      cursor: pointer;
+    }
+
+    .side-menu .side-menu-content {
+      flex-shrink: 1;
+      flex-grow: 1;
+      padding: 0.2em;
+      overflow-y: auto;
+    }
+
+    .side-menu-toc-item {
+      padding: 0.8em 0.2em;
+      margin: 0;
+      cursor: pointer;
+      --item-background-color: --background-color;
+      --item-text-color: white;
+
+      background-color: var(--item-background-color);
+      color: var(--item-text-color);
+    }
+
+    .side-menu-toc-item:hover {
+      --item-text-color: var(--background-color);
+      --item-background-color: white;
+      opacity: 0.8;
+      font-weight: bolder;
+    }
+
+    .side-menu-toc-item.active {
+      --item-text-color: var(--background-color);
+      --item-background-color: white;
     }
   `;
 }

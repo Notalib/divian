@@ -108,11 +108,17 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get _spineIdx() {
-    return (this._readingItem && this._publication?.Spine?.indexOf(this._readingItem)) || -1;
+    const spine = this._publication?.Spine;
+    const readingItem = this.currentSpineItem;
+    if (!readingItem || !spine) {
+      return -1;
+    }
+
+    return spine.indexOf(readingItem);
   }
 
   private get _hasPrevPage() {
-    return this._spineIdx ?? 0 > 0;
+    return this._spineIdx > 0;
   }
 
   private get _hasNextPage() {
@@ -123,7 +129,7 @@ export default class DivianNavigator extends LitElement {
     return this._currentPosition?.narratedPage;
   }
 
-  private get _readingItem() {
+  public get currentSpineItem() {
     return this._currentPosition?.readingItem;
   }
 
@@ -141,11 +147,11 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get _pageHeight(): number | void {
-    return this._readingItem?.Height;
+    return this.currentSpineItem?.Height;
   }
 
   private get _pageWidth(): number | void {
-    return this._readingItem?.Width;
+    return this.currentSpineItem?.Width;
   }
 
   private get _currentBalloon() {
@@ -319,10 +325,20 @@ export default class DivianNavigator extends LitElement {
     }
 
     const readingItem = this._publication?.Spine?.[this._spineIdx + 1];
+    if (!readingItem) {
+      return;
+    }
+
+    this.goToSpineItem(readingItem);
+  }
+
+  public goToSpineItem(readingItem: Link) {
     const playlist = this._playlist;
     if (!playlist) {
       return;
     }
+
+    const isPlaying = this.isPlaying;
 
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let idx = 0; idx < playlist.length; idx += 1) {
@@ -335,6 +351,10 @@ export default class DivianNavigator extends LitElement {
 
     this._imageLoading = true;
     this._positionChanged();
+
+    if (isPlaying) {
+      this.play();
+    }
   }
 
   public get canGoBack() {
@@ -350,7 +370,7 @@ export default class DivianNavigator extends LitElement {
   }
 
   public get currentPageNumber() {
-    const readingItem = this._readingItem;
+    const readingItem = this.currentSpineItem;
     if (!readingItem) {
       return -1;
     }
@@ -360,6 +380,10 @@ export default class DivianNavigator extends LitElement {
 
   public get isPlaying() {
     return this.audio?.paused === false;
+  }
+
+  public get spine() {
+    return this._publication?.Spine;
   }
 
   public play() {
@@ -373,6 +397,10 @@ export default class DivianNavigator extends LitElement {
 
   @property()
   public currentTime = -1;
+
+  public get duration() {
+    return this.audio?.duration;
+  }
 
   private async _loadComic() {
     this._publication = undefined;
@@ -527,11 +555,11 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get _isNarratedPage() {
-    return this._readingItem?.TypeLink?.startsWith('image/') ?? false;
+    return this.currentSpineItem?.TypeLink?.startsWith('image/') ?? false;
   }
 
   override render() {
-    const readingItem = this._readingItem;
+    const readingItem = this.currentSpineItem;
     if (!this._publication || !readingItem) {
       return html`<div>Loading</div>`;
     }
@@ -608,7 +636,7 @@ export default class DivianNavigator extends LitElement {
 
     return html`<audio
       id="audio"
-      @loadeddata="${this._loadedAudioData}"
+      @loadeddata="${this._loadedAudioDataEvent}"
       @timeupdate=${this._timeupdateEvent}
       @ended=${this._endedEvent}
       src="${audio}"
@@ -622,70 +650,79 @@ export default class DivianNavigator extends LitElement {
 
   private _highlightTextElement = () => {
     const currentPosition = this._currentPosition;
-    if (!currentPosition) {
+    const iframe = this.iframe;
+    if (!currentPosition || !iframe?.contentDocument) {
       return;
     }
 
-    requestAnimationFrame(() => {
-      if (currentPosition.textId && this.iframe?.contentDocument?.body) {
-        const highlightClassName = 'readiumCSS-mo-active-default';
-        const currentElement = this.iframe.contentDocument.body.querySelector(currentPosition.textId);
-        const els = this.iframe.contentDocument.body.querySelectorAll(`.${highlightClassName}`);
-        els?.forEach((e) => e !== currentElement && e.classList.remove(highlightClassName));
+    if (currentPosition.textId && iframe.contentDocument.body) {
+      const highlightClassName = 'readiumCSS-mo-active-default';
+      const currentElement = iframe.contentDocument.body.querySelector(currentPosition.textId);
+      const els = iframe.contentDocument.body.querySelectorAll(`.${highlightClassName}`);
+      els?.forEach((e) => e !== currentElement && e.classList.remove(highlightClassName));
 
-        currentElement?.classList.add(highlightClassName);
-      }
-    });
+      currentElement?.classList.add(highlightClassName);
+    }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private _timeupdateEvent = (evt: Event) => {
-    const currentPosition = this._currentPosition;
-    const playlist = this._playlist;
-    if (!currentPosition || !playlist) {
-      return;
-    }
-
-    this._highlightTextElement();
-
-    const currentTime = (this.currentTime = this.audio?.currentTime ?? 0);
-    if (currentPosition.start <= currentTime && currentTime < currentPosition.end) {
-      return;
-    }
-
-    const audio = this._currentAudio;
-
-    let positionIdx = this._currentPositionIdx;
-
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
-    for (let idx = 0; idx < playlist.length; idx += 1) {
-      const item = playlist[idx];
-      if (item.audio !== audio) {
-        continue;
+    try {
+      const playlist = this._playlist;
+      if (!playlist) {
+        return;
       }
 
-      if (!this._highlightBalloon && item.text) {
-        continue;
+      const currentPosition = this._currentPosition;
+      if (!currentPosition) {
+        return;
       }
 
-      if (item.isWithinOffset(currentTime)) {
-        positionIdx = idx;
+      const currentTime = (this.currentTime = this.audio?.currentTime ?? 0);
+      if (currentPosition.start <= currentTime && currentTime < currentPosition.end) {
+        return;
       }
+
+      const audio = this._currentAudio;
+
+      let positionIdx = this._currentPositionIdx;
+
+      // eslint-disable-next-line @typescript-eslint/prefer-for-of
+      for (let idx = 0; idx < playlist.length; idx += 1) {
+        const item = playlist[idx];
+        if (item !== currentPosition && item.audio !== audio) {
+          continue;
+        }
+
+        if (!this._highlightBalloon && item.text) {
+          continue;
+        }
+
+        if (item.isWithinOffset(currentTime)) {
+          positionIdx = idx;
+        }
+      }
+
+      if (this._currentPositionIdx !== positionIdx) {
+        this._currentPositionIdx = positionIdx;
+
+        this.requestUpdate();
+      }
+
+      this._positionChanged();
+    } finally {
+      this._highlightTextElement();
     }
-
-    this._currentPositionIdx = positionIdx;
-
-    this._positionChanged();
-
-    this.requestUpdate();
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  private _loadedAudioData = (evt: Event) => {
+  private _loadedAudioDataEvent = (evt: Event) => {
     const audio = this.audio;
     if (audio) {
       audio.currentTime = this.currentTime;
     }
+
+    this._positionChanged();
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -695,8 +732,6 @@ export default class DivianNavigator extends LitElement {
     }
 
     this._nextPage();
-
-    this.play();
   };
 
   static override styles = css`
