@@ -332,28 +332,36 @@ export default class DivianNavigator extends LitElement {
     this.goToSpineItem(readingItem);
   }
 
-  public goToSpineItem(readingItem: Link) {
+  public goToSpineItem(spineItem: Link) {
+    const idx = this.getFirstPlaylistIdxFromSpineItem(spineItem);
+    if (idx == null || Number.isNaN(idx)) {
+      return;
+    }
+
+    const resumePlaying = this.isPlaying;
+
+    this._currentPositionIdx = idx;
+
+    this._imageLoading = true;
+    this._positionChanged();
+
+    if (resumePlaying) {
+      this.audio?.addEventListener('loadeddata', () => this.play(), { once: true });
+    }
+  }
+
+  private getFirstPlaylistIdxFromSpineItem(spineItem: Link) {
     const playlist = this._playlist;
     if (!playlist) {
       return;
     }
 
-    const isPlaying = this.isPlaying;
-
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let idx = 0; idx < playlist.length; idx += 1) {
       const playlistItem = playlist[idx];
-      if (playlistItem.readingItem === readingItem) {
-        this._currentPositionIdx = idx;
-        break;
+      if (playlistItem.readingItem === spineItem) {
+        return idx;
       }
-    }
-
-    this._imageLoading = true;
-    this._positionChanged();
-
-    if (isPlaying) {
-      this.play();
     }
   }
 
@@ -592,6 +600,8 @@ export default class DivianNavigator extends LitElement {
 
         <!-- add audio element -->
         ${this._renderAudio()}
+
+        <div class="preload-images" aria-hidden="true">${this._renderPreload()}</div>
       </div>
     `;
   }
@@ -602,10 +612,16 @@ export default class DivianNavigator extends LitElement {
     this.requestUpdate();
   };
 
+  private readonly _preloadedImages = new Set<string>();
+
   private _renderImage(imageClass: string, enabled = true) {
     const url = this._comicPageUrl;
     if (!enabled || !url) {
       return nothing;
+    }
+
+    if (this._preloadedImages.has(url)) {
+      this._imageLoading = false;
     }
 
     return html`
@@ -613,6 +629,23 @@ export default class DivianNavigator extends LitElement {
         <img src="${url}" @load=${this._setImageLoaded} />
       </div>
     `;
+  }
+
+  private _renderPreload() {
+    const spine = this.spine;
+    if (!spine) {
+      return nothing;
+    }
+
+    const idx = this._spineIdx;
+    if (idx == null) {
+      return nothing;
+    }
+
+    return spine
+      .slice(idx, idx + 5)
+      .filter((s) => (s.TypeLink?.startsWith('image/') ?? false) && !this._preloadedImages.has(s.Href))
+      .map((s) => html`<img src="${s.Href}" @load="${() => this._preloadedImages.add(s.Href)}" />`);
   }
 
   private _renderCaption() {
@@ -810,6 +843,19 @@ export default class DivianNavigator extends LitElement {
     #audio {
       height: 0;
       width: 0;
+    }
+
+    .preload-images {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .preload-images img {
+      width: 1px;
+      height: 1px;
+      opacity: 0;
     }
   `;
 }

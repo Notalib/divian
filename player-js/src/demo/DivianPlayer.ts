@@ -4,8 +4,8 @@ import { classMap } from 'lit/directives/class-map.js';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import DivianNavigator from '../DivianNavigator';
 
-@customElement('divian-renderer')
-export default class DivianRenderer extends LitElement {
+@customElement('divian-player')
+export default class DivianPlayer extends LitElement {
   @property()
   private canGoBack = false;
 
@@ -394,6 +394,7 @@ export default class DivianRenderer extends LitElement {
       flex-shrink: 1;
       flex-grow: 1;
       padding: 0.2em;
+      overflow-x: hidden;
       overflow-y: auto;
     }
 
@@ -401,6 +402,8 @@ export default class DivianRenderer extends LitElement {
       padding: 0.8em 0.2em;
       margin: 0;
       cursor: pointer;
+      white-space: nowrap;
+
       --item-background-color: --background-color;
       --item-text-color: white;
 
