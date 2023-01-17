@@ -18,33 +18,26 @@ title: Digital Visual Audible Narratives (DiViAN)
   "@context": "http://readium.org/webpub-manifest/context.jsonld",
   
   "metadata": {
-      "title" : "Gravrøverne",
-      "conformsTo": "https://merkur.nota.dk/docs/profiles/divian",
-      "author" : "Sussi Bech",
-      "publisher": "Carlsen Comics",
-      "belongsTo" : {
-        "series" : {
-          "name" : "Nofret",
-          "position" : 8
-        }
-      },
-      "identifier" : "urn:isbn:8756262051",
-      "language" : "da",
-      "published": "2013-05-30T00:00:00+00:00",
-      "modified" : "2013-05-30T00:00:00+00:00"
+    "author": "Sussi Bech",
+    "conformsTo": "https://merkur.nota.dk/docs/profiles/divian",
+    "published": "2013-05-30T00:00:00+00:00",
+    "publisher": "Carlsen Comics",
+    "title": "Gravrøverne"
   },
 
   "links": [
-    { "rel": "self", "href": "http://example.org/manifest.json", "type": "application/divian+json" }
+    { "rel": "self", "href": "https://notalib.github.io/divian/books/nofret-gravroeverne/manifest.json", "type": "application/divian+json" }
   ],
 
   "readingOrder": [
     {
-      "href": "title.xhtml",
+      "title": "Sussi Bech: Gravrøverne",
+      "href": "39619-0001-generic.xhtml",
       "type": "text/html"
     },
     {
-      "href": "about.xhtml",
+      "title": "Om denne udgave",
+      "href": "39619-0002-generic.xhtml",
       "type": "text/html"
     },
     {
@@ -283,4 +276,3 @@ TODO:
 ### Example: Nofret - Gravrøverne
 
 DiViAN comic book with danish narration, see the [manifest](/books/nofret-gravroeverne/manifest.json) or open in [demo player](/divian/player).
-

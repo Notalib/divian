@@ -2,18 +2,16 @@
   "@context": "http://readium.org/webpub-manifest/context.jsonld",
   "links": [
     {
-      "href": "https://merkur.nota.dk/opds2/publication/merkur%3Alibraryid%3A39619/manifest.json",
+      "href": "https://notalib.github.io/divian/books/nofret-gravroeverne/manifest.json",
       "rel": "self"
     }
   ],
   "metadata": {
-    "@type": "http://schema.org/Book",
     "author": "Sussi Bech",
     "conformsTo": "https://merkur.nota.dk/docs/profiles/divian",
     "published": "2013-05-30T00:00:00+00:00",
     "publisher": "Carlsen Comics",
-    "title": "Gravrøverne",
-    "x-added-year": 2013
+    "title": "Gravrøverne"
   },
   "narration": [
     {
@@ -93,7 +91,7 @@
               "audioFragment": "06_Side_2.mp3#t=4.199,83.722",
               "clip-path": "polygon(7.24% 41.69%,92.52% 41.69%,92.52% 64.43%,7.24% 64.43%)",
               "fragment": "#xywh=176,1439,2074,785",
-              "text": "» Vi fandt kong Sobekemsafs grav. Den var slet ikke som de grave, vi normalt plyndrede. Vi tog vores kob berværktøj, vi huggede en tunnel ind i denne konges grav, helt ind til dens inderste del, og vi opdagede dens underjordiske kammer. Vi tog fakler i hænderne og kravlede ind. Vi ryddede stendyngerne væk, som vi fandt ved indgangen til forkammeret, og vi fandt guden ( kongen ) bagest i sarkofagkammeret. Vi fandt også hans hustru, dronning Nubkhas' gravsted ved siden af, idet det var beskyttet og sikret med en mur, dækket med stendynger. Vi ryddede også disse væk. Vi fandt hende liggende på samme måde. Vi åbnede deres sarkofager og deres kister, som de lå i, og fandt denne konges ærværdige mumie udstyret med et krumsværd. Et stort antal amuletter og smykker lå om hans hals, og hans guldmaske dækkede hans ansigt. Denne konges ærvær dige mumie var helt dækket med guld. Hans kister var indvendigt og udvendigt smykket med guld og sølv og indlagt med forskellige kostbare stene. Vi rev guldet til os, som vi fandt på denne guds ærværdige mumie… og vi fandt dronningen smykket på samme måde. Vi rev alt til os, som vi fandt på hende, og vi satte ild til kisterne. Vi tog også gravgaverne med, som de havde hos sig, ting af guld, sølv og bronze, og delte dem mellem os. Vi delte også guldet, som vi havde fundet hos disse to guder, i otte dele. Til hver af os blev der 20 deben. <<"
+              "text": "» Vi fandt kong Sobekemsafs grav. Den var slet ikke som de grave, vi normalt plyndrede. Vi tog vores kobberværktøj, vi huggede en tunnel ind i denne konges grav, helt ind til dens inderste del, og vi opdagede dens underjordiske kammer. Vi tog fakler i hænderne og kravlede ind. Vi ryddede stendyngerne væk, som vi fandt ved indgangen til forkammeret, og vi fandt guden ( kongen ) bagest i sarkofagkammeret. Vi fandt også hans hustru, dronning Nubkhas' gravsted ved siden af, idet det var beskyttet og sikret med en mur, dækket med stendynger. Vi ryddede også disse væk. Vi fandt hende liggende på samme måde. Vi åbnede deres sarkofager og deres kister, som de lå i, og fandt denne konges ærværdige mumie udstyret med et krumsværd. Et stort antal amuletter og smykker lå om hans hals, og hans guldmaske dækkede hans ansigt. Denne konges ærvær dige mumie var helt dækket med guld. Hans kister var indvendigt og udvendigt smykket med guld og sølv og indlagt med forskellige kostbare stene. Vi rev guldet til os, som vi fandt på denne guds ærværdige mumie… og vi fandt dronningen smykket på samme måde. Vi rev alt til os, som vi fandt på hende, og vi satte ild til kisterne. Vi tog også gravgaverne med, som de havde hos sig, ting af guld, sølv og bronze, og delte dem mellem os. Vi delte også guldet, som vi havde fundet hos disse to guder, i otte dele. Til hver af os blev der 20 deben. <<"
             },
             {
               "audioFragment": "06_Side_2.mp3#t=83.722,94.512",
@@ -409,7 +407,7 @@
             {
               "clip-path": "polygon(71.02% 72.07%,91.94% 72.07%,91.94% 80.65%,71.02% 80.65%)",
               "fragment": "#xywh=1735,2488,511,296",
-              "text": "Hor het smarte jeg forventer ingen tak for min hjælp, eller noget til gengæld! Jeg kan godt klare mig uden din utid ige indblanding!"
+              "text": "Hor het smarte jeg forventer ingen tak for min hjælp, eller noget til gengæld! Jeg kan godt klare mig uden din utidige indblanding!"
             }
           ]
         }
@@ -985,7 +983,7 @@
             {
               "clip-path": "polygon(4.34% 30.45%,23.29% 30.45%,23.29% 36.18%,4.34% 36.18%)",
               "fragment": "#xywh=105,1051,459,198",
-              "text": "De lukkede doren til det allerhel ligste og satte ild til det."
+              "text": "De lukkede døren til det allerhelligste og satte ild til det."
             }
           ]
         },
@@ -996,7 +994,7 @@
             {
               "clip-path": "polygon(30.43% 31.05%,49.75% 31.05%,49.75% 37.40%,30.43% 37.40%)",
               "fragment": "#xywh=737,1072,468,219",
-              "text": "Ilden åd sig gennem de store cedertræsdore, og kun få rester vidnede om, at upperstepræsten været!"
+              "text": "Ilden åd sig gennem de store cedertræsdøre, og kun få rester vidnede om, at ypperstepræsten været!"
             }
           ]
         },
@@ -1018,7 +1016,7 @@
             {
               "clip-path": "polygon(67.67% 29.92%,93.89% 29.92%,93.89% 40.70%,67.67% 40.70%)",
               "fragment": "#xywh=1639,1033,635,372",
-              "text": "Farao har overvundet Amonpræster nes magt! Templet blev lukket, og Snart rommede beboerne hele kvar teret. Ingen tør komme der ved nat tetide! Man siger, at ypperstepræstens onde ånd hjemsøger stedet!"
+              "text": "Farao har overvundet Amonpræster nes magt! Templet blev lukket, og Snart rømmede beboerne hele kvarteret. Ingen tør komme der ved nattetid! Man siger, at ypperstepræstens onde ånd hjemsøger stedet!"
             }
           ]
         },
@@ -1040,7 +1038,7 @@
             {
               "clip-path": "polygon(35.59% 55.79%,59.79% 55.79%,59.79% 61.21%,35.59% 61.21%)",
               "fragment": "#xywh=862,1926,586,187",
-              "text": "Andre nåede længere, men der modte dem en sørgelig skæbne, når de forsøgte at forcere de hoje tempelmure."
+              "text": "Andre nåede længere, men der mødte dem en sørgelig skæbne, når de forsøgte at forcere de høje tempelmure."
             }
           ]
         },
@@ -1432,7 +1430,7 @@
             {
               "clip-path": "polygon(6.18% 69.58%,26.25% 69.58%,26.25% 74.22%,6.18% 74.22%)",
               "fragment": "#xywh=150,2402,487,160",
-              "text": "Godt! Demå ikke høre os! Hjælp mig med at dække hullet igen!"
+              "text": "Godt! De må ikke høre os! Hjælp mig med at dække hullet igen!"
             }
           ]
         },
@@ -1605,7 +1603,7 @@
             {
               "clip-path": "polygon(48.98% 19.50%,58.56% 19.50%,58.56% 26.83%,48.98% 26.83%)",
               "fragment": "#xywh=1196,673,234,253",
-              "text": "HVEM ER I FREMMEDE? HVAD VIL I HERI MIN ORKEN?"
+              "text": "HVEM ER I FREMMEDE? HVAD VIL I HERI MIN ØRKEN?"
             }
           ]
         },
@@ -1616,7 +1614,7 @@
             {
               "clip-path": "polygon(59.38% 4.46%,80.34% 4.46%,80.34% 9.73%,59.38% 9.73%)",
               "fragment": "#xywh=1450,154,512,182",
-              "text": "Hvor vover du! Har du ikke fået nok? Eller skal du også have skåret oremne af? Vi er vogtere af gravene!"
+              "text": "Hvor vover du! Har du ikke fået nok? Eller skal du også have skåret ørerne af? Vi er vogtere af gravene!"
             }
           ]
         },
@@ -1823,7 +1821,7 @@
             {
               "clip-path": "polygon(81.85% 4.46%,93.19% 4.46%,93.19% 12.83%,81.85% 12.83%)",
               "fragment": "#xywh=2007,154,278,289",
-              "text": "Det er bare mig Senep! Jeg har noget, jeg vil sælge! Rogelse af den kostbare slags!"
+              "text": "Det er bare mig Senep! Jeg har noget, jeg vil sælge! Røgelse af den kostbare slags!"
             }
           ]
         },
@@ -1834,7 +1832,7 @@
             {
               "clip-path": "polygon(7.54% 26.71%,23.61% 26.71%,23.61% 33.00%,7.54% 33.00%)",
               "fragment": "#xywh=185,922,394,217",
-              "text": "Det er ikke bare DIG! Du folges med en! Jeg kan MARKE det! Du følges med en UNG KVINDE!"
+              "text": "Det er ikke bare DIG! Du følges med en! Jeg kan MARKE det! Du følges med en UNG KVINDE!"
             }
           ]
         },
@@ -1900,7 +1898,7 @@
             {
               "clip-path": "polygon(33.97% 48.87%,53.38% 48.87%,53.38% 55.30%,33.97% 55.30%)",
               "fragment": "#xywh=833,1687,476,222",
-              "text": "Hun er mærket af den hornede gud, og selv om man ikke må nævně hans navn, må man ikke trodse hans vilje!"
+              "text": "Hun er mærket af den hornede gud, og selv om man ikke må nævne hans navn, må man ikke trodse hans vilje!"
             },
             {
               "clip-path": "polygon(75.98% 48.41%,93.23% 48.41%,93.23% 53.48%,75.98% 53.48%)",
@@ -2735,7 +2733,7 @@
             {
               "clip-path": "polygon(34.54% 4.03%,63.46% 4.03%,63.46% 8.89%,34.54% 8.89%)",
               "fragment": "#xywh=843,139,706,168",
-              "text": "Ja, men nu blæser det op, og når orkenstormen tager fat… IVI MA UD HERFRA! HORER DU?"
+              "text": "Ja, men nu blæser det op, og når ørkenstormen tager fat… IVI MA UD HERFRA! HORER DU?"
             },
             {
               "clip-path": "polygon(51.54% 7.65%,63.05% 7.65%,63.05% 11.82%,51.54% 11.82%)",
@@ -2773,7 +2771,7 @@
             {
               "clip-path": "polygon(40.93% 18.68%,60.79% 18.68%,60.79% 23.23%,40.93% 23.23%)",
               "fragment": "#xywh=999,645,485,157",
-              "text": "Underligt! Orkenstormen plejer ikke at komme på denne årstid!"
+              "text": "Underligt! Ørkenstormen plejer ikke at komme på denne årstid!"
             }
           ]
         },
@@ -3405,7 +3403,7 @@
             {
               "clip-path": "polygon(35.73% 47.94%,57.58% 47.94%,57.58% 56.37%,35.73% 56.37%)",
               "fragment": "#xywh=870,1655,532,291",
-              "text": "Hun giver mig kuldegysninger! Hvem er hun? En afstraffet gravrover! Hun er kom plet harmles!"
+              "text": "Hun giver mig kuldegysninger! Hvem er hun? En afstraffet gravrøver! Hun er kom plet harmles!"
             }
           ]
         },
@@ -3714,20 +3712,7 @@
         },
         {
           "audio": "29_Side_25.mp3#t=16.599,18.199",
-          "fragment": "#xywh=1282,904,1031,734",
-          "texts": [
-            {
-              "clip-path": "polygon(53.79% 30.56%,59.15% 31.46%,58.94% 32.16%,53.54% 31.23%)",
-              "fragment": "#xywh=1308,1055,138,56",
-              "text": "ERFA",
-              "type": "sound"
-            },
-            {
-              "clip-path": "polygon(50.59% 29.63%,75.60% 29.63%,75.60% 41.51%,50.59% 41.51%)",
-              "fragment": "#xywh=1236,1023,611,410",
-              "text": "an MISTERAU SIMLISTIN: theaine ma"
-            }
-          ]
+          "fragment": "#xywh=1282,904,1031,734"
         },
         {
           "audio": "29_Side_25.mp3#t=18.199,19.799",
@@ -3936,7 +3921,7 @@
             {
               "clip-path": "polygon(9.77% 60.66%,17.53% 63.93%,17.61% 65.76%,9.73% 63.21%)",
               "fragment": "#xywh=238,2094,194,177",
-              "text": "Nooo FRET!",
+              "text": "NoooFRET!",
               "type": "sound"
             }
           ]
@@ -4178,7 +4163,7 @@
             {
               "clip-path": "polygon(7.77% 4.49%,26.51% 4.49%,26.51% 9.62%,7.77% 9.62%)",
               "fragment": "#xywh=189,155,456,177",
-              "text": "Den gamle vrovler! Der var kun en gravrover! Lad os komme af sted!"
+              "text": "Den gamle vrovler! Der var kun en gravrøver! Lad os komme af sted!"
             }
           ]
         },
@@ -4194,8 +4179,7 @@
             {
               "clip-path": "polygon(31.98% 20.83%,44.76% 20.63%,44.80% 22.54%,32.02% 22.77%)",
               "fragment": "#xywh=778,712,313,75",
-              "text": "TOOOO..!",
-              "type": "sound"
+              "text": "TOOOO..!"
             }
           ]
         },
@@ -4211,7 +4195,7 @@
             {
               "clip-path": "polygon(84.75% 4.06%,94.04% 4.06%,94.04% 14.98%,84.75% 14.98%)",
               "fragment": "#xywh=2062,140,226,377",
-              "text": "Fyld grav skakten op med sten og forsegl nědgangen, så vi kan komme ind til byen!"
+              "text": "Fyld grav skakten op med sten og forsegl nedgangen, så vi kan komme ind til byen!"
             }
           ]
         },
@@ -4282,7 +4266,7 @@
             {
               "clip-path": "polygon(52.73% 37.80%,68.19% 37.80%,68.19% 47.71%,52.73% 47.71%)",
               "fragment": "#xywh=1283,1305,376,342",
-              "text": "Din ven ser du ikke mere! Han bliver nok sendt til guldminer ne! Men først hug ger de næsen af hamn! Hiii hir…!"
+              "text": "Din ven ser du ikke mere! Han bliver nok sendt til guldminer ne! Men først hug ger de næsen af ham! Hiii hir…!"
             }
           ]
         },
@@ -4382,7 +4366,7 @@
             {
               "clip-path": "polygon(37.32% 19.21%,51.74% 19.21%,51.74% 23.29%,37.32% 23.29%)",
               "fragment": "#xywh=911,663,352,141",
-              "text": "Værsgo' gravrover!"
+              "text": "Værsgo' gravrøver!"
             }
           ]
         },
@@ -4405,7 +4389,7 @@
             {
               "clip-path": "polygon(74.56% 5.56%,83.04% 5.56%,83.04% 11.88%,74.56% 11.88%)",
               "fragment": "#xywh=1820,192,207,218",
-              "text": "Og min hals! Hvor er jeg torstig!"
+              "text": "Og min hals! Hvor er jeg tørstig!"
             }
           ]
         },
@@ -4540,7 +4524,7 @@
             {
               "clip-path": "polygon(81.07% 85.28%,93.85% 85.28%,93.85% 91.60%,81.07% 91.60%)",
               "fragment": "#xywh=1979,2944,312,218",
-              "text": "Jeg ser, at de tyve stokkeslag ikke helt tog livet af dig, gravrover! ·!"
+              "text": "Jeg ser, at de tyve stokkeslag ikke helt tog livet af dig, gravrøver! ·!"
             }
           ]
         }
@@ -4571,7 +4555,7 @@
             {
               "clip-path": "polygon(33.51% 17.06%,53.93% 17.06%,53.93% 26.54%,33.51% 26.54%)",
               "fragment": "#xywh=819,589,499,327",
-              "text": "Hvorfor så vred? Jeg er bare fængselsvagten! Duvar for stig, ikke? Jeg har vin med vin, som vil få dig til at glem me rygsmerterne!"
+              "text": "Hvorfor så vred? Jeg er bare fængselsvagten! Du var for stig, ikke? Jeg har vin med vin, som vil få dig til at glem me rygsmerterne!"
             }
           ]
         },
@@ -4598,7 +4582,7 @@
             {
               "clip-path": "polygon(70.09% 4.78%,84.12% 4.78%,84.12% 9.33%,70.09% 9.33%)",
               "fragment": "#xywh=1713,165,343,157",
-              "text": "HVOR, OM JEG MA SPORGE?"
+              "text": "HVOR, OM JEG MA SPØRGE?"
             }
           ]
         },
@@ -4750,12 +4734,12 @@
             {
               "clip-path": "polygon(18.53% 30.16%,28.26% 30.16%,28.26% 38.33%,18.53% 38.33%)",
               "fragment": "#xywh=455,1041,239,282",
-              "text": "Jeg er ikke hans kom pagnon! Jeg er hans … Søster!"
+              "text": "Jeg er ikke hans kompagnon! Jeg er hans … Søster!"
             },
             {
               "clip-path": "polygon(20.52% 39.46%,26.75% 40.56%,26.75% 42.67%,20.52% 42.67%)",
               "fragment": "#xywh=504,1362,154,112",
-              "text": "Og smyk ket eret arvestykke!",
+              "text": "Og smykket er et arvestykke!",
               "type": "sound"
             }
           ]
@@ -4910,7 +4894,7 @@
             {
               "clip-path": "polygon(7.61% 63.12%,19.44% 63.12%,19.44% 70.65%,7.61% 70.65%)",
               "fragment": "#xywh=186,2179,289,260",
-              "text": "Jeg føler mig højst uvelkom men, som om alle statuerne holder øje med"
+              "text": "Jeg føler mig højst uvelkommen, som om alle statuerne holder øje med"
             },
             {
               "clip-path": "polygon(8.76% 68.63%,14.77% 68.63%,14.77% 71.67%,8.76% 71.67%)",
@@ -4995,12 +4979,6 @@
               "clip-path": "polygon(62.98% 4.46%,71.71% 4.46%,71.71% 11.96%,62.98% 11.96%)",
               "fragment": "#xywh=1536,154,213,259",
               "text": "Hvis ikke Osiris for står, så beder jeg Sakmet"
-            },
-            {
-              "clip-path": "polygon(77.82% 24.19%,81.92% 23.38%,82.25% 24.19%,78.15% 25.00%)",
-              "fragment": "#xywh=1898,807,109,57",
-              "text": "//////",
-              "type": "sound"
             }
           ]
         },
@@ -5087,7 +5065,7 @@
             {
               "clip-path": "polygon(41.98% 70.19%,57.24% 70.19%,57.24% 74.59%,41.98% 74.59%)",
               "fragment": "#xywh=1024,2423,372,152",
-              "text": "Det her er bygningen fra min drom!"
+              "text": "Det her er bygningen fra min drøm!"
             }
           ]
         },
@@ -5189,7 +5167,7 @@
             {
               "clip-path": "polygon(64.73% 39.54%,83.89% 39.54%,83.89% 44.41%,64.73% 44.41%)",
               "fragment": "#xywh=1575,1365,466,168",
-              "text": "Bare doren ikke smækker i! Jeg skulle gerne tilbage!"
+              "text": "Bare døren ikke smækker i! Jeg skulle gerne tilbage!"
             }
           ]
         },
