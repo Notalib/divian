@@ -8,7 +8,7 @@ title: Digital Visual Audible Narratives (DiViAN)
 
 **Participate:**
 
-* [Github - Notalib/Merkur](https://github.com/Notalib/Merkur)
+* [Github - Notalib/DiViAN](https://github.com/Notalib/divian)
 * [File an issue](https://github.com/Notalib/Merkur)
 
 ## Example
