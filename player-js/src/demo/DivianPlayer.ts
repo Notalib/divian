@@ -116,19 +116,30 @@ export default class DivianPlayer extends LitElement {
     `;
   }
 
-  private _formatTime(time: number) {
+  private _formatTime(time: number, showMilliseconds = true) {
+    if (Number.isNaN(time)) {
+      return '00:00';
+    }
+
     const hours = Math.floor(time / 3600);
     const minutes = Math.floor((time - hours * 60) / 60);
     const seconds = Math.floor(time % 60);
 
     const d = hours > 0 ? [hours, minutes, seconds] : [minutes, seconds];
 
-    return d.map((v: number): string => `000${v}`.slice(-2)).join(':');
+    const res = d.map((v: number): string => `000${v}`.slice(-2)).join(':');
+
+    if (showMilliseconds) {
+      const ms = `${time - Math.floor(time)}000`.slice(2, 5);
+      return `${res}.${ms}`;
+    }
+
+    return res;
   }
 
   private _renderProgressBar() {
     const currentTime = this._formatTime(this.currentTime ?? 0);
-    const duration = this._formatTime(this.duration ?? 0);
+    const duration = this._formatTime(Math.ceil(this.duration ?? 0), false);
     const progression = ((this.currentTime ?? 0) / (this.duration ?? 1)) * 100;
 
     return html`

@@ -407,7 +407,7 @@ export default class DivianNavigator extends LitElement {
   public currentTime = -1;
 
   public get duration() {
-    return this.audio?.duration;
+    return this.audio?.duration ?? 0;
   }
 
   private async _loadComic() {
@@ -669,6 +669,7 @@ export default class DivianNavigator extends LitElement {
 
     return html`<audio
       id="audio"
+      autoplay
       @loadeddata="${this._loadedAudioDataEvent}"
       @timeupdate=${this._timeupdateEvent}
       @ended=${this._endedEvent}
