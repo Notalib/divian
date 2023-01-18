@@ -109,8 +109,8 @@ export default class DivianPlayer extends LitElement {
 
         <!-- menus -->
         <div class="menus">
-          ${this._renderControlButton(this._toggleTOCEvent, this.tocOpen, 'Open/close TOC', 'icofont-navigation-menu')}
-          ${this._renderControlButton(this._toggleInfoBoxEvent, this.infoBoxOpen, 'Open/close information', 'icofont-info-square')}
+          ${this._renderControlButton(this._toggleTOCEvent, this.tocOpen, 'Open Table of Content', 'icofont-navigation-menu')}
+          ${this._renderControlButton(this._toggleInfoBoxEvent, this.infoBoxOpen, 'Open information box', 'icofont-info-square')}
         </div>
       </nav>
     `;
@@ -144,11 +144,11 @@ export default class DivianPlayer extends LitElement {
 
     return html`
       <div class="progress-container">
-        <div title="Current time: ${currentTime}">${currentTime}</div>
+        <div class="time-box" title="Current time: ${currentTime}">${currentTime}</div>
         <div class="progress-bar">
           <progress value="${progression}" max="100"></progress>
         </div>
-        <div title="Duration ${duration}">${duration}</div>
+        <div class="time-box" title="Duration ${duration}">${duration}</div>
       </div>
     `;
   }
@@ -173,8 +173,11 @@ export default class DivianPlayer extends LitElement {
 
     return this._renderSideMenu(
       html`
-        <h1>DiViAN</h1>
-        <section>Read about DiViAN format <a href="/" target="_blank">her</a>.</section>
+        <section class="side-bar-info-text">
+          <p>This is a demo of the WebPublication profile for Digital Visual Audible Narratives (<em>DiViAN</em>).</p>
+          <p>This particular comic "Nofret: Gravrøverne" is from <a href="https://nota.dk">Nota's</a> free collection.</p>
+          The full Divian profile can be found <a href="/divian" target="_blank">her</a>.
+        </section>
       `,
       this._toggleInfoBoxEvent,
     );
@@ -432,6 +435,16 @@ export default class DivianPlayer extends LitElement {
     .side-menu-toc-item.active {
       --item-text-color: var(--background-color);
       --item-background-color: white;
+    }
+
+    .side-menu .side-bar-info-text {
+      font-size: 1.2em;
+    }
+
+    .side-menu .side-bar-info-text a {
+      color: white;
+      font-weight: bold;
+      text-decoration: underline;
     }
   `;
 }

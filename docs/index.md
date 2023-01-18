@@ -2,6 +2,10 @@
 title: Digital Visual Audible Narratives (DiViAN)
 ---
 
+**Status:**
+
+Draft
+
 **Editors:**
 
 * Morten Sjøgren ([Nota](https://nota.dk))
@@ -129,10 +133,14 @@ All Link Objects present in the `alternate` array:
 {
   "href": "page1.jpeg", 
   "type": "image/jpeg", 
+  "height": 3448,
+  "width": 2480,
   "alternate": [
     {
       "href": "page1.webp", 
-      "type": "image/webp"
+      "type": "image/webp",
+      "height": 3448,
+      "width": 2480
     }
   ]
 }
@@ -163,8 +171,8 @@ In addition to having [a table of contents](https://readium.org/webpub-manifest/
 
 This document introduces a new collection role to fulfill that goal:
 
-| Role     | Definition                                                               | Compact Collection? | Required? |
-| -------- | ------------------------------------------------------------------------ | ------------------- | --------- |
+| Role       | Definition                                                                 | Compact Collection? | Required? |
+| ---------- | -------------------------------------------------------------------------- | ------------------- | --------- |
 | `narrated` | Identifies a collection containing narrated navigation into a publication. | Yes                 | Yes       |
 
 To avoid duplicating content between `readingOrder` and `narration`, Link Objects referenced in `narration` **must** only contain `href` and `title`.
@@ -176,28 +184,28 @@ To avoid duplicating content between `readingOrder` and `narration`, Link Object
 | `href`       | Link to a image. This must also be in `readingOrder`, **should not** have a media fragment. | Yes       |
 | `title`      | Page title                                                                                  | No        |
 | `panels`     | Ordered list of panels                                                                      | Yes       |
-| `characters` | List of characters. [See](#reference-from-narration)                                 | No        |
+| `characters` | List of characters. [See](#reference-from-narration)                                        | No        |
 
 #### Panels
 
-| Name         | Description                                                                                                                                                      | Required? |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Name         | Description                                                                                                                                                         | Required? |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `fragment`   | [Spatial Dimension](https://www.w3.org/TR/media-frags/#naming-space) for the panel. If alternative resolutions are available this **should** use percentage values. | Yes       |
-| `title`      | Page title                                                                                                                                                       | No        |
-| `texts`      | Text parts of the panel. [See](#text-elements)                                                                                                                   | No        |
-| `characters` | List of characters in the panel. [See](#reference-from-narration)                                                                                         | No        |
-| `audio`      | Audio href [TemporalDimension](https://www.w3.org/TR/media-frags/#naming-time) is allowed but `texts` **must** be within the same time frame.              | No        |
+| `title`      | Page title                                                                                                                                                          | No        |
+| `texts`      | Text parts of the panel. [See](#text-elements)                                                                                                                      | No        |
+| `characters` | List of characters in the panel. [See](#reference-from-narration)                                                                                                   | No        |
+| `audio`      | Audio href [TemporalDimension](https://www.w3.org/TR/media-frags/#naming-time) is allowed but `texts` **must** be within the same time frame.                       | No        |
 
 ##### Text elements
 
-| Name            | Description                                                                                                                    | Required? |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| `fragment`      | [Spatial Dimension](https://www.w3.org/TR/media-frags/#naming-space) for the panel                                                | Yes       |
+| Name            | Description                                                                                                              | Required? |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ | --------- |
+| `fragment`      | [Spatial Dimension](https://www.w3.org/TR/media-frags/#naming-space) for the panel                                       | Yes       |
 | `audioFragment` | [TemporalDimension](https://www.w3.org/TR/media-frags/#naming-time), if used **must** within the `audio` from the panel. | No        |
-| `clip-path`     | CSS clip-path for the text element.                                                                                            | No        |
-| `text`          | Text being read, this is needed for TTS or closed caption.                                                                     | No        |
-| `type`          | Type of text element, `speech`, `caption` or `sound`. If not set, `speech` **should** be assumed.                              | No        |
-| `character`     | Character object.  [See](#reference-from-narration)                                                                     | No        |
+| `clip-path`     | CSS [clip-path](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path) for the text element.                        | No        |
+| `text`          | Text being read, this is needed for TTS or closed caption.                                                               | No        |
+| `type`          | Type of text element, `speech`, `caption` or `sound`. If not set, `speech` **should** be assumed.                        | No        |
+| `character`     | Character object.  [See](#reference-from-narration)                                                                      | No        |
 
 ### Example 4: Narrated navigation with full page displayed before panels
 
@@ -237,24 +245,24 @@ This document introduces a new collection role to fulfill that goal:
 
 ### Character object
 
-| Name     | Description                                   | Required? |
-| -------- | --------------------------------------------- | --------- |
-| `id`     |                                               | Yes       |
-| `name`   | Multi lang name of the character              | Yes       |
-| `roles`  | List of roles                                 | No        |
-| `age`    | Age can be a number or a string description   | No        |
-| `gender` | `male`, `female`, `not-applicable` or `other` | No        |
-| `voice`  | **TODO:** Voice profile for TTS, inspired by <https://www.w3.org/TR/css-speech-1>                   | No        |
+| Name     | Description                                                                       | Required? |
+| -------- | --------------------------------------------------------------------------------- | --------- |
+| `id`     |                                                                                   | Yes       |
+| `name`   | Multi lang name of the character                                                  | Yes       |
+| `roles`  | List of roles                                                                     | No        |
+| `age`    | Age can be a number or a string description                                       | No        |
+| `gender` | `male`, `female`, `not-applicable` or `other`                                     | No        |
+| `voice`  | **TODO:** Voice profile for TTS, inspired by <https://www.w3.org/TR/css-speech-1> | No        |
 
 ### Reference from narration
 
 Characters can be referred to from [narration](#narration-object), [panels](#panels) and [text elements](#text-elements) via this object.
 
-| Name        | Description                     | Required? |
-| ----------- | ------------------------------- | --------- |
-| `id`        |                                 | Yes       |
-| `fragment`  | Media fragment of the position. | No        |
-| `clip-path` |                                 | No        |
+| Name        | Description                                                  | Required? |
+| ----------- | ------------------------------------------------------------ | --------- |
+| `id`        |                                                              | Yes       |
+| `fragment`  | Media fragment of the position.                              | No        |
+| `clip-path` | <https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path> | No        |
 
 ## 6. Packaging
 
