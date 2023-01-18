@@ -513,7 +513,7 @@ export default class DivianNavigator extends LitElement {
 
             let lastEnd = playlistItem.start;
             for (const t of p.Texts) {
-              const pctLength = t.Text?.length ?? 0 / textLength;
+              const pctLength = (t.Text?.length ?? 0) / textLength;
               if (!t.AudioFragment) {
                 t.AudioFragment = `#t=${lastEnd},${lastEnd + panelDuration * pctLength}`;
               }
@@ -563,7 +563,7 @@ export default class DivianNavigator extends LitElement {
   }
 
   private get _isNarratedPage() {
-    return this.currentSpineItem?.TypeLink?.startsWith('image/') ?? false;
+    return !!this.currentSpineItem?.TypeLink?.startsWith('image/');
   }
 
   override render() {
@@ -644,7 +644,7 @@ export default class DivianNavigator extends LitElement {
 
     return spine
       .slice(idx, idx + 5)
-      .filter((s) => (s.TypeLink?.startsWith('image/') ?? false) && !this._preloadedImages.has(s.Href))
+      .filter((s) => !!s.TypeLink?.startsWith('image/') && !this._preloadedImages.has(s.Href))
       .map((s) => html`<img src="${s.Href}" @load="${() => this._preloadedImages.add(s.Href)}" />`);
   }
 
