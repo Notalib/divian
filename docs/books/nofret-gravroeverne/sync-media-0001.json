@@ -1,0 +1,32 @@
+{
+  "children": [
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=0,2.199",
+      "textref": "39619-0002-generic.xhtml#zfyx00007"
+    },
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=2.199,5.399",
+      "textref": "39619-0002-generic.xhtml#zfyx00008"
+    },
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=5.399,13.799",
+      "textref": "39619-0002-generic.xhtml#zfyx00010"
+    },
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=13.799,24.131",
+      "textref": "39619-0002-generic.xhtml#zfyx00011"
+    },
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=24.131,29.131",
+      "textref": "39619-0002-generic.xhtml#zfyx00012"
+    },
+    {
+      "audioref": "02_Om_denne_udgave.mp3#t=29.131,32.731",
+      "textref": "39619-0002-generic.xhtml#xeif_0001"
+    }
+  ],
+  "role": [
+    "section"
+  ],
+  "textref": "39619-0002-generic.xhtml"
+}

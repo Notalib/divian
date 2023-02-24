@@ -1,0 +1,28 @@
+{
+  "children": [
+    {
+      "audioref": "03_Kolofon_og_bibliogra.mp3#t=0,3.599",
+      "textref": "39619-0003-generic.xhtml#zfyx00014"
+    },
+    {
+      "audioref": "03_Kolofon_og_bibliogra.mp3#t=3.599,5.799",
+      "textref": "39619-0003-generic.xhtml#zfyx00015"
+    },
+    {
+      "audioref": "03_Kolofon_og_bibliogra.mp3#t=5.799,7.999",
+      "textref": "39619-0003-generic.xhtml#zfyx00016"
+    },
+    {
+      "audioref": "03_Kolofon_og_bibliogra.mp3#t=7.999,11.399",
+      "textref": "39619-0003-generic.xhtml#zfyx00017"
+    },
+    {
+      "audioref": "03_Kolofon_og_bibliogra.mp3#t=11.399,16.588",
+      "textref": "39619-0003-generic.xhtml#zfyx00018"
+    }
+  ],
+  "role": [
+    "section"
+  ],
+  "textref": "39619-0003-generic.xhtml"
+}

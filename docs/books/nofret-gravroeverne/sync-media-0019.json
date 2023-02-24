@@ -1,0 +1,249 @@
+{
+  "children": [
+    {
+      "audioref": "20_Side_16.mp3#t=0,2.599",
+      "imgref": "image0016.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=2.599,5.799",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:8.68,4.52,18.88,4.52,18.88,9.18,8.68,9.18",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=154,166,383,726",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=5.799,11.357",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:30.26,4.55,45.50,4.55,45.50,10.08,30.26,10.08",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=555,161,600,731",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=11.357,19.157",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:51.47,19.96,92.14,19.96,92.14,26.39,51.47,26.39",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1172,157,1113,733",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=19.157,24.799",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:6.10,26.54,23.42,26.54,23.42,32.10,6.10,32.10",
+          "role": [
+            "balloon"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:11.88,39.05,14.00,40.35,13.23,40.99,11.10,39.69",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:18.88,39.19,21.21,37.86,21.99,38.53,19.66,39.86",
+          "role": [
+            "sound-area"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=152,920,446,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=24.799,29.712",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:26.66,26.39,41.69,26.39,41.69,32.04,26.66,32.04",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=614,919,438,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=29.712,36.512",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:45.13,26.22,71.50,26.22,71.50,31.08,45.13,31.08",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1065,916,736,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=36.512,39.112",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:74.16,31.03,82.80,31.03,82.80,38.41,74.16,38.41",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1818,915,474,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=39.112,47.886",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:7.08,50.81,19.70,50.81,19.70,55.10,7.08,55.10",
+          "role": [
+            "balloon"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:33.95,49.42,45.70,49.42,45.70,54.84,33.95,54.84",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=147,1668,1039,722",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=47.886,53.686",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:50.41,48.20,62.98,48.20,62.98,53.71,50.41,53.71",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1222,1687,316,688",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=53.686,60.286",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:65.27,48.38,78.71,48.38,78.71,53.48,65.27,53.48",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1570,1666,720,725",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=60.286,66.686",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:23.79,71.58,30.71,70.48,31.33,72.86,24.32,74.51",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:33.91,72.97,43.98,70.74,45.17,73.44,35.09,75.67",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:40.66,75.20,49.43,73.17,50.66,75.75,41.89,77.81",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:45.50,79.66,53.11,78.77,53.52,81.81,45.90,82.94",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:23.14,90.70,24.49,89.57,25.02,89.89,23.67,91.02",
+          "role": [
+            "sound-area"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:40.99,88.18,53.56,84.91,55.24,88.09,42.63,91.37",
+          "role": [
+            "sound-area"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=153,2416,1199,757",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "20_Side_16.mp3#t=66.686,73.48",
+      "children": [
+        {
+          "imgref": "image0016.jpg#xyn=percent:58.03,70.42,68.06,70.42,68.06,75.70,58.03,75.70",
+          "role": [
+            "balloon"
+          ]
+        },
+        {
+          "imgref": "image0016.jpg#xyn=percent:79.24,70.19,91.32,70.19,91.32,75.26,79.24,75.26",
+          "role": [
+            "balloon"
+          ]
+        }
+      ],
+      "imgref": "image0016.jpg#xywh=1368,2415,925,757",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0016.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "links": [
+    {
+      "href": "https://notalib.github.io/divian/books/nofret-gravroeverne/sync-manifest.json",
+      "rel": "self"
+    }
+  ],
+  "metadata": {
+    "author": "Sussi Bech",
+    "duration": 2643,
+    "published": "Thu May 30 2013 02:00:00 GMT+0200 (Central European Summer Time)",
+    "publisher": "Carlsen Comics",
+    "title": "Gravrøverne"
+  },
+  "syncMedia": [
+    {
+      "duration": 5,
+      "href": "sync-media-0000.json",
+      "title": "Sussi Bech: Gravrøverne"
+    },
+    {
+      "duration": 33,
+      "href": "sync-media-0001.json",
+      "title": "Om denne udgave"
+    },
+    {
+      "duration": 17,
+      "href": "sync-media-0002.json",
+      "title": "Kolofon og bibliografiske oplysninger"
+    },
+    {
+      "duration": 9,
+      "href": "sync-media-0003.json",
+      "title": "Forsiden"
+    },
+    {
+      "duration": 7,
+      "href": "sync-media-0004.json",
+      "title": "Side 1"
+    },
+    {
+      "duration": 95,
+      "href": "sync-media-0005.json",
+      "title": "Side 2"
+    },
+    {
+      "duration": 43,
+      "href": "sync-media-0006.json",
+      "title": "Side 3"
+    },
+    {
+      "duration": 55,
+      "href": "sync-media-0007.json",
+      "title": "Side 4"
+    },
+    {
+      "duration": 41,
+      "href": "sync-media-0008.json",
+      "title": "Side 5"
+    },
+    {
+      "duration": 64,
+      "href": "sync-media-0009.json",
+      "title": "Side 6"
+    },
+    {
+      "duration": 69,
+      "href": "sync-media-0010.json",
+      "title": "Side 7"
+    },
+    {
+      "duration": 88,
+      "href": "sync-media-0011.json",
+      "title": "Side 8"
+    },
+    {
+      "duration": 68,
+      "href": "sync-media-0012.json",
+      "title": "Side 9"
+    },
+    {
+      "duration": 46,
+      "href": "sync-media-0013.json",
+      "title": "Side 10"
+    },
+    {
+      "duration": 47,
+      "href": "sync-media-0014.json",
+      "title": "Side 11"
+    },
+    {
+      "duration": 63,
+      "href": "sync-media-0015.json",
+      "title": "Side 12"
+    },
+    {
+      "duration": 101,
+      "href": "sync-media-0016.json",
+      "title": "Side 13"
+    },
+    {
+      "duration": 69,
+      "href": "sync-media-0017.json",
+      "title": "Side 14"
+    },
+    {
+      "duration": 42,
+      "href": "sync-media-0018.json",
+      "title": "Side 15"
+    },
+    {
+      "duration": 73,
+      "href": "sync-media-0019.json",
+      "title": "Side 16"
+    },
+    {
+      "duration": 33,
+      "href": "sync-media-0020.json",
+      "title": "Side 17"
+    },
+    {
+      "duration": 42,
+      "href": "sync-media-0021.json",
+      "title": "Side 18"
+    },
+    {
+      "duration": 49,
+      "href": "sync-media-0022.json",
+      "title": "Side 19"
+    },
+    {
+      "duration": 31,
+      "href": "sync-media-0023.json",
+      "title": "Side 20"
+    },
+    {
+      "duration": 50,
+      "href": "sync-media-0024.json",
+      "title": "Side 21"
+    },
+    {
+      "duration": 46,
+      "href": "sync-media-0025.json",
+      "title": "Side 22"
+    },
+    {
+      "duration": 52,
+      "href": "sync-media-0026.json",
+      "title": "Side 23"
+    },
+    {
+      "duration": 34,
+      "href": "sync-media-0027.json",
+      "title": "Side 24"
+    },
+    {
+      "duration": 32,
+      "href": "sync-media-0028.json",
+      "title": "Side 25"
+    },
+    {
+      "duration": 52,
+      "href": "sync-media-0029.json",
+      "title": "Side 26"
+    },
+    {
+      "duration": 54,
+      "href": "sync-media-0030.json",
+      "title": "Side 27"
+    },
+    {
+      "duration": 80,
+      "href": "sync-media-0031.json",
+      "title": "Side 28"
+    },
+    {
+      "duration": 65,
+      "href": "sync-media-0032.json",
+      "title": "Side 29"
+    },
+    {
+      "duration": 62,
+      "href": "sync-media-0033.json",
+      "title": "Side 30"
+    },
+    {
+      "duration": 36,
+      "href": "sync-media-0034.json",
+      "title": "Side 31"
+    },
+    {
+      "duration": 36,
+      "href": "sync-media-0035.json",
+      "title": "Side 32"
+    },
+    {
+      "duration": 64,
+      "href": "sync-media-0036.json",
+      "title": "Side 33"
+    },
+    {
+      "duration": 20,
+      "href": "sync-media-0037.json",
+      "title": "Side 34"
+    },
+    {
+      "duration": 18,
+      "href": "sync-media-0038.json",
+      "title": "Side 35"
+    },
+    {
+      "duration": 21,
+      "href": "sync-media-0039.json",
+      "title": "Side 36"
+    },
+    {
+      "duration": 21,
+      "href": "sync-media-0040.json",
+      "title": "Side 37"
+    },
+    {
+      "duration": 36,
+      "href": "sync-media-0041.json",
+      "title": "Side 38"
+    },
+    {
+      "duration": 37,
+      "href": "sync-media-0042.json",
+      "title": "Side 39"
+    },
+    {
+      "duration": 62,
+      "href": "sync-media-0043.json",
+      "title": "Side 40"
+    },
+    {
+      "duration": 90,
+      "href": "sync-media-0044.json",
+      "title": "Side 41"
+    },
+    {
+      "duration": 59,
+      "href": "sync-media-0045.json",
+      "title": "Side 42"
+    },
+    {
+      "duration": 188,
+      "href": "sync-media-0046.json",
+      "title": "Side 43"
+    },
+    {
+      "duration": 59,
+      "href": "sync-media-0047.json",
+      "title": "Side 44"
+    },
+    {
+      "duration": 44,
+      "href": "sync-media-0048.json",
+      "title": "Side 45"
+    },
+    {
+      "duration": 51,
+      "href": "sync-media-0049.json",
+      "title": "Side 46"
+    },
+    {
+      "duration": 51,
+      "href": "sync-media-0050.json",
+      "title": "Side 47"
+    },
+    {
+      "duration": 33,
+      "href": "sync-media-0051.json",
+      "title": "Side 48"
+    }
+  ]
+}
