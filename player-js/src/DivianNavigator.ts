@@ -4,10 +4,10 @@ import { styleMap } from 'lit/directives/style-map.js';
 import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import { TaJson } from 'ta-json-x';
-import DivianPublication from './Model/DivianPublication';
-import NarratedPage from './Model/NarratedPage';
-import Panel from './Model/Panel';
-import TextElement from './Model/TextElement';
+import DivianPublication from './Model/Divian/DivianPublication';
+import NarratedPage from './Model/Divian/NarratedPage';
+import Panel from './Model/Divian/Panel';
+import TextElement from './Model/Divian/TextElement';
 
 @customElement('divian-navigator')
 export default class DivianNavigator extends LitElement {

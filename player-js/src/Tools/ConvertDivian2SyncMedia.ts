@@ -1,12 +1,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import DivianPublication from '../Model/DivianPublication';
 import { TaJson } from 'ta-json-x';
 import { promisify } from 'util';
 import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
-import SyncMedia from '../Model/SyncMedia';
-import SyncMediaPublication from '../Model/SyncMediaPublication';
+import SyncMedia from '../Model/SyncMedia/SyncMedia';
+import SyncMediaPublication from '../Model/SyncMedia/SyncMediaPublication';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
+import DivianPublication from 'src/Model/Divian/DivianPublication';
 
 const fsReadFile = promisify(fs.readFile);
 const fsWriteFile = promisify(fs.writeFile);
@@ -33,10 +33,17 @@ async function worker() {
   syncMediaPublication.Links ??= [];
   syncMediaPublication.Links.push(selfLink);
 
-  // syncMediaPublication.Spine ??= [];
+  syncMediaPublication.Spine ??= [];
   divianManifest.Spine ??= [];
 
   for (const link of divianManifest.Spine) {
+    const spineLink = new Link();
+    spineLink.Href = link.Href;
+    spineLink.TypeLink = link.TypeLink;
+    spineLink.Duration = link.Duration;
+    spineLink.Title = link.Title;
+    syncMediaPublication.Spine.push(spineLink);
+
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     const idx = `${divianManifest.Spine?.findIndex((l) => l === link)}`.padStart(4, '0');
     const syndFilename = `sync-media-${idx}.json`;
@@ -51,12 +58,12 @@ async function worker() {
       const mediaOverlay = TaJson.parse(await fsReadFile(mediaOverlayPath, 'utf-8'), MediaOverlayNode);
 
       const syncMedia = new SyncMedia();
-      syncMedia.Role = mediaOverlay.Role;
-      syncMedia.TextRef = mediaOverlay.Children?.[0]?.Text;
-      syncMedia.Children = mediaOverlay.Children?.[0]?.Children.map((c) => {
+      syncMedia.role = mediaOverlay.Role;
+      syncMedia.textRef = mediaOverlay.Children?.[0]?.Text;
+      syncMedia.children = mediaOverlay.Children?.[0]?.Children.map((c) => {
         const child = new SyncMedia();
-        child.TextRef = c.Text;
-        child.AudioRef = c.Audio;
+        child.textRef = c.Text;
+        child.audioRef = c.Audio;
         return child;
       });
 
@@ -68,16 +75,16 @@ async function worker() {
     const navItem = divianManifest.Narration.find((n) => n.Href === link.Href);
     if (navItem) {
       const syncMedia = new SyncMedia();
-      syncMedia.Role = ['panel-group'];
-      syncMedia.ImageRef = navItem.Href;
-      syncMedia.Children = navItem.Panels.map((p) => {
+      syncMedia.role = ['panel-group'];
+      syncMedia.imageRef = navItem.Href;
+      syncMedia.children = navItem.Panels.map((p) => {
         const panel = new SyncMedia();
-        panel.Role = ['panel'];
-        panel.AudioRef = p.Audio;
-        panel.ImageRef = `${navItem.Href}${p.Fragment ?? ''}`;
+        panel.role = ['panel'];
+        panel.audioRef = p.Audio;
+        panel.imageRef = `${navItem.Href}${p.Fragment ?? ''}`;
         const audioFile = p.Audio?.replace(/#.*$/, '') ?? '';
 
-        panel.Children = p.Texts?.map((t) => {
+        panel.children = p.Texts?.map((t) => {
           const text = new SyncMedia();
           let fragment = t.Fragment?.replace('#', '');
           if (t.ClipPath) {
@@ -89,22 +96,22 @@ async function worker() {
             ].join('');
           }
 
-          text.ImageRef = [navItem.Href, '#', fragment].join('');
+          text.imageRef = [navItem.Href, '#', fragment].join('');
           if (t.AudioFragment) {
-            text.AudioRef = [audioFile, '#', t.AudioFragment].join('');
+            text.audioRef = [audioFile, '#', t.AudioFragment].join('');
           }
 
           switch (t.Type) {
             case 'caption': {
-              text.Role = ['text-area'];
+              text.role = ['text-area'];
               break;
             }
             case 'sound': {
-              text.Role = ['sound-area'];
+              text.role = ['sound-area'];
               break;
             }
             default: {
-              text.Role = ['balloon'];
+              text.role = ['balloon'];
               break;
             }
           }

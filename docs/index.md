@@ -4,7 +4,7 @@ title: Digital Visual Audible Narratives (DiViAN)
 
 **Status:**
 
-Draft
+Replaced by [sync-media](https://github.com/readium/architecture/pull/181).
 
 **Editors:**
 

@@ -1,11 +1,10 @@
 import { LitElement, css, html, nothing, TemplateResult } from 'lit';
 import { customElement, property, query } from 'lit/decorators.js';
 import { styleMap } from 'lit/directives/style-map.js';
-import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-overlay';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import { TaJson } from 'ta-json-x';
-import SyncMedia from './Model/SyncMedia';
-import SyncMediaPublication from './Model/SyncMediaPublication';
+import SyncMedia from './Model/SyncMedia/SyncMedia';
+import SyncMediaPublication from './Model/SyncMedia/SyncMediaPublication';
 
 @customElement('sync-media-navigator')
 export default class SyncMediaNavigator extends LitElement {
@@ -74,8 +73,6 @@ export default class SyncMediaNavigator extends LitElement {
 
   private _playlist?: PlaylistItem[];
 
-  private _syncMediaMap = new Map<string, SyncMedia>();
-
   private get _prevPosition() {
     for (let i = this._currentPositionIdx - 1; i >= 0; i -= 1) {
       const item = this._playlist?.[i];
@@ -125,8 +122,8 @@ export default class SyncMediaNavigator extends LitElement {
     return this._spineIdx <= (this._publication?.Spine?.length ?? 0);
   }
 
-  private get _currentNarratedPage() {
-    return this._currentPosition?.syncMediaPage;
+  private get _currentComicPage() {
+    return this._currentPosition?.comicPage;
   }
 
   public get currentSpineItem() {
@@ -134,12 +131,7 @@ export default class SyncMediaNavigator extends LitElement {
   }
 
   private get _comicPageUrl() {
-    const path = this._currentNarratedPage?.ImageRef;
-    if (!path) {
-      return null;
-    }
-
-    return new URL(path, this.manifestUrl).href;
+    return this._currentComicPage?.imageRef;
   }
 
   private get _currentPanel() {
@@ -159,7 +151,7 @@ export default class SyncMediaNavigator extends LitElement {
   }
 
   private get _balloonClipPath() {
-    return this._currentBalloon?.ClipPath;
+    return this._currentBalloon?.clipPath;
   }
 
   private get _panelClipPath() {
@@ -167,19 +159,14 @@ export default class SyncMediaNavigator extends LitElement {
     const pageWidth = this._pageWidth;
 
     const panel = this._currentPanel;
-    if (!panel?.Fragment || !pageHeight || !pageWidth) {
+    if (!panel?.sizeInfo || !pageHeight || !pageWidth) {
       return null;
     }
 
-    const hash = panel.Fragment;
-
-    const pxRegexp = /#xywh=([\d]+),([\d]+),([\d]+),([\d]+)/;
-    const m = pxRegexp.exec(hash);
-    if (!m) {
+    const { x, y, height, width } = panel;
+    if (!x || !y || !height || !width) {
       return null;
     }
-
-    const [, x, y, width, height] = m.map((v) => Number(v));
 
     const topPct = (y / pageHeight) * 100;
     const rightPct = 100 - ((x + width) / pageWidth) * 100;
@@ -226,10 +213,10 @@ export default class SyncMediaNavigator extends LitElement {
     const currentPanel = this._currentPanel;
 
     // Panel position and size
-    const panelXOffset = currentPanel?.X ?? 0;
-    const panelYOffset = currentPanel?.Y ?? 0;
-    const realPanelWidth = currentPanel?.Width ?? pageWidth;
-    const realPanelHeight = currentPanel?.Height ?? pageHeight;
+    const panelXOffset = currentPanel?.x ?? 0;
+    const panelYOffset = currentPanel?.y ?? 0;
+    const realPanelWidth = currentPanel?.width ?? pageWidth;
+    const realPanelHeight = currentPanel?.height ?? pageHeight;
 
     // Available viewport size
     const availableHeight = this.clientHeight - padding;
@@ -416,118 +403,135 @@ export default class SyncMediaNavigator extends LitElement {
 
     const publication = await this._loadJsonFile(this._manifestUrl, SyncMediaPublication);
 
-    const syncMediaMap = (this._syncMediaMap = new Map<string, SyncMedia>());
-
     const playlist = new Array<PlaylistItem>();
 
-    function parseAudio(href: string) {
-      const url = new URL(href);
-      const m = /#t=(([0-9]+\.[0-9]+)|[0])?,([0-9]+\.[0-9]+)/.exec(url.hash);
-      if (!m) {
-        throw new Error(href);
+    const rootSyncMedia = new SyncMedia();
+    rootSyncMedia.children = [];
+
+    const fullHref = (href: string) => new URL(href, this._manifestUrl).href;
+
+    function fixSyncMediaHref(syncMedia: SyncMedia) {
+      if (syncMedia.audioRef) {
+        syncMedia.audioRef = fullHref(syncMedia.audioRef);
       }
 
-      const [, start, , end] = m;
+      if (syncMedia.textRef) {
+        syncMedia.textRef = fullHref(syncMedia.textRef);
+      }
 
-      return {
-        start: Number(start),
-        end: Number(end),
-      };
+      if (syncMedia.imageRef) {
+        syncMedia.imageRef = fullHref(syncMedia.imageRef);
+      }
+
+      if (syncMedia.description) {
+        if (syncMedia.description.audioRef) {
+          syncMedia.description.audioRef = fullHref(syncMedia.description.audioRef);
+        }
+
+        if (syncMedia.description.imageRef) {
+          syncMedia.description.imageRef = fullHref(syncMedia.description.imageRef);
+        }
+      }
+
+      syncMedia.children?.forEach(fixSyncMediaHref);
     }
 
-    // function processSyncMedia(syncMedia: SyncMedia) {}
-
     for (const n of publication.SyncMedia ?? []) {
-      n.Href = new URL(n.Href, this._manifestUrl).href;
+      n.Href = fullHref(n.Href);
 
-      syncMediaMap.set(n.Href, await this._loadJsonFile(n.Href, SyncMedia));
+      const nSyncMedia = await this._loadJsonFile(n.Href, SyncMedia);
+      fixSyncMediaHref(nSyncMedia);
+      rootSyncMedia.children.push(nSyncMedia);
     }
 
     for (const link of publication.Spine ?? []) {
-      link.Href = new URL(link.Href, this._manifestUrl).href;
+      link.Href = fullHref(link.Href);
+    }
 
-      if (link.Properties?.MediaOverlay) {
-        const mediaOverlayNode = await this._loadJsonFile(new URL(link.Properties?.MediaOverlay, this._manifestUrl), MediaOverlayNode);
-        for (const m of mediaOverlayNode.Children) {
-          m.Text = new URL(m.Text, this._manifestUrl).href;
-          for (const c of m.Children ?? []) {
-            const audio = new URL(c.Audio, this._manifestUrl);
-            const { start, end } = parseAudio(audio.href);
-            c.Audio = audio.href;
+    for (const sm of rootSyncMedia.children) {
+      const readingItem = publication.Spine?.find((i) => i.Href === sm.imageRef || i.Href === sm.textRef);
+      if (!readingItem) {
+        throw new Error('Reading item not found');
+      }
 
-            audio.hash = '';
-
-            const playlistItem = new PlaylistItem();
-            playlistItem.audio = audio.href;
-            playlistItem.start = start;
-            playlistItem.end = end;
-            playlistItem.textId = new URL(c.Text, this._manifestUrl).hash;
-            playlistItem.readingItem = link;
-            playlist.push(playlistItem);
+      if (sm.textRef) {
+        for (const c of sm.children ?? []) {
+          if (!c.textRef) {
+            continue;
           }
-        }
 
-        link.MediaOverlays = mediaOverlayNode;
+          if (!c.audioFile) {
+            continue;
+          }
+
+          const playlistItem = new PlaylistItem();
+          playlistItem.audio = c.audioFile;
+          playlistItem.start = c.audioStart ?? 0;
+          playlistItem.end = c.audioEnd ?? 0;
+          playlistItem.readingItem = readingItem;
+          playlistItem.textId = c.textFragment;
+          playlist.push(playlistItem);
+        }
 
         continue;
       }
 
-      if (link.TypeLink?.startsWith('image/')) {
-        const n = syncMediaMap.get(link.Href);
-        if (!n) {
-          throw new Error();
-        }
+      if (sm.imageRef) {
+        for (const c of sm.children ?? []) {
+          if (!c.textRef) {
+            continue;
+          }
 
-        for (const p of n.Panels) {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-unnecessary-type-assertion
-          const audio = new URL(p.Audio!);
-          const { start, end } = parseAudio(audio.href);
-          audio.hash = '';
+          if (!c.audioFile) {
+            continue;
+          }
 
           const playlistItem = new PlaylistItem();
-          playlistItem.audio = audio.href;
-          playlistItem.start = start;
-          playlistItem.end = end;
-          playlistItem.readingItem = link;
-          playlistItem.syncMediaPage = n;
-          playlistItem.panel = p;
+          playlistItem.audio = c.audioFile;
+          playlistItem.start = c.audioStart ?? 0;
+          playlistItem.end = c.audioEnd ?? 0;
+          playlistItem.readingItem = readingItem;
+          playlistItem.comicPage = sm;
+          playlistItem.panel = c;
           playlist.push(playlistItem);
 
-          if (p.Texts) {
-            const textLength = p.Texts.filter((t) => !t.AudioFragment).reduce((length, t) => length + (t.Text?.length ?? 0), 0);
+          const texts = c.children;
+          if (texts) {
+            const textLength = texts.filter((t) => !t.audioRef).reduce((length, t) => length + (t.children?.length ?? 0), 0);
 
-            const textDuration = p.Texts.filter((t) => !!t.AudioFragment)
-              .map((t) => {
-                const tUrl = new URL(audio.href);
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                tUrl.hash = t.AudioFragment!;
-
-                return parseAudio(tUrl.href);
-              })
-              .reduce((res, item) => res + (item.end - item.start), 0);
+            const textDuration = texts.filter((t) => !!t.audioFile).reduce((res, item) => res + ((item.audioEnd ?? 0) - (item.audioStart ?? 0)), 0);
 
             const panelDuration = playlistItem.end - playlistItem.start - textDuration;
 
             let lastEnd = playlistItem.start;
-            for (const t of p.Texts) {
-              const pctLength = (t.Text?.length ?? 0) / textLength;
-              if (!t.AudioFragment) {
-                t.AudioFragment = `#t=${lastEnd},${lastEnd + panelDuration * pctLength}`;
+            for (const t of texts) {
+              const pctLength = (t.children?.length ?? 0) / textLength;
+              if (!t.audioRef) {
+                const tAudioUrl = new URL(c.audioFile);
+                tAudioUrl.hash = `#t=${lastEnd},${lastEnd + panelDuration * pctLength}`;
+                t.audioRef = tAudioUrl.href;
               }
 
-              const tUrl = new URL(audio.href);
-              tUrl.hash = t.AudioFragment;
+              if (!t.audioFile) {
+                continue;
+              }
 
-              const { start: tStart, end: tEnd } = parseAudio(tUrl.href);
+              const tStart = t.audioStart ?? 0;
+              const tEnd = t.audioEnd ?? 0;
+
               lastEnd = tEnd;
 
+              if (playlistItem.end > tStart) {
+                playlistItem.end = tStart;
+              }
+
               const tPlaylistItem = new PlaylistItem();
-              tPlaylistItem.audio = audio.href;
+              tPlaylistItem.audio = t.audioFile;
               tPlaylistItem.start = tStart;
               tPlaylistItem.end = tEnd;
-              tPlaylistItem.readingItem = link;
-              tPlaylistItem.syncMediaPage = n;
-              tPlaylistItem.panel = p;
+              tPlaylistItem.readingItem = readingItem;
+              tPlaylistItem.comicPage = sm;
+              tPlaylistItem.panel = c;
               tPlaylistItem.text = t;
               playlist.push(tPlaylistItem);
             }
@@ -537,14 +541,6 @@ export default class SyncMediaNavigator extends LitElement {
         continue;
       }
     }
-
-    this._playlist = playlist;
-    this._publication = publication;
-    this._currentPositionIdx = 0;
-
-    this.currentTime = this._currentPosition?.start ?? 0;
-
-    this._positionChanged();
   }
 
   private get _currentAudio() {
@@ -555,6 +551,7 @@ export default class SyncMediaNavigator extends LitElement {
     if (!url) {
       throw new Error('url cannot be undefined');
     }
+
     const response = await fetch(url);
     return TaJson.parse(await response.text(), type);
   }
@@ -650,7 +647,7 @@ export default class SyncMediaNavigator extends LitElement {
       return nothing;
     }
 
-    const caption = this._currentBalloon?.Text;
+    const caption = this._currentBalloon?.text;
     if (!caption) {
       return nothing;
     }
@@ -858,91 +855,6 @@ export default class SyncMediaNavigator extends LitElement {
   `;
 }
 
-class SyncMediaPanel {
-  constructor(href: string) {
-    const url = new URL(href);
-
-    this.Fragment = url.hash;
-  }
-
-  public Fragment?: string;
-  public get SizeInfo() {
-    const fragment = this.Fragment;
-    if (!fragment) {
-      return null;
-    }
-
-    const pxRegexp = /#xywh=([\d]+),([\d]+),([\d]+),([\d]+)/;
-    const m = pxRegexp.exec(fragment);
-    if (!m) {
-      return null;
-    }
-
-    const [, x, y, width, height] = m.map((v) => Number(v));
-
-    return {
-      x,
-      y,
-      width,
-      height,
-    };
-  }
-
-  public get Width() {
-    return this.SizeInfo?.width;
-  }
-
-  public get Height() {
-    return this.SizeInfo?.height;
-  }
-
-  public get X() {
-    return this.SizeInfo?.x;
-  }
-
-  public get Y() {
-    return this.SizeInfo?.y;
-  }
-}
-
-class SyncMediaText {
-  constructor(href: string, text: string) {
-    const url = new URL(href);
-
-    this.Fragment = url.hash;
-    this.Text = text;
-  }
-
-  public Fragment: string;
-
-  public Text: string;
-
-  public get ClipPath() {
-    const prefix = '#xyn=percent:';
-    if (!this.Fragment?.startsWith(prefix)) {
-      return;
-    }
-
-    const input = this.Fragment.substring(prefix.length)
-      .split(',')
-      .map((i) => `${i}%`);
-
-    if (input.length % 2 !== 0) {
-      return;
-    }
-
-    const output = new Array<string>();
-    for (let i = 0; i < input.length; i += 2) {
-      const p1 = input[i];
-      const p2 = input[i + 1];
-
-      output.push(`${p1} ${p2}`);
-    }
-
-    return `polygon(${output.join(',')})`;
-  }
-}
-
 class PlaylistItem {
   public audio: string;
 
@@ -954,11 +866,11 @@ class PlaylistItem {
 
   public textId?: string;
 
-  public syncMediaPage?: SyncMedia;
+  public comicPage?: SyncMedia;
 
-  public panel?: SyncMediaPanel;
+  public panel?: SyncMedia;
 
-  public text?: SyncMediaText;
+  public text?: SyncMedia;
 
   public isWithinOffset(offset: number) {
     const roundingErrorFactor = 0.001; // we need to handle rounding issues with numbers in JS.
