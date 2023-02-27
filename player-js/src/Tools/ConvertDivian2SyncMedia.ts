@@ -6,7 +6,7 @@ import { MediaOverlayNode } from 'r2-shared-js/dist/es8-es2017/src/models/media-
 import SyncMedia from '../Model/SyncMedia/SyncMedia';
 import SyncMediaPublication from '../Model/SyncMedia/SyncMediaPublication';
 import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
-import DivianPublication from 'src/Model/Divian/DivianPublication';
+import DivianPublication from '../Model/Divian/DivianPublication';
 
 const fsReadFile = promisify(fs.readFile);
 const fsWriteFile = promisify(fs.writeFile);

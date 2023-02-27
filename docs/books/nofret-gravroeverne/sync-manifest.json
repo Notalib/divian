@@ -12,6 +12,320 @@
     "publisher": "Carlsen Comics",
     "title": "Gravrøverne"
   },
+  "readingOrder": [
+    {
+      "duration": 5,
+      "href": "39619-0001-generic.xhtml",
+      "title": "Sussi Bech: Gravrøverne",
+      "type": "text/html"
+    },
+    {
+      "duration": 33,
+      "href": "39619-0002-generic.xhtml",
+      "title": "Om denne udgave",
+      "type": "text/html"
+    },
+    {
+      "duration": 17,
+      "href": "39619-0003-generic.xhtml",
+      "title": "Kolofon og bibliografiske oplysninger",
+      "type": "text/html"
+    },
+    {
+      "duration": 9,
+      "href": "forsiden.jpg",
+      "title": "Forsiden",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 7,
+      "href": "image0001.jpg",
+      "title": "Side 1",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 95,
+      "href": "image0002.jpg",
+      "title": "Side 2",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 43,
+      "href": "image0003.jpg",
+      "title": "Side 3",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 55,
+      "href": "image0004.jpg",
+      "title": "Side 4",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 41,
+      "href": "image0005.jpg",
+      "title": "Side 5",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 64,
+      "href": "image0006.jpg",
+      "title": "Side 6",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 69,
+      "href": "image0007.jpg",
+      "title": "Side 7",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 88,
+      "href": "image0008.jpg",
+      "title": "Side 8",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 68,
+      "href": "image0009.jpg",
+      "title": "Side 9",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 46,
+      "href": "image0010.jpg",
+      "title": "Side 10",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 47,
+      "href": "image0011.jpg",
+      "title": "Side 11",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 63,
+      "href": "image0012.jpg",
+      "title": "Side 12",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 101,
+      "href": "image0013.jpg",
+      "title": "Side 13",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 69,
+      "href": "image0014.jpg",
+      "title": "Side 14",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 42,
+      "href": "image0015.jpg",
+      "title": "Side 15",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 73,
+      "href": "image0016.jpg",
+      "title": "Side 16",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 33,
+      "href": "image0017.jpg",
+      "title": "Side 17",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 42,
+      "href": "image0018.jpg",
+      "title": "Side 18",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 49,
+      "href": "image0019.jpg",
+      "title": "Side 19",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 31,
+      "href": "image0020.jpg",
+      "title": "Side 20",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 50,
+      "href": "image0021.jpg",
+      "title": "Side 21",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 46,
+      "href": "image0022.jpg",
+      "title": "Side 22",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 52,
+      "href": "image0023.jpg",
+      "title": "Side 23",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 34,
+      "href": "image0024.jpg",
+      "title": "Side 24",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 32,
+      "href": "image0025.jpg",
+      "title": "Side 25",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 52,
+      "href": "image0026.jpg",
+      "title": "Side 26",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 54,
+      "href": "image0027.jpg",
+      "title": "Side 27",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 80,
+      "href": "image0028.jpg",
+      "title": "Side 28",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 65,
+      "href": "image0029.jpg",
+      "title": "Side 29",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 62,
+      "href": "image0030.jpg",
+      "title": "Side 30",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 36,
+      "href": "image0031.jpg",
+      "title": "Side 31",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 36,
+      "href": "image0032.jpg",
+      "title": "Side 32",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 64,
+      "href": "image0033.jpg",
+      "title": "Side 33",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 20,
+      "href": "image0034.jpg",
+      "title": "Side 34",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 18,
+      "href": "image0035.jpg",
+      "title": "Side 35",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 21,
+      "href": "image0036.jpg",
+      "title": "Side 36",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 21,
+      "href": "image0037.jpg",
+      "title": "Side 37",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 36,
+      "href": "image0038.jpg",
+      "title": "Side 38",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 37,
+      "href": "image0039.jpg",
+      "title": "Side 39",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 62,
+      "href": "image0040.jpg",
+      "title": "Side 40",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 90,
+      "href": "image0041.jpg",
+      "title": "Side 41",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 59,
+      "href": "image0042.jpg",
+      "title": "Side 42",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 188,
+      "href": "image0043.jpg",
+      "title": "Side 43",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 59,
+      "href": "image0044.jpg",
+      "title": "Side 44",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 44,
+      "href": "image0045.jpg",
+      "title": "Side 45",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 51,
+      "href": "image0046.jpg",
+      "title": "Side 46",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 51,
+      "href": "image0047.jpg",
+      "title": "Side 47",
+      "type": "image/jpeg"
+    },
+    {
+      "duration": 33,
+      "href": "image0048.jpg",
+      "title": "Side 48",
+      "type": "image/jpeg"
+    }
+  ],
   "syncMedia": [
     {
       "duration": 5,
