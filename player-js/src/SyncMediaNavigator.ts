@@ -456,11 +456,8 @@ export default class SyncMediaNavigator extends LitElement {
 
       if (sm.textRef) {
         for (const c of sm.children ?? []) {
-          if (!c.textRef) {
-            continue;
-          }
-
-          if (!c.audioFile) {
+          const textFragment = c.textFragment;
+          if (!textFragment || !c.audioFile) {
             continue;
           }
 
@@ -469,7 +466,7 @@ export default class SyncMediaNavigator extends LitElement {
           playlistItem.start = c.audioStart ?? 0;
           playlistItem.end = c.audioEnd ?? 0;
           playlistItem.readingItem = readingItem;
-          playlistItem.textId = c.textFragment;
+          playlistItem.textId = textFragment;
           playlist.push(playlistItem);
         }
 
@@ -478,10 +475,6 @@ export default class SyncMediaNavigator extends LitElement {
 
       if (sm.imageRef) {
         for (const c of sm.children ?? []) {
-          if (!c.textRef) {
-            continue;
-          }
-
           if (!c.audioFile) {
             continue;
           }
@@ -497,7 +490,7 @@ export default class SyncMediaNavigator extends LitElement {
 
           const texts = c.children;
           if (texts) {
-            const textLength = texts.filter((t) => !t.audioRef).reduce((length, t) => length + (t.children?.length ?? 0), 0);
+            const textLength = texts.filter((t) => !t.audioRef).reduce((length, t) => length + (t.children?.length ?? 0), texts.length);
 
             const textDuration = texts.filter((t) => !!t.audioFile).reduce((res, item) => res + ((item.audioEnd ?? 0) - (item.audioStart ?? 0)), 0);
 
@@ -505,7 +498,7 @@ export default class SyncMediaNavigator extends LitElement {
 
             let lastEnd = playlistItem.start;
             for (const t of texts) {
-              const pctLength = (t.children?.length ?? 0) / textLength;
+              const pctLength = (texts?.length ?? 0) / textLength;
               if (!t.audioRef) {
                 const tAudioUrl = new URL(c.audioFile);
                 tAudioUrl.hash = `#t=${lastEnd},${lastEnd + panelDuration * pctLength}`;
@@ -541,6 +534,10 @@ export default class SyncMediaNavigator extends LitElement {
         continue;
       }
     }
+
+    this._playlist = playlist;
+    this._publication = publication;
+    this._currentPositionIdx = 0;
   }
 
   private get _currentAudio() {

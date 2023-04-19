@@ -380,7 +380,7 @@ export default class SyncMediaPlayer extends LitElement {
       border-bottom: 0.8em solid var(--background-color);
     }
 
-    .content-viewer divian-navigator {
+    .content-viewer sync-media-navigator {
       flex-grow: 1;
     }
 

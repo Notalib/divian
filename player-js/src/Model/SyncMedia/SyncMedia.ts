@@ -170,12 +170,13 @@ export default class SyncMedia {
     }
 
     const url = new URL(audioRef);
-    const m = /#t=(([0-9]+\.[0-9]+)|[0])?,([0-9]+\.[0-9]+)/.exec(url.hash);
+    const m = /#t=([0-9]+(\.[0-9]+)?)?,([0-9]+(\.[0-9]+)?)/.exec(url.hash);
     if (!m) {
       throw new Error(audioRef);
     }
 
-    const [, start, , end] = m;
+    const start = m[1];
+    const end = m[3];
 
     return {
       start: Number(start),
