@@ -14,7 +14,7 @@ const [, , inputFile, outputDir] = process.argv;
 
 async function writeJsonFile<T>(obj: T, filename: string) {
   const filepath = path.resolve(outputDir, filename);
-  await fsWriteFile(filepath, TaJson.stringify(obj));
+  await fsWriteFile(filepath, JSON.stringify(JSON.parse(TaJson.stringify(obj)), null, '  '));
 }
 
 async function worker() {
@@ -42,6 +42,8 @@ async function worker() {
     spineLink.TypeLink = link.TypeLink;
     spineLink.Duration = link.Duration;
     spineLink.Title = link.Title;
+    spineLink.Height = link.Height;
+    spineLink.Width = link.Width;
     syncMediaPublication.Spine.push(spineLink);
 
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions

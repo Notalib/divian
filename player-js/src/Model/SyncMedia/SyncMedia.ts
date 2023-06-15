@@ -87,36 +87,21 @@ export default class SyncMedia {
       return;
     }
 
-    const pxRegexp = /#xywh=([\d]+),([\d]+),([\d]+),([\d]+)/;
+    const pxRegexp = /#xywh=(percent:)?([\d]+),([\d]+),([\d]+),([\d]+)/;
     const m = pxRegexp.exec(fragment);
     if (!m) {
       return;
     }
 
-    const [, x, y, width, height] = m.map((v) => Number(v));
+    const [, , x, y, width, height] = m.map((v) => Number(v));
 
     return {
       x,
       y,
       width,
       height,
+      isPercent: m[1] === 'percent:',
     };
-  }
-
-  public get width() {
-    return this.sizeInfo?.width;
-  }
-
-  public get height() {
-    return this.sizeInfo?.height;
-  }
-
-  public get x() {
-    return this.sizeInfo?.x;
-  }
-
-  public get y() {
-    return this.sizeInfo?.y;
   }
 
   public get clipPath() {
@@ -127,7 +112,7 @@ export default class SyncMedia {
 
     const prefix = '#xyn=percent:';
     const idx = imageRef.indexOf(prefix);
-    if (idx >= 0) {
+    if (idx === -1) {
       return;
     }
 

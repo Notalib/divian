@@ -22,10 +22,10 @@ export default class SyncMediaPlayer extends LitElement {
   private isPlaying = false;
 
   @property()
-  public showCaption = false;
+  public showCaption = true;
 
   @property()
-  public highlightBalloon = false;
+  public highlightBalloon = true;
 
   @property()
   public infoBoxOpen = false;

@@ -159,19 +159,20 @@ export default class SyncMediaNavigator extends LitElement {
     const pageWidth = this._pageWidth;
 
     const panel = this._currentPanel;
-    if (!panel?.sizeInfo || !pageHeight || !pageWidth) {
+    const sizeInfo = panel?.sizeInfo;
+    if (!sizeInfo || !pageHeight || !pageWidth) {
       return null;
     }
 
-    const { x, y, height, width } = panel;
-    if (!x || !y || !height || !width) {
+    const { x, y, height, width, isPercent } = sizeInfo;
+    if (x == null || y == null || height == null || width == null) {
       return null;
     }
 
-    const topPct = (y / pageHeight) * 100;
-    const rightPct = 100 - ((x + width) / pageWidth) * 100;
-    const leftPct = (x / pageWidth) * 100;
-    const bottomPct = 100 - ((y + height) / pageHeight) * 100;
+    const topPct = isPercent ? y : (y / pageHeight) * 100;
+    const rightPct = 100 - (isPercent ? x + width : (x + width) / pageWidth) * 100;
+    const leftPct = isPercent ? x : (x / pageWidth) * 100;
+    const bottomPct = 100 - (isPercent ? y + height : (y + height) / pageHeight) * 100;
 
     return `inset(
       ${topPct}%
@@ -211,12 +212,19 @@ export default class SyncMediaNavigator extends LitElement {
     }
 
     const currentPanel = this._currentPanel;
+    const sizeInfo = currentPanel?.sizeInfo;
+
+    const x = sizeInfo?.x ?? 0;
+    const y = sizeInfo?.y ?? 0;
+    const height = sizeInfo?.height ?? pageWidth;
+    const width = sizeInfo?.width ?? pageHeight;
+    const isPercent = !!sizeInfo?.isPercent;
 
     // Panel position and size
-    const panelXOffset = currentPanel?.x ?? 0;
-    const panelYOffset = currentPanel?.y ?? 0;
-    const realPanelWidth = currentPanel?.width ?? pageWidth;
-    const realPanelHeight = currentPanel?.height ?? pageHeight;
+    const panelXOffset = isPercent ? (x / 100) * pageWidth : x;
+    const panelYOffset = isPercent ? (y / 100) * pageHeight : y;
+    const realPanelWidth = isPercent ? (width / 100) * pageWidth : width;
+    const realPanelHeight = isPercent ? (height / 100) * pageHeight : height;
 
     // Available viewport size
     const availableHeight = this.clientHeight - padding;
@@ -537,7 +545,7 @@ export default class SyncMediaNavigator extends LitElement {
 
     this._playlist = playlist;
     this._publication = publication;
-    this._currentPositionIdx = 0;
+    this._currentPositionIdx = 12;
   }
 
   private get _currentAudio() {
@@ -660,7 +668,7 @@ export default class SyncMediaNavigator extends LitElement {
 
     return html`<audio
       id="audio"
-      autoplay
+      ?autoplay=${this.isPlaying}
       @loadeddata="${this._loadedAudioDataEvent}"
       @timeupdate=${this._timeupdateEvent}
       @ended=${this._endedEvent}
@@ -704,7 +712,7 @@ export default class SyncMediaNavigator extends LitElement {
       }
 
       const currentTime = (this.currentTime = this.audio?.currentTime ?? 0);
-      if (currentPosition.start <= currentTime && currentTime < currentPosition.end) {
+      if (currentPosition.isWithinOffset(currentTime)) {
         return;
       }
 
@@ -735,6 +743,8 @@ export default class SyncMediaNavigator extends LitElement {
       }
 
       this._positionChanged();
+    } catch (e) {
+      console.error(e);
     } finally {
       this._highlightTextElement();
     }
