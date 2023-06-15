@@ -28,6 +28,9 @@ export default class GuidedMediaPlayer extends LitElement {
   public highlightBalloon = true;
 
   @property()
+  public blackWhiteRendering = false;
+
+  @property()
   public infoBoxOpen = false;
 
   @property()
@@ -62,6 +65,7 @@ export default class GuidedMediaPlayer extends LitElement {
       id="syncMedia"
       show-caption=${this.showCaption}
       highlight-balloon=${this.highlightBalloon}
+      black-white-rendering=${this.blackWhiteRendering}
       @position-changed="${this._positionChangedEvent}"
       manifest="${syncManifestUrl}"
     ></guided-publication-navigator>`;
@@ -105,6 +109,7 @@ export default class GuidedMediaPlayer extends LitElement {
 
         ${this._renderControlButton(this._toggleShowCaptionEvent, this.showCaption, 'Toggle caption', 'icofont-ui-text-chat')}
         ${this._renderControlButton(this._toggleHighlightBalloonsEvent, this.highlightBalloon, 'Toggle balloon highlighting', 'icofont-speech-comments')}
+        ${this._renderControlButton(this._toggleBlackWhiteRenderingEvent, !this.blackWhiteRendering, 'Toggle black white rendering', 'icofont-color-bucket')}
         ${this._renderProgressBar()}
 
         <!-- menus -->
@@ -174,9 +179,9 @@ export default class GuidedMediaPlayer extends LitElement {
     return this._renderSideMenu(
       html`
         <section class="side-bar-info-text">
-          <p>This is a demo of the WebPublication profile for Digital Visual Audible Narratives (<em>DiViAN</em>).</p>
+          <p>This is a demo of Readium WebPublication with Guided navigation.</p>
           <p>This particular comic "Nofret: Gravrøverne" is from <a href="https://nota.dk">Nota's</a> free collection.</p>
-          The full Divian profile can be found <a href="/divian" target="_blank">her</a>.
+          The proposed Guided navigation profile can be found <a href="https://github.com/readium/architecture/pull/181/files" target="_blank">her</a>.
         </section>
       `,
       this._toggleInfoBoxEvent,
@@ -256,6 +261,12 @@ export default class GuidedMediaPlayer extends LitElement {
 
   private readonly _toggleHighlightBalloonsEvent = () => {
     this.highlightBalloon = !this.highlightBalloon;
+
+    this.requestUpdate();
+  };
+
+  private readonly _toggleBlackWhiteRenderingEvent = () => {
+    this.blackWhiteRendering = !this.blackWhiteRendering;
 
     this.requestUpdate();
   };
@@ -348,7 +359,9 @@ export default class GuidedMediaPlayer extends LitElement {
       display: flex;
     }
 
-    .book-controls .ui-icon :is(.icofont-ui-text-chat, .icofont-speech-comments, .icofont-navigation-menu, .icofont-info-square).disabled {
+    .book-controls
+      .ui-icon
+      :is(.icofont-ui-text-chat, .icofont-speech-comments, .icofont-navigation-menu, .icofont-info-square, .icofont-color-bucket).disabled {
       background-color: var(--background-color);
       color: white;
       cursor: pointer;

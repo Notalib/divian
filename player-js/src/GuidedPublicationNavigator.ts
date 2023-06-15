@@ -5,6 +5,7 @@ import { Link } from 'r2-shared-js/dist/es8-es2017/src/models/publication-link';
 import { TaJson } from 'ta-json-x';
 import GuidedMedia from './Model/SyncMedia/GuidedMedia';
 import GuidedPublication from './Model/SyncMedia/GuidedPublication';
+import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('guided-publication-navigator')
 export default class GuidedPublicationNavigator extends LitElement {
@@ -63,6 +64,20 @@ export default class GuidedPublicationNavigator extends LitElement {
   public set highlightBalloon(value) {
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     this._highlightBalloon = `${value}` === 'true';
+
+    // Why is this needed here?
+    this.requestUpdate();
+  }
+
+  private _blackWhiteRendering = false;
+  public get blackWhiteRendering() {
+    return this._blackWhiteRendering;
+  }
+
+  @property({ attribute: 'black-white-rendering' })
+  public set blackWhiteRendering(value) {
+    // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+    this._blackWhiteRendering = `${value}` === 'true';
 
     // Why is this needed here?
     this.requestUpdate();
@@ -623,8 +638,13 @@ export default class GuidedPublicationNavigator extends LitElement {
       this._imageLoading = false;
     }
 
+    const classNames = {
+      [imageClass]: true,
+      'black-white-rendering': this.blackWhiteRendering,
+    };
+
     return html`
-      <div class="${imageClass}">
+      <div class="${classMap(classNames)}">
         <img src="${url}" @load=${this._setImageLoaded} />
       </div>
     `;
@@ -811,6 +831,11 @@ export default class GuidedPublicationNavigator extends LitElement {
     div.container > div:is(.page, .panel-highlight, .balloon-highlight) > img {
       height: var(--rendered-height);
       width: var(--rendered-width);
+    }
+
+    div.container > div.black-white-rendering > img {
+      filter: grayscale(1) contrast(255) brightness(1);
+      mix-blend-mode: hard-light;
     }
 
     div.balloon-highlight {
