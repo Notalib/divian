@@ -1,0 +1,162 @@
+{
+  "children": [
+    {
+      "audioref": "21_Side_17.mp3#t=0,1.999",
+      "imgref": "image0017.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=1.999,3.999",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:8.77,4.08,19.67,4.08,19.67,8.43,8.77,8.43",
+          "role": [
+            "balloon"
+          ],
+          "text": "Næste dag…"
+        },
+        {
+          "imgref": "image0017.jpg#xyn=percent:72.30,11.44,75.80,11.44,75.80,13.70,72.30,13.70",
+          "role": [
+            "balloon"
+          ],
+          "text": "Cla"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=174,163,2128,609",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=3.999,6.799",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:8.35,23.38,22.63,23.38,22.63,25.90,8.35,25.90",
+          "role": [
+            "balloon"
+          ],
+          "text": "Her ser forfaldent ud!"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=174,795,436,527",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=6.799,12.199",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:42.26,22.71,67.12,22.71,67.12,26.91,42.26,26.91",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det var ikke kun Amons tempel, der blev forladt, men hele kvarteret rundt om!"
+        },
+        {
+          "imgref": "image0017.jpg#xyn=percent:46.58,33.75,56.87,33.75,56.87,38.30,46.58,38.30",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du sagde at det spogte!"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=627,795,1131,533",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=12.199,18.999",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:73.46,22.65,95.02,22.65,95.02,28.36,73.46,28.36",
+          "role": [
+            "balloon"
+          ],
+          "text": "Den eneste måde, du kan jage mareridtet væk på, er ved at stå ansigt til ansigt med det, du frygter!"
+        },
+        {
+          "imgref": "image0017.jpg#xyn=percent:86.09,31.87,95.23,31.87,95.23,38.04,86.09,38.04",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og JEG har aldrig set spøgelser herinde!"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=1775,796,526,532",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=18.999,28.262",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:5.31,37.57,28.19,37.57,28.19,47.68,5.31,47.68",
+          "role": [
+            "balloon"
+          ],
+          "text": "Sig mig, tror du min historie er ren og skær fantasi?"
+        },
+        {
+          "imgref": "image0017.jpg#xyn=percent:25.10,38.73,36.50,38.73,36.50,48.75,25.10,48.75",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg tror på at du har været i Amons tjeneste, og at en del af dig er blevet hæng ende her!"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=173,1347,763,560",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=28.262,31.862",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:55.27,52.46,60.58,52.40,60.62,54.95,55.31,55.01",
+          "role": [
+            "sound-area"
+          ],
+          "text": "DR"
+        },
+        {
+          "imgref": "image0017.jpg#xyn=percent:68.60,50.84,93.58,50.84,93.58,55.13,68.60,55.13",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og måske kan den del også huske, hvor dan man kan komme ind i tempelområdet!"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=939,1351,1362,559",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "21_Side_17.mp3#t=31.862,33.488",
+      "children": [
+        {
+          "imgref": "image0017.jpg#xyn=percent:82.22,74.88,82.30,78.24,81.48,81.40,81.44,78.48",
+          "role": [
+            "sound-area"
+          ],
+          "text": "HER TRA"
+        }
+      ],
+      "imgref": "image0017.jpg#xywh=169,1928,2136,1241",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0017.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "children": [
+    {
+      "audioref": "31_Side_27.mp3#t=0,1.999",
+      "imgref": "image0027.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=1.999,4.399",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:18.86,4.37,34.08,4.37,34.08,9.15,18.86,9.15",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nofret! De har taget Nofret til fange!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=192,152,658,697",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=4.399,6.399",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:39.24,19.99,45.99,22.54,45.09,23.75,38.30,21.23",
+          "role": [
+            "sound-area"
+          ],
+          "text": "KRAKS!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=884,168,274,666",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=6.399,7.799",
+      "imgref": "image0027.jpg#xywh=1190,151,353,701",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=7.799,9.199",
+      "imgref": "image0027.jpg#xywh=1560,153,763,705",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=9.199,10.599",
+      "imgref": "image0027.jpg#xywh=190,874,816,765",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=10.599,11.799",
+      "imgref": "image0027.jpg#xywh=1020,873,467,764",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=11.799,13.799",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:61.42,24.83,72.18,24.83,72.18,29.26,61.42,29.26",
+          "role": [
+            "balloon"
+          ],
+          "text": "GUNK!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=1519,891,245,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=13.799,17.799",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:73.94,25.58,79.38,25.58,79.38,29.17,73.94,29.17",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad nu?"
+        },
+        {
+          "imgref": "image0027.jpg#xyn=percent:79.50,25.61,95.38,25.61,95.38,29.46,79.50,29.46",
+          "role": [
+            "balloon"
+          ],
+          "text": "Tag hvad han har stjålet, og smid ham ned i kloften!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=1796,878,527,760",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=17.799,26.399",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:6.91,48.03,23.28,48.03,23.28,53.53,6.91,53.53",
+          "role": [
+            "balloon"
+          ],
+          "text": "Se selv! Det var nemmere at overmande ham, EFTER at han kom op af graven!"
+        },
+        {
+          "imgref": "image0027.jpg#xyn=percent:22.30,48.20,35.35,48.20,35.35,53.33,22.30,53.33",
+          "role": [
+            "balloon"
+          ],
+          "text": "Til gengæld er den anden smuttet! Jeg er sikker på at de"
+        },
+        {
+          "imgref": "image0027.jpg#xyn=percent:27.95,51.25,34.33,51.25,34.33,54.20,27.95,54.20",
+          "role": [
+            "balloon"
+          ],
+          "text": "var to!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=188,1665,666,719",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=26.399,29.399",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:37.68,62.60,47.55,63.62,47.59,64.46,37.68,63.67",
+          "role": [
+            "sound-area"
+          ],
+          "text": "Jeg ser, at gravenes vogt ere har fået bid!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=870,1663,524,724",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=29.399,32.999",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:60.47,49.28,73.20,49.28,73.20,51.88,60.47,51.88",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvem hvem er I?"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=1413,1663,514,726",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=32.999,35.799",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:82.90,50.06,91.73,51.16,91.73,51.91,82.90,50.98",
+          "role": [
+            "sound-area"
+          ],
+          "text": "Vi tjener dommeren i Theben!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=1963,1678,345,697",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=35.799,40.999",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:8.14,69.76,26.72,69.76,26.72,76.45,8.14,76.45",
+          "role": [
+            "balloon"
+          ],
+          "text": "Vi var faktisk på vej til byens dommer, herre, for denne mand har gjort sig skyldig i gravrøveri!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=183,2411,494,753",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=40.999,48.199",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:29.34,70.08,49.02,70.08,49.02,75.78,29.34,75.78",
+          "role": [
+            "balloon"
+          ],
+          "text": "Godt! I så fald kan vi følges, når I har lagt tyvekosterne tilbage i graven! Og forseglet den!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=692,2412,557,751",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "31_Side_27.mp3#t=48.199,53.629",
+      "children": [
+        {
+          "imgref": "image0027.jpg#xyn=percent:51.10,70.39,70.09,70.39,70.09,78.79,51.10,78.79",
+          "role": [
+            "balloon"
+          ],
+          "text": "DER VAR TO00000000 I GRAVEN!"
+        }
+      ],
+      "imgref": "image0027.jpg#xywh=1250,2411,1072,754",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0027.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

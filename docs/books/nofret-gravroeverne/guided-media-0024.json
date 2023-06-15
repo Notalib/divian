@@ -1,0 +1,231 @@
+{
+  "children": [
+    {
+      "audioref": "25_Side_21.mp3#t=0,1.999",
+      "imgref": "image0021.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=1.999,3.799",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:8.52,4.37,19.71,4.37,19.71,8.11,8.52,8.11",
+          "role": [
+            "balloon"
+          ],
+          "text": "Næste dag…"
+        },
+        {
+          "imgref": "image0021.jpg#xyn=percent:7.17,13.15,9.91,13.15,9.91,14.19,7.17,14.19",
+          "role": [
+            "balloon"
+          ],
+          "text": "2:34."
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=183,163,2127,575",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=3.799,5.199",
+      "imgref": "image0021.jpg#xywh=182,760,789,602",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=5.199,6.599",
+      "imgref": "image0021.jpg#xywh=989,762,590,587",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=6.599,7.799",
+      "imgref": "image0021.jpg#xywh=1598,761,711,579",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=7.799,12.243",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:17.45,39.48,33.43,39.48,33.43,44.58,17.45,44.58",
+          "role": [
+            "balloon"
+          ],
+          "text": "Plejer vi ikke at gå DEN vej forbi den store sten?"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=183,1377,632,561",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=12.243,16.643",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:35.60,39.72,48.30,39.72,48.30,44.15,35.60,44.15",
+          "role": [
+            "balloon"
+          ],
+          "text": "Vi må gå en omvej-det går nok!"
+        },
+        {
+          "imgref": "image0021.jpg#xyn=percent:42.61,43.31,52.48,43.31,52.48,47.74,42.61,47.74",
+          "role": [
+            "balloon"
+          ],
+          "text": "Er der noget galt?"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=834,1366,466,570",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=16.643,20.843",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:56.17,39.17,70.95,39.17,70.95,43.92,56.17,43.92",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nej, nej, der er bare noget, jeg har glemt!"
+        },
+        {
+          "imgref": "image0021.jpg#xyn=percent:70.01,39.37,79.80,39.37,79.80,44.50,70.01,44.50",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg huskede rebet og hammeren!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=1319,1357,632,579",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=20.843,24.772",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:80.38,38.99,95.41,38.99,95.41,44.64,80.38,44.64",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er ikke din skyld, Nofret! Du kender ikke reglerne i bjergene!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=1980,1372,311,550",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=24.772,28.972",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:7.54,56.60,39.53,56.60,39.53,60.52,7.54,60.52",
+          "role": [
+            "balloon"
+          ],
+          "text": "Senep, du plejer at lægge brød og al ved den store sten!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=182,1961,787,569",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=28.972,32.179",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:42.40,56.98,54.36,56.98,54.36,62.37,42.40,62.37",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg ved det, men jeg glemte at tage noget med!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=998,1974,349,536",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=32.179,37.379",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:68.95,56.75,93.16,56.75,93.16,61.27,68.95,61.27",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du glemte det ikke, men du havde ikke råd til brød ogol, fordi du købte kjolen!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=1380,1959,927,568",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=37.379,38.979",
+      "imgref": "image0021.jpg#xywh=182,2551,708,617",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=38.979,40.579",
+      "imgref": "image0021.jpg#xywh=907,2552,520,612",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=40.579,44.179",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:62.06,76.10,67.92,75.12,68.37,76.39,62.52,77.40",
+          "role": [
+            "sound-area"
+          ],
+          "text": "GRRR!"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=1460,2568,354,576",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "25_Side_21.mp3#t=44.179,49.97",
+      "children": [
+        {
+          "imgref": "image0021.jpg#xyn=percent:76.44,73.81,86.77,73.81,86.77,79.63,76.44,79.63",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nå, så I tror, at I kan snyde mig?"
+        }
+      ],
+      "imgref": "image0021.jpg#xywh=1849,2550,459,614",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0021.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "children": [
+    {
+      "audioref": "06_Side_2.mp3#t=0,4.199",
+      "imgref": "image0002.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "06_Side_2.mp3#t=4.199,94.512",
+      "children": [
+        {
+          "audioref": "06_Side_2.mp3#06_Side_2.mp3#t=4.199,83.722",
+          "imgref": "image0002.jpg#xyn=percent:7.24,41.69,92.52,41.69,92.52,64.43,7.24,64.43",
+          "role": [
+            "balloon"
+          ],
+          "text": "» Vi fandt kong Sobekemsafs grav. Den var slet ikke som de grave, vi normalt plyndrede. Vi tog vores kobberværktøj, vi huggede en tunnel ind i denne konges grav, helt ind til dens inderste del, og vi opdagede dens underjordiske kammer. Vi tog fakler i hænderne og kravlede ind. Vi ryddede stendyngerne væk, som vi fandt ved indgangen til forkammeret, og vi fandt guden ( kongen ) bagest i sarkofagkammeret. Vi fandt også hans hustru, dronning Nubkhas' gravsted ved siden af, idet det var beskyttet og sikret med en mur, dækket med stendynger. Vi ryddede også disse væk. Vi fandt hende liggende på samme måde. Vi åbnede deres sarkofager og deres kister, som de lå i, og fandt denne konges ærværdige mumie udstyret med et krumsværd. Et stort antal amuletter og smykker lå om hans hals, og hans guldmaske dækkede hans ansigt. Denne konges ærvær dige mumie var helt dækket med guld. Hans kister var indvendigt og udvendigt smykket med guld og sølv og indlagt med forskellige kostbare stene. Vi rev guldet til os, som vi fandt på denne guds ærværdige mumie… og vi fandt dronningen smykket på samme måde. Vi rev alt til os, som vi fandt på hende, og vi satte ild til kisterne. Vi tog også gravgaverne med, som de havde hos sig, ting af guld, sølv og bronze, og delte dem mellem os. Vi delte også guldet, som vi havde fundet hos disse to guder, i otte dele. Til hver af os blev der 20 deben. <<"
+        },
+        {
+          "audioref": "06_Side_2.mp3#06_Side_2.mp3#t=83.722,94.512",
+          "imgref": "image0002.jpg#xyn=percent:7.77,63.53,91.98,63.53,91.98,68.63,7.77,68.63",
+          "role": [
+            "balloon"
+          ],
+          "text": "Referat af en gravrøvers tilståelse fra år 1112 før Kristi fødsel ( uddrag af ægyptolog Torben Holm-Rasmussens bog » Ansigt til ansigt med Ægypterne « ). NOFRET 8: » Gravrøverne << Dansk originaludgave Copyright © 1995 Sussi Bech og Carlsen Comics, København Udgivet af Carlsen Comics, København Tilrettelagt af Jens Trasborg Trykt i Danmark 1995 (1. oplag ) 06-95-151 M-M 50-0579-008 ISBN 87-562-6205-1"
+        }
+      ],
+      "imgref": "image0002.jpg#xywh=220,96,2096,2235",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0002.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

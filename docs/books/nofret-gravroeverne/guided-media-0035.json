@@ -1,0 +1,139 @@
+{
+  "children": [
+    {
+      "audioref": "36_Side_32.mp3#t=0,2.599",
+      "imgref": "image0032.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=2.599,6.799",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:53.52,5.76,73.94,5.76,73.94,10.40,53.52,10.40",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er kun et par dage siden, jeg Svor aldrig at gå herind mere!"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=160,167,2128,627",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=6.799,14.999",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:11.17,24.10,31.87,24.10,31.87,28.30,11.17,28.30",
+          "role": [
+            "balloon"
+          ],
+          "text": "Men det er som om den magi der var der sidst, ikke er der i aften!"
+        },
+        {
+          "imgref": "image0032.jpg#xyn=percent:67.88,23.81,86.29,23.81,86.29,28.36,67.88,28.36",
+          "role": [
+            "balloon"
+          ],
+          "text": "Til gengæld virker her mere uhyggeligt om natten!"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=159,816,2131,347",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=14.999,16.399",
+      "imgref": "image0032.jpg#xywh=159,1186,2133,961",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=16.399,23.421",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:7.61,63.12,19.44,63.12,19.44,70.65,7.61,70.65",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg føler mig højst uvelkommen, som om alle statuerne holder øje med"
+        },
+        {
+          "imgref": "image0032.jpg#xyn=percent:8.76,68.63,14.77,68.63,14.77,71.67,8.76,71.67",
+          "role": [
+            "balloon"
+          ],
+          "text": "mig!"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=173,2186,631,967",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=23.421,26.821",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:34.78,62.92,44.84,62.92,44.84,70.28,34.78,70.28",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad jeg gør nu, gør jeg kun for en jeg holder af…"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=846,2186,245,967",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=26.821,27.821",
+      "imgref": "image0032.jpg#xywh=1104,2170,280,1000",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=27.821,30.887",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:58.43,63.09,66.90,63.09,66.90,68.31,58.43,68.31",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det må selv AMON da forstå!"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=1399,2169,275,1003",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "36_Side_32.mp3#t=30.887,36.483",
+      "children": [
+        {
+          "imgref": "image0032.jpg#xyn=percent:69.72,62.89,79.99,62.89,79.99,72.86,69.72,72.86",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og hvis ikke Amon for står mig… så beder jeg MUT om at forstå…"
+        }
+      ],
+      "imgref": "image0032.jpg#xywh=1706,2181,573,972",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0032.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

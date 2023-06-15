@@ -1,0 +1,192 @@
+{
+  "children": [
+    {
+      "audioref": "15_Side_11.mp3#t=0,2.999",
+      "imgref": "image0011.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=2.999,9.225",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:18.14,4.32,26.06,4.32,26.06,9.41,18.14,9.41",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvorfor? Hvem er de?"
+        },
+        {
+          "imgref": "image0011.jpg#xyn=percent:20.19,19.96,35.17,19.96,35.17,25.49,20.19,25.49",
+          "role": [
+            "balloon"
+          ],
+          "text": "Faraos folk! De holder vagt ved gravene! Mod GRAVRØVERE!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=164,152,750,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=9.225,14.425",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:38.70,4.58,52.65,4.58,52.65,7.36,38.70,7.36",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad hvis de ser OS?"
+        },
+        {
+          "imgref": "image0011.jpg#xyn=percent:42.31,6.92,59.54,6.92,59.54,11.33,42.31,11.33",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det gør de ikke! De har for travlt med andre ting!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=926,154,578,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=14.425,15.825",
+      "imgref": "image0011.jpg#xywh=1519,152,786,733",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=15.825,17.225",
+      "imgref": "image0011.jpg#xywh=165,909,900,701",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=17.225,22.625",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:44.56,26.39,60.07,26.39,60.07,32.73,44.56,32.73",
+          "role": [
+            "balloon"
+          ],
+          "text": "Sidste gang jeg prøvede at udspionere dem table jeg dem af syne, da de gik rundt om bjerget der!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=1082,907,426,701",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=22.625,24.225",
+      "imgref": "image0011.jpg#xywh=1522,906,784,702",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=24.225,26.025",
+      "imgref": "image0011.jpg#xywh=165,1634,756,906",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=26.025,32.025",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:39.47,47.36,55.15,47.36,55.15,53.79,39.47,53.79",
+          "role": [
+            "balloon"
+          ],
+          "text": "Aha! De går ikke rundt om klippen, men kravler op ad den! Det ser interessant ud!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=939,1633,411,904",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=32.025,33.425",
+      "imgref": "image0011.jpg#xywh=1366,1630,619,910",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=33.425,37.425",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:82.64,47.28,94.71,47.28,94.71,54.63,82.64,54.63",
+          "role": [
+            "balloon"
+          ],
+          "text": "Godt! Jeg har set nok for denne omgang! Vi vil vende tilbage!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=2015,1642,277,882",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=37.425,40.425",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:11.16,73.99,23.55,73.99,23.55,78.16,11.16,78.16",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad fik vi ud af alt det her, Senep?"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=165,2558,937,613",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=40.425,43.025",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:46.29,74.19,59.46,74.19,59.46,78.36,46.29,78.36",
+          "role": [
+            "balloon"
+          ],
+          "text": "En krukke med kostbar røgelse…"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=1139,2577,310,576",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "15_Side_11.mp3#t=43.025,47.017",
+      "children": [
+        {
+          "imgref": "image0011.jpg#xyn=percent:62.00,73.96,86.70,73.96,86.70,78.39,62.00,78.39",
+          "role": [
+            "balloon"
+          ],
+          "text": "..og lignende gode sager som vi kan sælge nede i den syriske bydel!"
+        }
+      ],
+      "imgref": "image0011.jpg#xywh=1481,2562,830,609",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0011.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

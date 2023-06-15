@@ -1,5 +1,5 @@
 import './index.scss';
 import './DivianNavigator';
 import './demo/DivianPlayer';
-import './SyncMediaNavigator';
-import './demo/SyncMediaPlayer';
+import './GuidedPublicationNavigator';
+import './demo/GuidedMediaPlayer';

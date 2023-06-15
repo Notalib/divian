@@ -1,0 +1,169 @@
+{
+  "children": [
+    {
+      "audioref": "19_Side_15.mp3#t=0,2.599",
+      "imgref": "image0015.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=2.599,11.399",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:8.47,4.78,27.08,4.78,27.08,9.10,8.47,9.10",
+          "role": [
+            "balloon"
+          ],
+          "text": "Senep, hvad var det egentlig, du sagde til den syriske kone?"
+        },
+        {
+          "imgref": "image0015.jpg#xyn=percent:27.93,4.81,41.80,4.81,41.80,8.11,27.93,8.11",
+          "role": [
+            "balloon"
+          ],
+          "text": "Mig? Ah… ingenting!"
+        },
+        {
+          "imgref": "image0015.jpg#xyn=percent:18.40,8.63,29.78,8.63,29.78,12.72,18.40,12.72",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du sagde jeg var din kæreste!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=180,164,907,768",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=11.399,14.399",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:48.18,4.81,62.82,4.81,62.82,9.01,48.18,9.01",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nå, det var bare for at berolige hende!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=1104,166,523,768",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=14.399,17.999",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:80.37,5.74,88.75,5.74,88.75,8.52,80.37,8.52",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du er sød!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=1647,161,661,777",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=17.999,21.799",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:26.67,32.39,76.16,32.16,76.20,35.11,26.71,35.37",
+          "role": [
+            "sound-area"
+          ],
+          "text": "KRABO000000000UUUMM!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=178,954,2131,450",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=21.799,26.199",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:10.14,49.04,25.36,49.04,25.36,53.48,10.14,53.48",
+          "role": [
+            "balloon"
+          ],
+          "text": "Et tordenskrald? Der var da helt klart for!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=176,1421,501,1120",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=26.199,27.799",
+      "imgref": "image0015.jpg#xywh=692,1421,432,1123",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=27.799,34.399",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:68.75,54.69,84.38,54.69,84.38,60.34,68.75,60.34",
+          "role": [
+            "balloon"
+          ],
+          "text": "Underligt! Det er ellers sjældent, at vi får regn her i Ægypten!"
+        },
+        {
+          "imgref": "image0015.jpg#xyn=percent:75.71,60.28,90.67,60.28,90.67,65.35,75.71,65.35",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvis det tordner skal vi i hvert fald ikke stå under træet!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=1139,1420,1172,1120",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=34.399,38.599",
+      "children": [
+        {
+          "imgref": "image0015.jpg#xyn=percent:24.95,74.19,38.73,74.19,38.73,79.58,24.95,79.58",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du har ret! Vi må ind i teltet! Det er vandsikkert!"
+        }
+      ],
+      "imgref": "image0015.jpg#xywh=175,2562,776,608",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=38.599,40.399",
+      "imgref": "image0015.jpg#xywh=968,2560,687,609",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "19_Side_15.mp3#t=40.399,41.992",
+      "imgref": "image0015.jpg#xywh=1671,2560,640,610",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0015.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

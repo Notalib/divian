@@ -1,0 +1,263 @@
+{
+  "children": [
+    {
+      "audioref": "46_Side_42.mp3#t=0,1.399",
+      "imgref": "image0042.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=1.399,11.199",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:8.58,4.29,38.00,4.29,38.00,10.69,8.58,10.69",
+          "role": [
+            "balloon"
+          ],
+          "text": "Tjah… vore veje er krydsedes et par gange, siden du vendte hjem til Ægypten! Først afslørede du vort hemmelige mødested i Memfis!"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:16.91,19.21,26.43,19.21,26.43,23.75,16.91,23.75",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det var ikke med vilje!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=155,158,828,731",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=11.199,17.447",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:44.60,5.10,68.90,5.10,68.90,10.37,44.60,10.37",
+          "role": [
+            "balloon"
+          ],
+          "text": "Anden gang vi mødtes, var ved den lille helligdom, hvor jeg brød ind i et opgør mellem dig og Binemwese!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=996,151,731,746",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=17.447,24.847",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:71.56,4.78,93.02,4.78,93.02,10.75,71.56,10.75",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg fandt det ikke nødvendigt at give mig til kende den gang! Jeg troede, du ville tage hjem til dit hus i Memfis!"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:72.92,19.21,82.36,19.21,82.36,25.55,72.92,25.55",
+          "role": [
+            "balloon"
+          ],
+          "text": "Men du ville absolut følge dit eget hoved!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1738,166,548,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=24.847,29.647",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:9.15,26.39,25.93,26.39,25.93,31.78,9.15,31.78",
+          "role": [
+            "balloon"
+          ],
+          "text": "Ja, nu er mit hjem her i Theben, og det minder mig om, at jeg hellere må gå!"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:36.32,37.40,38.20,36.70,38.70,37.37,36.81,38.06",
+          "role": [
+            "sound-area"
+          ],
+          "text": "INT"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=150,915,911,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=29.647,31.647",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:56.22,31.52,61.47,30.74,61.80,31.81,56.54,32.59",
+          "role": [
+            "sound-area"
+          ],
+          "text": "DOL"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1073,919,432,724",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=31.647,36.447",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:64.96,27.03,76.24,27.03,76.24,32.44,64.96,32.44",
+          "role": [
+            "balloon"
+          ],
+          "text": "Spørgsmålet er, om jeg KAN lade dig gå!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1523,917,760,724",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=36.447,40.247",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:14.36,50.61,17.36,49.04,18.01,49.65,14.98,51.22",
+          "role": [
+            "sound-area"
+          ],
+          "text": "KRADS"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:16.41,50.78,19.24,49.68,19.74,50.29,16.86,51.39",
+          "role": [
+            "sound-area"
+          ],
+          "text": "SKRHI"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=151,1668,580,715",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=40.247,41.647",
+      "imgref": "image0042.jpg#xywh=747,1668,447,718",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=41.647,43.847",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:62.70,48.99,66.80,48.99,66.80,50.90,62.70,50.90",
+          "role": [
+            "balloon"
+          ],
+          "text": "DES"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:55.44,59.65,57.73,57.97,59.05,58.34,58.72,58.57",
+          "role": [
+            "sound-area"
+          ],
+          "text": "PSSSCH!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1212,1665,601,722",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=43.847,45.247",
+      "imgref": "image0042.jpg#xywh=1833,1661,450,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=45.247,48.247",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:8.99,70.08,21.83,70.08,21.83,73.20,8.99,73.20",
+          "role": [
+            "balloon"
+          ],
+          "text": "Stille! Stille nu…"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=149,2407,461,757",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=48.247,53.247",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:28.31,69.67,38.74,69.67,38.74,74.30,28.31,74.30",
+          "role": [
+            "balloon"
+          ],
+          "text": "… Før du gør noget dumt!"
+        },
+        {
+          "imgref": "image0042.jpg#xyn=percent:40.95,69.41,51.17,69.41,51.17,74.94,40.95,74.94",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du kan ikke komme ud uden mig!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=627,2411,618,753",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=53.247,56.047",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:52.81,70.10,71.48,70.10,71.48,73.49,52.81,73.49",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg vil ikke løbe nogen risiko!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1258,2412,574,752",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "46_Side_42.mp3#t=56.047,58.875",
+      "children": [
+        {
+          "imgref": "image0042.jpg#xyn=percent:76.12,69.87,92.65,69.87,92.65,75.67,76.12,75.67",
+          "role": [
+            "balloon"
+          ],
+          "text": "NEJ! NEJ! LAD MİG VÆRE!"
+        }
+      ],
+      "imgref": "image0042.jpg#xywh=1833,2415,450,751",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0042.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

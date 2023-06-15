@@ -1,0 +1,249 @@
+{
+  "children": [
+    {
+      "audioref": "10_Side_6.mp3#t=0,2.399",
+      "imgref": "image0006.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=2.399,6.399",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:7.56,5.19,16.52,5.19,16.52,9.47,7.56,9.47",
+          "role": [
+            "balloon"
+          ],
+          "text": "Pust, støn! Gisp!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=156,162,518,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=6.399,8.199",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:30.29,5.39,38.68,5.39,38.68,8.26,30.29,8.26",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nofret?!!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=688,163,431,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=8.199,11.399",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:48.98,4.63,60.67,4.63,60.67,9.07,48.98,9.07",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nofret! Du er kommet tilbage!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=1137,165,449,731",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=11.399,23.599",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:70.85,4.87,91.58,4.87,91.58,8.17,70.85,8.17",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du tager fejl! Jeg kender dig ikke!"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:66.76,19.41,92.19,19.41,92.19,25.58,66.76,25.58",
+          "role": [
+            "balloon"
+          ],
+          "text": "Vist kender du gamle Sobek selv om der er løbet meget vand gennem Nilen, siden du dansede her i alstuen til stor fornøjelse for os alle sammen!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=1601,168,690,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=23.599,29.999",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:6.66,26.88,20.24,26.88,20.24,33.37,6.66,33.37",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du har vel ikke fået fine fornemmelser? Jeg og drengene har savnet dig sådan!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=153,919,1535,732",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=29.999,38.799",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:70.52,26.74,93.34,26.74,93.34,31.98,70.52,31.98",
+          "role": [
+            "balloon"
+          ],
+          "text": "Kom tilbage, Nofret! Tjansen er din, og konen står ikke imellem os mere! Hæ, hæ! Hun døde af sine hæmorider!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=1707,920,585,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=38.799,44.799",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:6.21,48.20,22.65,48.20,22.65,52.64,6.21,52.64",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad var det du sagde om mig, gamle fjols?"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:23.43,48.38,31.68,48.38,31.68,52.35,23.43,52.35",
+          "role": [
+            "balloon"
+          ],
+          "text": "Rolig, min due!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=152,1674,653,713",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=44.799,47.199",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:34.14,48.03,43.21,48.03,43.21,51.94,34.14,51.94",
+          "role": [
+            "balloon"
+          ],
+          "text": "Tolper!"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:43.17,51.54,49.39,48.87,50.86,50.61,44.69,53.30",
+          "role": [
+            "sound-area"
+          ],
+          "text": "UAP!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=822,1673,727,720",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=47.199,51.999",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:72.16,48.49,81.15,48.49,81.15,52.32,72.16,52.32",
+          "role": [
+            "balloon"
+          ],
+          "text": "Der fik du den, Sobek!"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:76.29,52.52,83.81,52.52,83.81,55.13,76.29,55.13",
+          "role": [
+            "balloon"
+          ],
+          "text": "Ha! Ha!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=1568,1672,718,724",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=51.999,55.599",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:21.14,69.93,32.05,69.93,32.05,74.88,21.14,74.88",
+          "role": [
+            "balloon"
+          ],
+          "text": "Uf! Jeg havde glemt, hvor slemt der var!"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:11.24,90.41,13.53,90.41,13.53,91.28,11.24,91.28",
+          "role": [
+            "balloon"
+          ],
+          "text": "…"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=147,2414,748,754",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=55.599,58.599",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:39.53,70.05,52.62,70.05,52.62,73.99,39.53,73.99",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg må straks ud af dette kvarter!"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=910,2418,458,752",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "10_Side_6.mp3#t=58.599,63.752",
+      "children": [
+        {
+          "imgref": "image0006.jpg#xyn=percent:58.67,70.28,75.06,70.28,75.06,73.67,58.67,73.67",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nofret! Har jeg ikke ret?"
+        },
+        {
+          "imgref": "image0006.jpg#xyn=percent:76.21,70.51,92.40,70.51,92.40,73.46,76.21,73.46",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvorfor stak du af fra os?"
+        }
+      ],
+      "imgref": "image0006.jpg#xywh=1383,2420,906,755",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0006.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

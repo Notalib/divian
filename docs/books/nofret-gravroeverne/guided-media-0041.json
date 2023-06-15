@@ -1,0 +1,178 @@
+{
+  "children": [
+    {
+      "audioref": "42_Side_38.mp3#t=0,1.799",
+      "imgref": "image0038.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=1.799,2.999",
+      "imgref": "image0038.jpg#xywh=139,160,2132,530",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=2.999,4.199",
+      "imgref": "image0038.jpg#xywh=140,714,566,662",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=4.199,6.599",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:29.51,20.51,43.46,20.51,43.46,24.07,29.51,24.07",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det allerhelligste!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=737,734,300,626",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=6.599,10.599",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:50.74,20.54,64.94,20.54,64.94,26.10,50.74,26.10",
+          "role": [
+            "balloon"
+          ],
+          "text": "Dorene er brændt! Så det passer, hvad Senep sagde!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1064,713,606,661",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=10.599,13.599",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:72.67,38.35,76.17,36.96,76.75,37.66,73.25,39.05",
+          "role": [
+            "sound-area"
+          ],
+          "text": "KNiii!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1685,713,583,660",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=13.599,14.999",
+      "imgref": "image0038.jpg#xywh=140,1398,1606,470",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=14.999,16.599",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:73.09,40.96,81.19,40.96,81.19,43.74,73.09,43.74",
+          "role": [
+            "balloon"
+          ],
+          "text": "GULDET!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1776,1413,476,432",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=16.599,20.999",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:11.77,54.72,31.73,54.72,31.73,59.36,11.77,59.36",
+          "role": [
+            "balloon"
+          ],
+          "text": "Amons guldskåle ligger på alteret, som de altid har gjort!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=141,1890,1002,526",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=20.999,25.199",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:48.89,54.75,64.03,54.75,64.03,61.56,48.89,61.56",
+          "role": [
+            "balloon"
+          ],
+          "text": "Vent lidt! Der kunne stadig hænge en forbandelse ved Amons guld..!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1159,1890,452,524",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=25.199,26.599",
+      "imgref": "image0038.jpg#xywh=1626,1889,645,523",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=26.599,28.399",
+      "imgref": "image0038.jpg#xywh=142,2439,837,726",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=28.399,30.599",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:56.38,81.55,55.39,83.23,54.61,83.02,55.64,81.32",
+          "role": [
+            "sound-area"
+          ],
+          "text": "doin"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1012,2451,457,693",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "42_Side_38.mp3#t=30.599,36.362",
+      "children": [
+        {
+          "imgref": "image0038.jpg#xyn=percent:81.73,71.03,92.06,71.03,92.06,77.46,81.73,77.46",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du har ikke forandret dig meget siden sidst, Nofret!"
+        }
+      ],
+      "imgref": "image0038.jpg#xywh=1515,2451,737,693",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0038.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

@@ -1,0 +1,279 @@
+{
+  "children": [
+    {
+      "audioref": "51_Side_47.mp3#t=0,1.799",
+      "imgref": "image0047.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=1.799,6.247",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:7.44,4.72,22.80,4.72,22.80,10.89,7.44,10.89",
+          "role": [
+            "balloon"
+          ],
+          "text": "Kom bare! Vi kan jo ikke have dig dernede, når den anden er stukket af, vel?"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=166,163,440,605",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=6.247,12.847",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:36.61,14.43,49.30,14.43,49.30,22.42,36.61,22.42",
+          "role": [
+            "balloon"
+          ],
+          "text": "Tak, tak, gode herre! Guderne er nådige at de har sået barm hjertighed i Deres…"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=623,162,556,605",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=12.847,17.247",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:59.86,4.78,66.35,4.78,66.35,8.60,59.86,8.60",
+          "role": [
+            "balloon"
+          ],
+          "text": "… ædle sind!"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:59.70,7.73,68.36,7.73,68.36,11.79,59.70,11.79",
+          "role": [
+            "balloon"
+          ],
+          "text": "Kom! Tag min hånd!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=1194,160,500,607",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=17.247,20.647",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:73.09,6.43,77.98,5.04,78.47,5.97,73.62,7.36",
+          "role": [
+            "sound-area"
+          ],
+          "text": "SMOK!"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:82.54,4.61,92.11,4.61,92.11,8.89,82.54,8.89",
+          "role": [
+            "balloon"
+          ],
+          "text": "Tag min lige højre!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=1727,177,548,571",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=20.647,23.247",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:10.97,30.13,33.81,23.78,35.50,26.77,12.65,33.11",
+          "role": [
+            "sound-area"
+          ],
+          "text": "AAAAAAAAAH!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=164,791,819,592",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=23.247,24.447",
+      "imgref": "image0047.jpg#xywh=999,791,428,592",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=24.447,26.847",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:59.24,23.67,73.66,23.67,73.66,28.07,59.24,28.07",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og nu til mit lille forsvindingsnummer!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=1461,806,814,563",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=26.847,29.447",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:7.15,41.45,17.58,41.45,17.58,45.74,7.15,45.74",
+          "role": [
+            "balloon"
+          ],
+          "text": "Farvel til min vagtuniform!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=166,1404,439,1243",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=29.447,31.047",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:25.35,40.96,36.24,40.96,36.24,45.48,25.35,45.48",
+          "role": [
+            "balloon"
+          ],
+          "text": "Farvel til fang erne…"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=617,1407,310,1239",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=31.047,33.847",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:38.13,56.26,50.66,56.26,50.66,60.86,38.13,60.86",
+          "role": [
+            "balloon"
+          ],
+          "text": "… og fængslet!"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:46.22,62.78,50.04,61.79,50.74,63.09,46.92,64.11",
+          "role": [
+            "sound-area"
+          ],
+          "text": "CLICK!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=957,1422,386,1205",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=33.847,41.447",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:56.41,41.02,66.76,41.02,66.76,46.70,56.41,46.70",
+          "role": [
+            "balloon"
+          ],
+          "text": "For nu venter rigdom og et nyt liv!"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:68.53,41.14,81.59,41.14,81.59,46.26,68.53,46.26",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvor er det smukt! Så tungt! Næsten synd at sælge det!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=1385,1426,590,1201",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=41.447,44.247",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:82.21,40.90,94.04,40.90,94.04,44.73,82.21,44.73",
+          "role": [
+            "balloon"
+          ],
+          "text": "Men jeg skal.. … AAAAAARH!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=2017,1422,258,1205",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=44.247,46.647",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:25.60,79.26,30.44,82.42,29.54,83.81,28.76,83.34",
+          "role": [
+            "sound-area"
+          ],
+          "text": "UMPF!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=167,2671,658,496",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=46.647,47.647",
+      "imgref": "image0047.jpg#xywh=847,2668,643,499",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "51_Side_47.mp3#t=47.647,50.644",
+      "children": [
+        {
+          "imgref": "image0047.jpg#xyn=percent:65.74,79.14,73.95,79.14,73.95,82.97,65.74,82.97",
+          "role": [
+            "balloon"
+          ],
+          "text": "UINNGI"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:64.95,82.97,70.21,81.52,70.87,82.73,65.65,84.21",
+          "role": [
+            "sound-area"
+          ],
+          "text": "UiiNNG!"
+        },
+        {
+          "imgref": "image0047.jpg#xyn=percent:71.16,82.01,75.84,83.34,75.31,84.30,70.58,83.00",
+          "role": [
+            "sound-area"
+          ],
+          "text": "UIINNG!"
+        }
+      ],
+      "imgref": "image0047.jpg#xywh=1487,2665,798,502",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0047.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

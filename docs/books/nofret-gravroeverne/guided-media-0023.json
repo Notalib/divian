@@ -1,0 +1,190 @@
+{
+  "children": [
+    {
+      "audioref": "24_Side_20.mp3#t=0,0.999",
+      "imgref": "image0020.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=0.999,3.199",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:11.01,6.05,21.68,6.05,21.68,7.71,11.01,7.71",
+          "role": [
+            "sound-area"
+          ],
+          "text": "NOFRET!"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=138,147,528,733",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=3.199,4.599",
+      "imgref": "image0020.jpg#xywh=680,150,413,732",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=4.599,5.799",
+      "imgref": "image0020.jpg#xywh=1110,149,690,732",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=5.799,7.399",
+      "imgref": "image0020.jpg#xywh=1817,145,464,738",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=7.399,11.199",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:6.35,26.10,17.52,26.10,17.52,31.66,6.35,31.66",
+          "role": [
+            "balloon"
+          ],
+          "text": "Slip mig! Jeg vil ind i Amons tempel!"
+        },
+        {
+          "imgref": "image0020.jpg#xyn=percent:5.23,39.75,8.33,39.75,8.33,41.74,5.23,41.74",
+          "role": [
+            "balloon"
+          ],
+          "text": "ap"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=137,907,585,704",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=11.199,11.399",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:39.82,42.50,45.88,42.50,45.88,46.58,39.82,46.58",
+          "role": [
+            "balloon"
+          ],
+          "text": "Slip mig!"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=738,906,686,705",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=11.399,13.399",
+      "imgref": "image0020.jpg#xywh=1439,905,846,702",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=13.399,18.599",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:32.73,50.03,42.29,50.03,42.29,58.98,32.73,58.98",
+          "role": [
+            "balloon"
+          ],
+          "text": "04-9"
+        },
+        {
+          "imgref": "image0020.jpg#xyn=percent:34.91,50.03,44.23,50.03,44.23,58.72,34.91,58.72",
+          "role": [
+            "balloon"
+          ],
+          "text": "0 0.0"
+        },
+        {
+          "imgref": "image0020.jpg#xyn=percent:29.84,62.80,46.41,62.80,46.41,67.47,29.84,67.47",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det der er ikke nogen almindelig sandstorm!"
+        },
+        {
+          "imgref": "image0020.jpg#xyn=percent:76.88,62.28,85.74,62.28,85.74,66.14,76.88,66.14",
+          "role": [
+            "balloon"
+          ],
+          "text": "Templet er forbandet!"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=139,1627,2146,833",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=18.599,25.399",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:5.23,71.58,46.04,71.58,46.04,77.26,5.23,77.26",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hvad skulle du i Jeg ved det ikke! Jeg husker kun, at der var den lille bygningen usynlig kraft, der ville have mig derind! ved tempelmuren?"
+        },
+        {
+          "imgref": "image0020.jpg#xyn=percent:24.94,82.44,25.60,80.36,25.97,80.36,25.31,82.53",
+          "role": [
+            "sound-area"
+          ],
+          "text": "TEHOTE 54."
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=139,2481,966,684",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=25.399,28.599",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:47.73,71.87,58.00,71.87,58.00,76.54,47.73,76.54",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nofret! Se templet!"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=1139,2500,327,649",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "24_Side_20.mp3#t=28.599,30.798",
+      "children": [
+        {
+          "imgref": "image0020.jpg#xyn=percent:75.72,72.60,86.15,72.60,86.15,76.77,75.72,76.77",
+          "role": [
+            "balloon"
+          ],
+          "text": "Sandstormen er VÆK!"
+        }
+      ],
+      "imgref": "image0020.jpg#xywh=1501,2482,785,686",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0020.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

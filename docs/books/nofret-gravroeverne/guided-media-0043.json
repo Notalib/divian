@@ -1,0 +1,210 @@
+{
+  "children": [
+    {
+      "audioref": "44_Side_40.mp3#t=0,2.799",
+      "imgref": "image0040.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=2.799,12.199",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:6.49,4.32,33.05,4.32,33.05,7.88,6.49,7.88",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er vel næppe min bror Nedjem, du ven"
+        },
+        {
+          "imgref": "image0040.jpg#xyn=percent:6.54,6.78,16.89,6.78,16.89,12.60,6.54,12.60",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nej, nej! Men du lignede ham Pa stemmen!"
+        },
+        {
+          "imgref": "image0040.jpg#xyn=percent:18.45,6.66,29.51,7.76,29.51,8.92,18.45,7.56",
+          "role": [
+            "sound-area"
+          ],
+          "text": "tede at finde! Har efter lod du jo på Kreta!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=143,153,673,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=12.199,18.798",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:34.69,4.43,43.81,4.43,43.81,11.96,34.69,11.96",
+          "role": [
+            "balloon"
+          ],
+          "text": "Man siger, at du om kom under en brand herinde!"
+        },
+        {
+          "imgref": "image0040.jpg#xyn=percent:44.84,4.32,63.95,4.32,63.95,8.84,44.84,8.84",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og så skulle du herindog have den gode nyhed bekræflet?"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=833,151,756,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=18.798,23.198",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:67.45,4.29,92.89,4.29,92.89,9.07,67.45,9.07",
+          "role": [
+            "balloon"
+          ],
+          "text": "Eller kom du herind for noget så simpelt som at stjæle af templets guld?"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=1606,152,672,730",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=23.198,33.198",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:5.92,25.70,36.58,25.70,36.58,33.05,5.92,33.05",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nej, jeg indebrændte ikke! Jeg forsvandt den nat faraos folk kom for at hente mig! Naive folk tror jeg går igen her! Åh!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=141,907,1235,736",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=33.198,40.197",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:78.59,32.42,93.51,32.42,93.51,47.54,78.59,47.54",
+          "role": [
+            "balloon"
+          ],
+          "text": "200 19 FOTO For at skjule deres fiasko satte faraos soldater ild til det allerhelligste og fortalte at jegom kom under branden!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=1396,907,886,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=40.197,48.702",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:8.18,48.96,16.93,48.96,16.93,53.48,8.18,53.48",
+          "role": [
+            "balloon"
+          ],
+          "text": "Forsvandt du?"
+        },
+        {
+          "imgref": "image0040.jpg#xyn=percent:62.10,49.02,77.93,49.02,77.93,56.14,62.10,56.14",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du har afsløret mange af vore hemmeligheder og tilholdsteder, som du besøger uanmeldt!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=141,1658,1815,726",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=48.702,53.302",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:81.92,48.03,92.44,48.03,92.44,54.66,81.92,54.66",
+          "role": [
+            "balloon"
+          ],
+          "text": "Men, ah, hvis jeg forstyrrer, kan jeg da godt gå igen!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=1983,1673,286,698",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=53.302,57.102",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:12.12,69.35,25.11,69.35,25.11,73.75,12.12,73.75",
+          "role": [
+            "balloon"
+          ],
+          "text": "Nah, denne gang er du inviteret!"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=139,2407,1004,757",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=57.102,60.102",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:58.82,69.73,72.01,69.73,72.01,74.13,58.82,74.13",
+          "role": [
+            "balloon"
+          ],
+          "text": "Er det en af dine hemmelige gange?"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=1180,2424,581,720",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "44_Side_40.mp3#t=60.102,62.494",
+      "children": [
+        {
+          "imgref": "image0040.jpg#xyn=percent:79.82,74.65,90.22,73.38,90.79,75.75,80.39,77.06",
+          "role": [
+            "sound-area"
+          ],
+          "text": "BLAM!"
+        },
+        {
+          "imgref": "image0040.jpg#xyn=percent:72.38,90.32,74.64,90.32,74.64,91.71,72.38,91.71",
+          "role": [
+            "balloon"
+          ],
+          "text": "38"
+        }
+      ],
+      "imgref": "image0040.jpg#xywh=1817,2428,447,721",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0040.jpg",
+  "role": [
+    "panel-group"
+  ]
+}

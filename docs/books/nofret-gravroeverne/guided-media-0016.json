@@ -1,0 +1,281 @@
+{
+  "children": [
+    {
+      "audioref": "17_Side_13.mp3#t=0,1.999",
+      "imgref": "image0013.jpg#xywh=percent:0,0,100,100",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=1.999,4.634",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:22.88,6.03,34.14,6.03,34.14,9.68,22.88,9.68",
+          "role": [
+            "balloon"
+          ],
+          "text": "Er her nogen?"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:33.97,16.69,37.81,16.40,38.09,18.05,34.22,18.34",
+          "role": [
+            "sound-area"
+          ],
+          "text": "TO"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=172,171,759,727",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=4.634,9.434",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:43.52,4.61,61.50,4.61,61.50,7.82,43.52,7.82",
+          "role": [
+            "balloon"
+          ],
+          "text": "Min søn er gået for en stund!"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:35.73,5.07,52.20,5.07,52.20,15.09,35.73,15.09",
+          "role": [
+            "balloon"
+          ],
+          "text": "MALAYA HEARNAVAVAVAY www"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:51.14,17.18,55.42,17.58,55.30,18.34,51.02,17.93",
+          "role": [
+            "sound-area"
+          ],
+          "text": "www.w"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=947,168,685,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=9.434,13.834",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:68.76,4.69,77.69,4.69,77.69,9.65,68.76,9.65",
+          "role": [
+            "balloon"
+          ],
+          "text": "Og hvem er trådt ind ad min dor?"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1663,181,269,698",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=13.834,19.034",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:81.85,4.46,93.19,4.46,93.19,12.83,81.85,12.83",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er bare mig Senep! Jeg har noget, jeg vil sælge! Røgelse af den kostbare slags!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1965,169,340,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=19.034,29.234",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:7.54,26.71,23.61,26.71,23.61,33.00,7.54,33.00",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er ikke bare DIG! Du følges med en! Jeg kan MARKE det! Du følges med en UNG KVINDE!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=174,923,463,737",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=29.234,33.282",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:27.94,26.54,41.92,26.54,41.92,30.82,27.94,30.82",
+          "role": [
+            "balloon"
+          ],
+          "text": "Det er Nofret! Min… min kæreste!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=652,923,405,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=33.282,36.282",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:44.82,26.54,54.69,26.54,54.69,30.97,44.82,30.97",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hng! Hning! Hungf!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1089,941,240,693",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=36.282,50.482",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:56.12,26.27,70.23,26.27,70.23,37.25,56.12,37.25",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du tror, du binder mig noget på ærmet … men du taler mere sandt, end du aner for hun ER din kæreste! Du har bare ikke er kendt det endnu!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1361,922,381,726",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=50.482,56.282",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:71.45,25.96,85.56,25.96,85.56,30.71,71.45,30.71",
+          "role": [
+            "balloon"
+          ],
+          "text": "Men pas på! En stor magt er over hende!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1759,920,547,728",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=56.282,60.823",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:8.20,48.58,23.49,48.58,23.49,53.85,8.20,53.85",
+          "role": [
+            "balloon"
+          ],
+          "text": "Snak! Hun er slet ikke fra byen! Hvad ved du om hende?"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=175,1678,653,720",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=60.823,77.423",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:33.97,48.87,53.38,48.87,53.38,55.30,33.97,55.30",
+          "role": [
+            "balloon"
+          ],
+          "text": "Hun er mærket af den hornede gud, og selv om man ikke må nævne hans navn, må man ikke trodse hans vilje!"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:75.98,48.41,93.23,48.41,93.23,53.48,75.98,53.48",
+          "role": [
+            "balloon"
+          ],
+          "text": "Jeg kan kun give dig det ene råd: REJS FRA DENNE BY! REJS FRA DETTE LAND!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=843,1671,1466,729",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=77.423,83.423",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:28.71,70.74,39.40,70.74,39.40,79.23,28.71,79.23",
+          "role": [
+            "balloon"
+          ],
+          "text": "Mor, lad mine gæster være i fred! Det er de færreste, der vil høre på dine spådomme!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=175,2424,861,757",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=83.423,92.023",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:44.05,70.19,59.42,70.19,59.42,80.79,44.05,80.79",
+          "role": [
+            "balloon"
+          ],
+          "text": "Du må have min mor undskyldt Senep! Hun siger sjældent noget, men nogle gange kommer anden over hende! D-det må man sige!"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1049,2423,425,751",
+      "role": [
+        "panel"
+      ]
+    },
+    {
+      "audioref": "17_Side_13.mp3#t=92.023,101.014",
+      "children": [
+        {
+          "imgref": "image0013.jpg#xyn=percent:62.93,70.22,74.27,70.22,74.27,73.96,62.93,73.96",
+          "role": [
+            "balloon"
+          ],
+          "text": "Kan du sige mig hvem… HVEM…"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:80.55,72.19,93.31,69.90,93.96,71.76,81.20,74.04",
+          "role": [
+            "sound-area"
+          ],
+          "text": "WWWWWW"
+        },
+        {
+          "imgref": "image0013.jpg#xyn=percent:72.59,83.34,74.06,87.25,72.10,87.63,70.68,83.69",
+          "role": [
+            "sound-area"
+          ],
+          "text": "ENT"
+        }
+      ],
+      "imgref": "image0013.jpg#xywh=1490,2423,822,751",
+      "role": [
+        "panel"
+      ]
+    }
+  ],
+  "imgref": "image0013.jpg",
+  "role": [
+    "panel-group"
+  ]
+}
