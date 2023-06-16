@@ -834,7 +834,7 @@ export default class GuidedPublicationNavigator extends LitElement {
     }
 
     div.container > div.black-white-rendering > img {
-      filter: grayscale(1) contrast(255) brightness(1);
+      filter: brightness(1.4) grayscale(1) contrast(255);
       mix-blend-mode: hard-light;
     }
 
